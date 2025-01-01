@@ -173,8 +173,10 @@ import services1 from "../../assets/images/clean1.jpg";
 import services2 from "../../assets/images/clean2.jpg";
 
 import services3 from "../../assets/images/clean3.jpg";
+import { useNavigate } from "react-router-dom";
 
 const OurService = () => {
+  const navigate = useNavigate();
   // Static data for the services
   const servicesList = [
     {
@@ -254,8 +256,11 @@ const OurService = () => {
       <Slider {...sliderSettings}>
         {servicesList.map((service) => (
           <div key={service.id} className="px-2">
-            <div className="border rounded-lg shadow-lg overflow-hidden bg-white h-[300px] flex flex-col">
-              <div className="relative h-40 bg-gray-100 flex items-center justify-center">
+            <div
+              className="border rounded-lg shadow-lg overflow-hidden bg-white h-[300px] cursor-pointer flex flex-col "
+              onClick={() => navigate(`/service`)}
+            >
+              <div className="relative h-40 bg-gray-100 flex items-center justify-center ">
                 <img
                   src={service.image}
                   alt={service.name}
