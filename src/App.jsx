@@ -9,6 +9,8 @@ import ContactUs from "./pages/contactus/components/ContactUs";
 import PrivacyPolicy from "./pages/useraggrements/components/PrivacyPolicy";
 import TermsAndCondition from "./pages/useraggrements/components/TermsAndCondition";
 import AboutUs from "./pages/aboutus/components/AboutUs";
+import Gallery from "./pages/gallery/Gallery";
+import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
 
 function App() {
   return (
@@ -18,10 +20,16 @@ function App() {
         <NavBar />
         <div className="p-4">
           <Routes>
+            {/* <-------main pages routes -----> */}
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/service" element={<Service />} />
+            <Route path="/servicedetails" element={<ServiceDetails />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<ContactUs />} />
+
+            {/* <-------main pages routes ----->  */}
+
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndCondition />} />
           </Routes>

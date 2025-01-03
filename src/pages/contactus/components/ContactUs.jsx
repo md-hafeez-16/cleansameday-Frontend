@@ -157,7 +157,7 @@ const ContactUs = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-primary p-4 md:p-8 md:rounded-r-lg rounded-lg md:rounded-none mt-5 md:mt-0 xl:px-24">
+            <div className="bg-primary p-4 md:p-8 md:rounded-r-lg rounded-lg md:rounded-none mt-5 md:mt-0 xl:px-16">
               <form
                 className="bg-[#ffffff] border border-gray-300 p-5 rounded-lg shadow-lg w-full h-full mx-auto"
                 onSubmit={handleSubmit}

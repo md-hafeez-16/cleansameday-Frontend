@@ -3,6 +3,7 @@ import HomeSlider from "./HomeSlider";
 import HowitWork from "./HowitWork";
 import OurService from "./OurService";
 import WhyChooseUs from "./WhyChooseUs";
+import Testimonial from "./Testimonial";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <HowitWork />
         <OurService />
         <WhyChooseUs />
+        <Testimonial />
       </div>
     </>
   );
