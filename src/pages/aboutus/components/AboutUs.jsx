@@ -67,8 +67,10 @@
 import React from "react";
 import backgroundImage from "../../../assets/images/about.jpg";
 import OurVision from "./OurVision";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="font-marcellus font-medium bg-[#F0F2F4] max-w-7xl mx-auto">
@@ -94,26 +96,46 @@ const AboutUs = () => {
 
           <div class="w-full h-full flex flex-col items-center md:py-4 py-10">
             {/* <!-- Col - 2 --> */}
-            <div class="xl:w-[90%] sm:w-[85%] w-[90%] mx-auto flex md:flex-row flex-col lg:gap-4 gap-2 justify-center lg:items-stretch md:items-center mt-4">
-              {/* <!--  --> */}
+            <div class="xl:w-[90%] sm:w-[85%] w-[90%] mx-auto flex lg:flex-row flex-col lg:gap-4 gap-2 justify-center lg:items-stretch md:items-center mt-4">
+              {/* Image Section */}
               <img
-                class="md:w-[50%] w-full md:rounded-lg rounded-sm"
+                class="lg:w-[50%] w-full md:rounded-lg rounded-sm"
                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxob21lfGVufDB8MHx8fDE3MTA0OTAwNjl8MA&ixlib=rb-4.0.3&q=80&w=1080"
                 alt="billboard image"
               />
 
-              <div class="md:w-[50%] w-full  text-gray-900 md:p-4 p-0 rounded-md">
-                <h2 class="text-3xl  text-gray-900">
-                  Lorem ipsum dolor sit amet consectetur
+              {/* Text Section */}
+              <div class="lg:w-[50%] w-full text-gray-900 md:p-6 p-0 rounded-md">
+                <h2 class="md:text-3xl text-xl text-gray-900">
+                  Transforming spaces with expert care.
                 </h2>
-                <p class="text-md mt-4">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Tempore placeat assumenda nam veritatis, magni doloremque
-                  pariatur quos fugit ipsa id voluptatibus deleniti officiis cum
-                  ratione eligendi sed necessitatibus aliquam error laborum
-                  delectus quaerat. Delectus hic error eligendi sed repellat
-                  natus fuga nobis tempora possimus ullam!
+                <p class="text-sm md:text-base mt-4">
+                  With customized solutions tailored to your specific needs, we
+                  ensure your home or business is spotless and well-maintained.
+                  Using eco-friendly products and proven techniques, we bring a
+                  fresh, clean look.
                 </p>
+                <div class="flex flex-wrap mt-4 text-gray-700">
+                  <ul class="list-disc list-inside md:w-1/2">
+                    <li>Highly trained professionals</li>
+                    <li>Flexible scheduling</li>
+                    <li>Tailored cleaning solutions</li>
+                  </ul>
+                  <ul class="list-disc list-inside md:w-1/2">
+                    <li>Eco-friendly products</li>
+                    <li>Free project sample</li>
+                    <li>Customer-centered approach</li>
+                  </ul>
+                </div>
+                <div className=" text-white space-x-4 mt-6">
+                  <button
+                    type="submit"
+                    className="w-32 py-3 px-4 bg-primary rounded-md text-white shadow-md"
+                    onClick={() => navigate(`/contact`)}
+                  >
+                    Get A Quote
+                  </button>
+                </div>
               </div>
             </div>
             {/* <!-- Col - 3 --> */}

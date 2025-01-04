@@ -174,8 +174,10 @@ import service10 from "../../../assets/images/acclean.jpeg";
 import service11 from "../../../assets/images/balconyclean.jpeg";
 import service12 from "../../../assets/images/garageclean.jpeg";
 import service13 from "../../../assets/images/steamclean.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Service = () => {
+  const navigate = useNavigate();
   const services = [
     {
       id: 1,
@@ -307,7 +309,8 @@ const Service = () => {
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl "
+                  className="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                  onClick={() => navigate(`/servicedetails`)}
                 >
                   <img
                     src={service.image}
