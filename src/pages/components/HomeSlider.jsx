@@ -6,13 +6,13 @@ import smallBanner1 from "../../assets/images/clean.jpg";
 import smallBanner2 from "../.././assets/images/clean1.jpg";
 import smallBanner3 from "../../assets/images/clean2.jpg";
 
-import BigBann1 from "../../assets/images/clean.jpg";
-import BigBann2 from "../../assets/images/clean1.jpg";
-import BigBann3 from "../../assets/images/clean2.jpg";
-import BigBann4 from "../../assets/images/clean3.jpg";
+import BigBann1 from "../../assets/backgroundimages/bg9.jpg";
+import BigBann2 from "../../assets/backgroundimages/bg4.jpg";
+import BigBann3 from "../../assets/backgroundimages/bg5.jpg";
+import BigBann4 from "../../assets/backgroundimages/bg2.jpg";
 
 const smallBanners = [smallBanner1, smallBanner2, smallBanner3];
-const largeBanners = [BigBann1, BigBann2];
+const largeBanners = [BigBann1, BigBann2, BigBann3, BigBann4];
 
 // Arrow Components
 // const NextArrow = ({ onClick }) => (
@@ -75,13 +75,14 @@ const HomeSlider = () => {
                 alt={`Banner ${index + 1}`}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10" />
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 md:w-1/2 md:p-4 text-black z-50">
+              {/* <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10" /> */}
+              <div className="absolute inset-0  backdrop-blur-sm z-10" />
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 xl:w-1/2 md:p-4 text-black z-50">
                 {/* Add your content here */}
-                <h3 className="md:text-6xl text-xl text-primary font-semibold mb-2">
+                <h3 className="lg:text-6xl md:text-4xl text-xl text-primary font-semibold mb-2">
                   Professional and Dedicated Cleaners.
                 </h3>
-                <p className="md:text-2xl text-sm text-white">
+                <p className="lg:text-2xl md:text-xl text-sm text-gray-950">
                   Our cleaners are equipped with right tools and professional
                   attitude to get the job done...
                 </p>

@@ -1,80 +1,29 @@
-// import React from "react";
-
-// const AboutUs = () => {
-//   return (
-//     <div className="max-w-7xl mx-auto p-6">
-//       <section className="bg-gradient-to-r from-green-500 to-green-700 text-white py-16 px-6 rounded-lg mb-10 text-center">
-//         <h1 className="text-4xl font-bold mb-6">About Us</h1>
-//         <p className="text-lg leading-relaxed">
-//           Welcome to our cleaning services! We specialize in providing top-notch
-//           cleaning solutions tailored to your needs. Our dedicated team ensures
-//           that every space we touch is left spotless, shining, and refreshing.
-//         </p>
-//       </section>
-
-//       <section className="flex flex-wrap gap-6 justify-between">
-//         <div className="flex-1 min-w-[300px] bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-xl">
-//           <img
-//             src="https://via.placeholder.com/100"
-//             alt="Experienced Staff"
-//             className="mx-auto mb-4"
-//           />
-//           <h3 className="text-xl font-semibold text-green-600 mb-2">
-//             Experienced Staff
-//           </h3>
-//           <p className="text-gray-600 leading-relaxed">
-//             Our team consists of highly trained professionals with years of
-//             experience in delivering exceptional cleaning services.
-//           </p>
-//         </div>
-
-//         <div className="flex-1 min-w-[300px] bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-xl">
-//           <img
-//             src="https://via.placeholder.com/100"
-//             alt="Eco-Friendly Solutions"
-//             className="mx-auto mb-4"
-//           />
-//           <h3 className="text-xl font-semibold text-green-600 mb-2">
-//             Eco-Friendly Solutions
-//           </h3>
-//           <p className="text-gray-600 leading-relaxed">
-//             We use environmentally friendly products to ensure a safe and
-//             healthy space for you and your family.
-//           </p>
-//         </div>
-
-//         <div className="flex-1 min-w-[300px] bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:-translate-y-2 hover:shadow-xl">
-//           <img
-//             src="https://via.placeholder.com/100"
-//             alt="Customer Satisfaction"
-//             className="mx-auto mb-4"
-//           />
-//           <h3 className="text-xl font-semibold text-green-600 mb-2">
-//             Customer Satisfaction
-//           </h3>
-//           <p className="text-gray-600 leading-relaxed">
-//             Your satisfaction is our priority. We strive to exceed your
-//             expectations with every service we provide.
-//           </p>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default AboutUs;
-
 import React from "react";
 import backgroundImage from "../../../assets/images/about.jpg";
 import OurVision from "./OurVision";
 import { useNavigate } from "react-router-dom";
 import AboutbookSection from "./AboutbookSection";
+import whatsapp from "../../../assets/images/whatsaap.jpg";
+import { GoCheckCircleFill } from "react-icons/go";
 
 const AboutUs = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="font-marcellus font-medium bg-[#F0F2F4] max-w-7xl mx-auto">
+      <div className="font-marcellus font-medium bg-[#F0F2F4] max-w-7xl mx-auto pb-5">
+        <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
+          <a
+            href="https://wa.me/+971549936911"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={whatsapp}
+              alt=""
+              className="lg:w-20 lg:h-20 w-16 h-16 lg:mb-0 mb-0  shadow-2xl rounded-full"
+            />
+          </a>
+        </div>
         <div
           className="relative bg-cover bg-center md:h-60 h-24"
           style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -144,16 +93,41 @@ const AboutUs = () => {
               {/* <!--  --> */}
               <div class="md:w-[50%] w-full  text-gray-900 md:p-4 p-0 rounded-md">
                 <h2 class="text-3xl  text-gray-900">
-                  Lorem ipsum dolor sit amet consectetur
+                  Dedicated to excellence in every clean
                 </h2>
 
-                <p class="text-md mt-4">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Tempore placeat assumenda nam veritatis, magni doloremque
-                  pariatur quos fugit ipsa id voluptatibus deleniti officiis cum
-                  ratione eligendi sed necessitatibus aliquam error laborum
-                  delectus quaerat. Delectus hic error eligendi sed repellat
-                  natus fuga nobis tempora possimus ullam!
+                <p class="text-md py-3">
+                  Our team delivers top-notch cleaning with eco-friendly
+                  products, focusing on every detail to ensure a spotless,
+                  inviting space.
+                </p>
+                <h2 class="text-xl mt-3 flex items-center gap-3 text-gray-900">
+                  <GoCheckCircleFill className="text-secondary" /> Professional
+                  Expertise
+                </h2>
+
+                <p class="text-md mt-2">
+                  Our skilled team brings years of experience to provide
+                  reliable and efficient cleaning solutions.
+                </p>
+                <h2 class="text-xl mt-3 flex items-center gap-3 text-gray-900">
+                  <GoCheckCircleFill className="text-secondary" /> Eco-Friendly
+                  Approach
+                </h2>
+
+                <p class="text-md mt-2">
+                  We use sustainable, eco-friendly products to protect both your
+                  space and the environment.
+                </p>
+                <h2 class="text-xl mt-3 text-gray-900 flex items-center gap-3">
+                  {" "}
+                  <GoCheckCircleFill className="text-secondary" /> Attention To
+                  Detail
+                </h2>
+
+                <p class="text-md mt-2">
+                  We leave no corner untouched, ensuring a thorough and
+                  meticulous clean every time.
                 </p>
               </div>
               {/* <!--  --> */}
@@ -166,7 +140,7 @@ const AboutUs = () => {
           </div>
         </section>
         <OurVision />
-        {/* <AboutbookSection /> */}
+        <AboutbookSection />
 
         {/* <!-- Photo by '@candjstudios' & '@framesforyourheart' on Unsplash --> */}
       </div>

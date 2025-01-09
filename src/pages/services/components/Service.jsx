@@ -174,6 +174,7 @@ import service10 from "../../../assets/images/acclean.jpeg";
 import service11 from "../../../assets/images/balconyclean.jpeg";
 import service12 from "../../../assets/images/garageclean.jpeg";
 import service13 from "../../../assets/images/steamclean.jpeg";
+import whatsapp from "../../../assets/images/whatsaap.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Service = () => {
@@ -282,6 +283,19 @@ const Service = () => {
   return (
     <>
       <div className="font-marcellus font-medium max-w-7xl mx-auto">
+        <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
+          <a
+            href="https://wa.me/+971549936911"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={whatsapp}
+              alt=""
+              className="lg:w-20 lg:h-20 w-16 h-16 lg:mb-0 mb-0  shadow-2xl rounded-full"
+            />
+          </a>
+        </div>
         <div
           className="relative bg-cover bg-center md:h-60 h-24"
           style={{ backgroundImage: `url(${backgroundImage})` }}

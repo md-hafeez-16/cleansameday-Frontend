@@ -14,12 +14,26 @@ import gall11 from "../../assets/images/acclean.jpeg";
 import gall12 from "../../assets/images/balconyclean.jpeg";
 import gall13 from "../../assets/images/garageclean.jpeg";
 import gall14 from "../../assets/images/steamclean.jpeg";
+import whatsapp from "../../assets/images/whatsaap.jpg";
 
 const Gallery = () => {
   return (
     <>
       <div className="">
         <div className=" font-marcellus font-medium">
+          <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
+            <a
+              href="https://wa.me/+971549936911"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={whatsapp}
+                alt=""
+                className="lg:w-20 lg:h-20 w-16 h-16 lg:mb-0 mb-0  shadow-2xl rounded-full"
+              />
+            </a>
+          </div>
           <div className="container mx-auto md:px-4 py-8">
             <div className="flex justify-center">
               <h1 className="relative top-0 w-fit h-auto mb-5 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-4xl  text-transparent text-center select-auto">

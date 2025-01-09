@@ -167,12 +167,14 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import services from "../../assets/images/clean.jpg";
-import services1 from "../../assets/images/clean1.jpg";
+import services from "../../assets/images/deep.jpeg";
+import services1 from "../../assets/images/sofaclean.jpeg";
 
-import services2 from "../../assets/images/clean2.jpg";
+import services2 from "../../assets/images/kitchenclean.jpeg";
 
-import services3 from "../../assets/images/clean3.jpg";
+import services3 from "../../assets/images/acclean.jpeg";
+import services4 from "../../assets/images/floorclean.jpeg";
+import services5 from "../../assets/images/balconyclean.jpeg";
 import { useNavigate } from "react-router-dom";
 
 const OurService = () => {
@@ -195,25 +197,25 @@ const OurService = () => {
       id: 3,
       name: "Kitchen Deep Cleaning",
       description: "Deep cleaning for a hygienic and sparkling kitchen.",
-      image: services,
+      image: services2,
     },
     {
       id: 4,
       name: "AC Duct Cleaning",
       description: "Improve air quality with clean AC ducts.",
-      image: services2,
+      image: services3,
     },
     {
       id: 5,
       name: "Floor Deep Cleaning",
       description: "Spotless floors with our professional cleaning.",
-      image: services3,
+      image: services4,
     },
     {
       id: 6,
       name: "Balcony Deep Cleaning",
       description: "Pristine balconies for relaxing moments.",
-      image: services,
+      image: services5,
     },
   ];
 

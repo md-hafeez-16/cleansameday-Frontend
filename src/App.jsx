@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Header />
         <NavBar />
-        <div className="p-4">
+        <div className="">
           <Routes>
             {/* <-------main pages routes -----> */}
             <Route path="/" element={<Home />} />

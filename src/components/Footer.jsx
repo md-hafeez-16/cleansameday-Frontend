@@ -192,6 +192,7 @@
 // export default Footer;
 
 import React from "react";
+import { IoLogoTiktok } from "react-icons/io5";
 
 const Footer = () => {
   return (
@@ -262,7 +263,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-              <a
+              {/* <a
                 href="javascript:;"
                 className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#FF0000]  hover:bg-gray-900 "
               >
@@ -279,6 +280,12 @@ const Footer = () => {
                     fill="white"
                   ></path>
                 </svg>
+              </a> */}
+              <a
+                href="javascript:;"
+                className="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#010101] hover:bg-[#FF0050]"
+              >
+                <IoLogoTiktok className="text-white" />
               </a>
             </div>
           </div>
