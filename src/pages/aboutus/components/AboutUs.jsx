@@ -68,6 +68,7 @@ import React from "react";
 import backgroundImage from "../../../assets/images/about.jpg";
 import OurVision from "./OurVision";
 import { useNavigate } from "react-router-dom";
+import AboutbookSection from "./AboutbookSection";
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -165,6 +166,7 @@ const AboutUs = () => {
           </div>
         </section>
         <OurVision />
+        {/* <AboutbookSection /> */}
 
         {/* <!-- Photo by '@candjstudios' & '@framesforyourheart' on Unsplash --> */}
       </div>
