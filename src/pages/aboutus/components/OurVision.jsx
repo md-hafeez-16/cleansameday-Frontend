@@ -28,17 +28,18 @@ const OurVision = () => {
 
       <section class="">
         <div class="py-8 md:px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-          {/* <div class="max-w-screen-md mb-8 lg:mb-16">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-              Designed for business teams like yours
+          <div class=" text-center mb-8 lg:mb-10">
+            <div className="flex justify-center items-center">
+              <p class="rounded-full text-3xl sm:text-xl bg-white p-2 text-primary">
+                Our Value
+              </p>
+            </div>
+            <h2 class="mb-4 text-4xl tracking-tight  text-gray-900">
+              Leading way high standard cleaning solution
             </h2>
-            <p class="text-gray-500 sm:text-xl">
-              Here at Flowbite we focus on markets where technology, innovation,
-              and capital can unlock long-term value and drive economic growth.
-            </p>
-          </div> */}
+          </div>
           <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            <div className="text-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+            <div className="text-center bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 ">
               <h3 className="mb-2 text-2xl  text-gray-800">OUR VISION</h3>
               <p className="text-gray-600 leading-relaxed">
                 Our vision is maintaining a pest-free environment without
