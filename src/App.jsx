@@ -30,6 +30,7 @@ function App() {
 
             {/* <-------main pages routes ----->  */}
 
+            {/* <------- user agreement pages routes -----> */}
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndCondition />} />
           </Routes>
