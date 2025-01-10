@@ -262,7 +262,7 @@ const ContactUs = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-[#ffffff]">
+      <div className="bg-[#ffffff] p-5 lg:p-0">
         <div className="max-w-[1540px] mx-auto p-3 lg:p-10 lg:px-[70px]">
           <h1 className="md:text-2xl text-lg font-bold text-left text-[#000000]">
             Frequently Asked Questions

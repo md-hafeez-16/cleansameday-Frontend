@@ -2,8 +2,10 @@ import React from "react";
 import img from "../../../assets/images/deepclean.jpg";
 import img1 from "../../../assets/images/balconyclean.jpeg";
 import img2 from "../../../assets/images/villaclean.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ServiceDetails = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="max-w-7xl mx-auto font-marcellus font-medium p-5">
@@ -51,6 +53,7 @@ const ServiceDetails = () => {
             <button
               type="submit"
               className="w-1/2 py-3 px-4 bg-primary rounded-md text-white shadow-md"
+              onClick={() => navigate(`/bookings`)}
             >
               Book Now
             </button>
