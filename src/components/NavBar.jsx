@@ -15,10 +15,7 @@ const NavBar = () => {
   return (
     <nav className="bg-white border-b-2 border-primary font-marcellus">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
+        <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
           <div className="flex flex-col">
             <span className="self-center text-4xl font-medium text-primary whitespace-nowrap">
               SAMEDAY

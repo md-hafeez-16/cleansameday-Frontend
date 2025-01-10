@@ -117,8 +117,8 @@ const ContactUs = () => {
                       PHONE
                     </h1>
                     <div className="flex flex-col lg:flex-row md:gap-3 text-[#FFFFFF] font-normal md:text-base text-sm">
-                      <p>+91 62625 93782</p>
-                      <p>+91 98374 37291</p>
+                      <p>+971549936911 </p>
+                      {/* <p>+91 98374 37291</p> */}
                     </div>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ const ContactUs = () => {
                     </h1>
                     <div className="flex gap-3 text-[#FFFFFF] font-normal text-base">
                       <h1 className="md:text-base text-sm font-normal text-[#FFFFFF]">
-                        Depanda@gmail.com
+                        info@cleansameday.com
                       </h1>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ import { TiSocialTwitterCircular } from "react-icons/ti";
 import { IoLogoYoutube } from "react-icons/io";
 import { MdFacebook } from "react-icons/md";
 import { RiTwitterXFill } from "react-icons/ri";
+import { IoLogoTiktok } from "react-icons/io5";
 
 const Header = () => {
   return (
@@ -29,7 +30,7 @@ const Header = () => {
             <MdFacebook className="md:w-5 md:h-5 cursor-pointer text-secondary" />
             <FaInstagram className="md:w-4 md:h-4 cursor-pointer text-secondary" />
             <RiTwitterXFill className="w-4 h-4 cursor-pointer text-secondary" />
-            <IoLogoYoutube className="md:w-4 md:h-4 cursor-pointer text-secondary" />
+            <IoLogoTiktok className="md:w-4 md:h-4 cursor-pointer text-secondary" />
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import img2 from "../../../assets/images/villaclean.jpg";
 const ServiceDetails = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto font-marcellus font-medium">
+      <div className="max-w-7xl mx-auto font-marcellus font-medium p-5">
         <div className="mb-5">
           <p className="md:text-sm text-xs mb-1">BOOK SERVICE</p>
           <h1 className="md:text-3xl text-lg">

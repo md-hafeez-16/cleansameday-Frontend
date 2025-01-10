@@ -104,7 +104,7 @@ const Testimonial = () => {
     <div className="max-w-7xl mx-auto py-8">
       <Slider {...settings}>
         {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="p-4">
+          <div key={testimonial.id} className="p-4 cursor-pointer">
             <div className="relative overflow-hidden bg-gradient-to-r from-[#0C706A] to-[#145E58] rounded-xl shadow-2xl p-8 text-white h-full">
               <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -skew-x-12"></div>
               <div className="relative z-10">
