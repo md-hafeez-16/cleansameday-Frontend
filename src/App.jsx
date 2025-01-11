@@ -11,6 +11,7 @@ import TermsAndCondition from "./pages/useraggrements/components/TermsAndConditi
 import AboutUs from "./pages/aboutus/components/AboutUs";
 import Gallery from "./pages/gallery/Gallery";
 import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
+import Booking from "./pages/bookings/Booking";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/service" element={<Service />} />
             <Route path="/servicedetails" element={<ServiceDetails />} />
+            <Route path="/bookings" element={<Booking />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<ContactUs />} />
 
