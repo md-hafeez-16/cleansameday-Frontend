@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Call02Icon, Location01Icon, Mail01Icon } from "hugeicons-react";
 import bgimg from "../../../assets/images/contactus.png";
@@ -85,6 +85,12 @@ const ContactUs = () => {
   const handleToggle = (id) => {
     setExpandedId((prevId) => (prevId === id ? null : id)); // Toggle the expanded state
   };
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>

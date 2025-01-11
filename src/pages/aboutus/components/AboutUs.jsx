@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import backgroundImage from "../../../assets/images/about.jpg";
 import OurVision from "./OurVision";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,12 @@ import whatsapp from "../../../assets/images/whatsaap.jpg";
 import { GoCheckCircleFill } from "react-icons/go";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const navigate = useNavigate();
   return (
     <>

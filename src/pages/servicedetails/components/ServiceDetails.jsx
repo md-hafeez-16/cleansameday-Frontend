@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import img from "../../../assets/images/deepclean.jpg";
 import img1 from "../../../assets/images/balconyclean.jpeg";
 import img2 from "../../../assets/images/villaclean.jpg";
 import { useNavigate } from "react-router-dom";
 
 const ServiceDetails = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const navigate = useNavigate();
   return (
     <>

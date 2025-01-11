@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeSlider from "./HomeSlider";
 import HowitWork from "./HowitWork";
 import OurService from "./OurService";
@@ -7,6 +7,12 @@ import Testimonial from "./Testimonial";
 import whatsapp from "../../assets/images/whatsaap.jpg";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <div className="max-w-7xl mx-auto overflow-x-hidden">

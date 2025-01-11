@@ -158,7 +158,7 @@
 
 // export default Service;
 
-import React from "react";
+import React, { useEffect } from "react";
 import backgroundImage from "../../../assets/images/servicebg.jpg";
 import service from "../../../assets/images/deepclean.jpg";
 import service1 from "../../../assets/images/villaclean.jpg";
@@ -178,6 +178,12 @@ import whatsapp from "../../../assets/images/whatsaap.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Service = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const navigate = useNavigate();
   const services = [
     {
