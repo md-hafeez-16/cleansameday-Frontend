@@ -19,7 +19,7 @@ import whatsapp from "../../assets/images/whatsaap.jpg";
 const Gallery = () => {
   return (
     <>
-      <div className="">
+      <div className="max-w-7xl mx-auto">
         <div className=" font-marcellus font-medium">
           <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
             <a

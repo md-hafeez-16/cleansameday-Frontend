@@ -10,7 +10,7 @@ import { IoLogoTiktok } from "react-icons/io5";
 const Header = () => {
   return (
     <>
-      <div className="bg-primary max-w-[1620px] font-marcellus  mx-auto">
+      <div className="bg-primary  font-marcellus  max-w-7xl mx-auto">
         <div className="max-w-[1620px] mx-auto flex lg:flex-row flex-col md:gap-2 lg:gap-2 2xl:gap-2 xl:gap-16 md:justify-between md:items-center text-[#FFFFFF] py-4 md:text-sm text-xs font-normal px-5">
           <h1>
             Call us:{" "}

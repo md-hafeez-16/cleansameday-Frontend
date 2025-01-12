@@ -95,7 +95,7 @@ const ContactUs = () => {
   return (
     <>
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
-      <div className=" font-marcellus font-medium">
+      <div className=" font-marcellus font-medium max-w-7xl mx-auto">
         <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px]">
           <div className="mt-5 flex items-center">
             <p className="ml-2 md:text-3xl text-2xl ">Contact Us</p>
@@ -268,7 +268,7 @@ const ContactUs = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-[#ffffff] p-5 lg:p-0">
+      <div className="bg-[#ffffff] p-5 lg:p-0 max-w-7xl mx-auto">
         <div className="max-w-[1540px] mx-auto p-3 lg:p-10 lg:px-[70px]">
           <h1 className="md:text-2xl text-lg font-bold text-left text-[#000000]">
             Frequently Asked Questions
