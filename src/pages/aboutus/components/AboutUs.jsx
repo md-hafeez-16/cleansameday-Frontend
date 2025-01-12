@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import AboutbookSection from "./AboutbookSection";
 import whatsapp from "../../../assets/images/whatsaap.jpg";
 import { GoCheckCircleFill } from "react-icons/go";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -83,13 +84,16 @@ const AboutUs = () => {
                     <li>Customer-centered approach</li>
                   </ul>
                 </div>
-                <div className=" text-white space-x-4 mt-6">
+                <div className="text-white space-x-4 mt-6">
                   <button
                     type="submit"
-                    className="w-32 py-3 px-4 bg-primary rounded-md text-white shadow-md"
+                    className="relative flex items-center justify-center gap-2  py-3 px-4 bg-primary text-white shadow-md rounded-md overflow-hidden group"
                     onClick={() => navigate(`/contact`)}
                   >
-                    Get A Quote
+                    <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 ease-out group-hover:text-black">
+                      Get A Quote <FaArrowRightLong />
+                    </span>
+                    <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
                   </button>
                 </div>
               </div>

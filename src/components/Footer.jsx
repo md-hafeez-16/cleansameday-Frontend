@@ -157,8 +157,11 @@ const Footer = () => {
                 placeholder="Your email here..."
                 className="w-full max-w-xs h-12 border border-gray-300 rounded-full px-4 mb-3 focus:outline-none focus:ring focus:ring-gray-500"
               />
-              <button className="h-12 px-6 bg-secondary text-white rounded-full hover:bg-primary transition-all">
-                Subscribe
+              <button className="relative h-12 px-6 bg-secondary text-black rounded-full overflow-hidden group">
+                <span className="relative z-10 flex items-center justify-center transition-colors duration-300 ease-out group-hover:text-black">
+                  Subscribe
+                </span>
+                <div className="absolute inset-0 bg-primary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
               </button>
             </div>
           </div>

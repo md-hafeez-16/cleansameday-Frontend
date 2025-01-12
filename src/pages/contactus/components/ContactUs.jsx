@@ -256,9 +256,12 @@ const ContactUs = () => {
                 <div className="flex justify-center text-white space-x-4 mt-6">
                   <button
                     type="submit"
-                    className="w-full py-3 px-4 bg-primary rounded-full text-white shadow-md"
+                    className="relative w-full py-3 px-4 bg-primary text-white rounded-full shadow-md overflow-hidden group"
                   >
-                    Submit
+                    <span className="relative z-10 transition-colors duration-300 ease-out group-hover:text-black">
+                      Submit
+                    </span>
+                    <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
                   </button>
                 </div>
               </form>

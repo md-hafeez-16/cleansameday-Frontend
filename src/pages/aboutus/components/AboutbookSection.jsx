@@ -32,9 +32,12 @@ const AboutbookSection = () => {
             >
               <button
                 type="submit"
-                className="flex gap-2 items-center py-3 px-4 bg-primary rounded-md text-white shadow-md mx-auto md:mx-0"
+                className="relative flex gap-2 items-center py-3 px-4 bg-primary rounded-md text-white shadow-md mx-auto md:mx-0 overflow-hidden group"
               >
-                Get Custom Quote <FaArrowRightLong />
+                <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 ease-out group-hover:text-black">
+                  Get Custom Quote <FaArrowRightLong />
+                </span>
+                <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
               </button>
             </div>
           </div>
