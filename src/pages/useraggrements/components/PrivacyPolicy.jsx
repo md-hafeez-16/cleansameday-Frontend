@@ -197,7 +197,7 @@ const PrivacyPolicy = () => {
                   </div>
                   <div>
                     <h1 className="md:text-lg  text-black lg:leading-8 mt-2">
-                      Content visible to others on S.D.M Jain Matt
+                      Content visible to others on Clean Same Day
                     </h1>
                     <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
                       Public content i.e. any content you post on your user
@@ -313,15 +313,15 @@ const PrivacyPolicy = () => {
                     <h1 className="md:text-lg  text-black lg:leading-8 mt-2">
                       Address:
                     </h1>
-                    <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
+                    {/* <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
                       Navagraha Jain Temple is located at Varur, 16 Kms from
                       Hubli and 392 km from Bengaluru.
-                    </p>
+                    </p> */}
                     <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
-                      Email - mahamastakabhishek.varur@gmail.com
+                      Email - info@cleansameday.com
                     </p>
                     <p className="text-sm font-medium text-gray-700 mt-1 lg:leading-8">
-                      Contact No. - +91-8660160827
+                      Contact No. - +971549936911
                     </p>
                   </div>
                 </div>
