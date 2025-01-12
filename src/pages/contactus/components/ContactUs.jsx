@@ -27,7 +27,7 @@ const ContactUs = () => {
     const reqbody = {
       adminEmail: "info@neodeals.in",
       subject: "from neodeals user",
-      name: `${firstName} ${lastName}`,
+      firstName: `${firstName} ${lastName}`,
       email: email,
       phoneNumber: phone,
       queryText: address,
@@ -35,7 +35,7 @@ const ContactUs = () => {
 
     try {
       const res = await axios.post(
-        "https://mailsender.neodeals.in:8443/hpUser/send",
+        "http://localhost:4000/api/mailsender/sendEmail",
         reqbody,
         {
           headers: {

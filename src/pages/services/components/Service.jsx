@@ -167,16 +167,39 @@ const Service = () => {
             {/* Grid layout for services */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
               {services.map((service) => (
+                // <div
+                //   key={service.id}
+                //   className="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                //   onClick={() => navigate(`/servicedetails`)}
+                // >
+                //   <img
+                //     src={service.image}
+                //     alt={service.title}
+                //     className="w-full h-64 object-cover"
+                //   />
+                //   <div className="p-6 text-center">
+                //     <h3 className="text-xl font-medium text-gray-800 mb-2">
+                //       {service.title}
+                //     </h3>
+                //     <p className="text-gray-700 text-base line-clamp-4">
+                //       {service.description}
+                //     </p>
+                //   </div>
+                // </div>
                 <div
                   key={service.id}
-                  className="bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                  className="group bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl relative"
                   onClick={() => navigate(`/servicedetails`)}
                 >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-64 object-cover"
-                  />
+                  <div className="relative w-full h-64 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    {/* Tint Effect */}
+                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:animate-tint-fill"></div>
+                  </div>
                   <div className="p-6 text-center">
                     <h3 className="text-xl font-medium text-gray-800 mb-2">
                       {service.title}

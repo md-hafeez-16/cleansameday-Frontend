@@ -11,7 +11,17 @@ export default {
       fontFamily: {
         marcellus: ["Marcellus", "sans-serif"],
       },
+      keyframes: {
+        tintFill: {
+          "0%": { clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)" },
+          "100%": { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
+        },
+      },
+      animation: {
+        "tint-fill": "tintFill 0.4s ease-out forwards", // Adjusted to 0.4s for a faster effect
+      },
     },
   },
+
   plugins: [],
 };
