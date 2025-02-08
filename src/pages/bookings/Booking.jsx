@@ -9,7 +9,7 @@ const Booking = () => {
   }, []);
   return (
     <div className="max-w-7xl mx-auto py-10 font-marcellus">
-      <div className="flex items-center justify-center p-12">
+      <div className="flex items-center justify-center md:p-12 p-5">
         {/* <!-- Author: FormBold Team --> */}
         <div className="mx-auto w-full max-w-[550px] bg-white border p-5 rounded-md border-primary">
           <form>
@@ -24,6 +24,7 @@ const Booking = () => {
                 type="text"
                 name="name"
                 id="name"
+                required
                 placeholder="Enter Your Name"
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
@@ -39,6 +40,7 @@ const Booking = () => {
                 type="text"
                 name="last name"
                 id="last name"
+                required
                 placeholder="Enter Your Last Name"
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
@@ -54,6 +56,7 @@ const Booking = () => {
                 type="text"
                 name="phone"
                 id="phone"
+                required
                 placeholder="Enter your phone number"
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
@@ -69,6 +72,7 @@ const Booking = () => {
                 type="email"
                 name="email"
                 id="email"
+                required
                 placeholder="Enter your email"
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
@@ -86,6 +90,7 @@ const Booking = () => {
                     type="date"
                     name="date"
                     id="date"
+                    required
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
                 </div>
@@ -102,6 +107,7 @@ const Booking = () => {
                     type="time"
                     name="time"
                     id="time"
+                    required
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
                 </div>
@@ -119,6 +125,7 @@ const Booking = () => {
                       type="text"
                       name="address Line 1"
                       id="address"
+                      required
                       placeholder="address Line 1"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
@@ -130,6 +137,7 @@ const Booking = () => {
                       type="text"
                       name="address Line 2"
                       id="address 2"
+                      required
                       placeholder="address Line 2"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
@@ -141,6 +149,7 @@ const Booking = () => {
                       type="text"
                       name="building no"
                       id="building no"
+                      required
                       placeholder="Enter building no"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
@@ -152,6 +161,7 @@ const Booking = () => {
                       type="text"
                       name="city"
                       id="city"
+                      required
                       placeholder="Enter city"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
@@ -163,6 +173,7 @@ const Booking = () => {
                       type="text"
                       name="state"
                       id="state"
+                      required
                       placeholder="Enter state"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
@@ -174,6 +185,7 @@ const Booking = () => {
                       type="text"
                       name="landmark"
                       id="landmark"
+                      required
                       placeholder="Enter landmark"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
@@ -185,6 +197,7 @@ const Booking = () => {
                       type="text"
                       name="pin-code"
                       id="pin-code"
+                      required
                       placeholder="Enter Pin Code"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />

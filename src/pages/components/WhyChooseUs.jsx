@@ -7,7 +7,7 @@ import why3 from "../../assets/images/shield.png";
 const WhyChooseUs = () => {
   return (
     <>
-      <section className="text-gray-700 body-font mt-10">
+      <section className="text-gray-700 body-font mt-10 px-3 md:px-0">
         <div className="flex justify-center md:text-4xl font-medium text-2xl text-primary text-center">
           Why Choose Us.
         </div>

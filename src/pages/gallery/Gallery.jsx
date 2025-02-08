@@ -3,8 +3,8 @@ import React from "react";
 import gall1 from "../../assets/images/deepclean.jpg";
 import gall2 from "../../assets/images/villaclean.jpg";
 import gall3 from "../../assets/images/deep.jpeg";
-import gall4 from "../../assets/images/moveclean.jpg";
-import gall5 from "../../assets/images/warehouseclean.jpg";
+import gall4 from "../../assets/images/move.jpg";
+import gall5 from "../../assets/images/warehouse.jpg";
 import gall6 from "../../assets/images/office1clean.jpeg";
 import gall7 from "../../assets/images/commercial1clean.jpeg";
 import gall8 from "../../assets/images/floorclean.jpeg";
@@ -19,7 +19,7 @@ import whatsapp from "../../assets/images/whatsaap.jpg";
 const Gallery = () => {
   return (
     <>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto p-5 md:p-0">
         <div className=" font-marcellus font-medium">
           <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
             <a

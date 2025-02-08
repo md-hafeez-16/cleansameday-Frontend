@@ -4,7 +4,7 @@ const OurVision = () => {
   return (
     <>
       <section class="p-5">
-        <div class="py-8 md:px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div class=" md:px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div class=" text-center mb-8 lg:mb-10">
             <div className="flex justify-center items-center">
               <p class="rounded-full text-xl sm:text-xl bg-white p-2 text-primary">

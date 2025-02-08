@@ -102,7 +102,7 @@ const AboutUs = () => {
             <div class="xl:w-[90%] sm:w-[85%] w-[90%] mx-auto flex md:flex-row flex-col flex-col-reverse lg:gap-4 gap-2 justify-center lg:items-stretch md:items-center mt-6 md:mt-16">
               {/* <!--  --> */}
               <div class="md:w-[50%] w-full  text-gray-900 md:p-4 p-0 rounded-md">
-                <h2 class="text-3xl  text-gray-900">
+                <h2 class="md:text-3xl text-xl   text-gray-900">
                   Dedicated to excellence in every clean
                 </h2>
 
