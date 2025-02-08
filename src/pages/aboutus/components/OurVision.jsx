@@ -3,29 +3,6 @@ import React from "react";
 const OurVision = () => {
   return (
     <>
-      {/* <div class="[&>*:last-child]:hover:top-0 md:[&>*:last-child]:hover:left-[15rem] lg:[&>*:last-child]:hover:left-[18rem] md:[&>*:last-child]:hover:left-[13rem] xs:[&>*:last-child]:hover:left-[7rem] group absolute top-[30%] md:left-[30%] sm:left-[25%] xs:left-[15%]">
-        <div class="[transition:all_400ms_ease] group-hover:rotate-0 lg:w-[18rem] lg:h-[22rem] md:w-[14rem] md:h-[18rem] sm:w-[12rem] sm:h-[16rem] xs:w-[10rem] xs:h-[12rem] border-[0.4rem] border-transparent shadow-xl absolute -rotate-[10deg] origin-bottom-left">
-          <img
-            src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwzfHxiZWVyfGVufDB8MHx8fDE3MTI3NDU4Njh8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            class="w-full h-full rounded-sm"
-            alt="Frame Two"
-          />
-        </div>
-        <div class="[transition:all_400ms_ease] absolute -rotate-[10deg] last:rotate-[20deg] -top-[2rem] left-[2rem] group-hover:rotate-0 lg:w-[18rem] lg:h-[22rem] md:w-[14rem] md:h-[18rem] sm:w-[12rem] sm:h-[16rem] xs:w-[10rem] xs:h-[12rem] border-[0.4rem] border-transparent shadow-xl origin-bottom-left">
-          <img
-            src="https://images.unsplash.com/photo-1608270586620-248524c67de9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw0fHxiZWVyfGVufDB8MHx8fDE3MTI3NDU4Njh8MA&ixlib=rb-4.0.3&q=80&w=1080"
-            class="w-full h-full rounded-sm"
-            alt="Frame One"
-          />
-        </div>
-      </div>
-
-      <div class="absolute bg-black/20 py-2 md:top-[75%] sm:top-[70%] xs:top-[60%]">
-        <h1 class="w-full md:px-4 xs:px-2 xl:text-7xl lg:text-5xl sm:text-4xl xs:text-3xl text-white text-center font-serif font-semibold">
-          Farm-Fresh Brews: From Field to Glass, an Unforgettable Beer Journey.
-        </h1>
-      </div> */}
-
       <section class="p-5">
         <div class="py-8 md:px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div class=" text-center mb-8 lg:mb-10">

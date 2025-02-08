@@ -5,6 +5,7 @@ import OurService from "./OurService";
 import WhyChooseUs from "./WhyChooseUs";
 import Testimonial from "./Testimonial";
 import whatsapp from "../../assets/images/whatsaap.jpg";
+import BookService from "./BookService";
 
 const Home = () => {
   useEffect(() => {
@@ -19,7 +20,9 @@ const Home = () => {
         <HomeSlider />
         <HowitWork />
         <OurService />
+
         <WhyChooseUs />
+        <BookService />
         <Testimonial />
         <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
           <a

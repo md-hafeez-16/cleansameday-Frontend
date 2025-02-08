@@ -71,24 +71,7 @@ const Footer = () => {
                   ></path>
                 </svg>
               </a>
-              {/* <a
-                href="javascript:;"
-                className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#FF0000]  hover:bg-gray-900 "
-              >
-                <svg
-                  className="w-[1.25rem] h-[0.875rem] text-white"
-                  viewBox="0 0 16 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.9191 1.10651C14.558 1.27906 15.0602 1.78251 15.2299 2.42069C15.5388 3.57887 15.5388 5.99687 15.5388 5.99687C15.5388 5.99687 15.5388 8.41487 15.2299 9.57306C15.0578 10.2136 14.5556 10.7171 13.9191 10.8872C12.7638 11.1969 8.12875 11.1969 8.12875 11.1969C8.12875 11.1969 3.49603 11.1969 2.33844 10.8872C1.69952 10.7147 1.19735 10.2112 1.0276 9.57306C0.71875 8.41487 0.71875 5.99687 0.71875 5.99687C0.71875 5.99687 0.71875 3.57887 1.0276 2.42069C1.1997 1.78015 1.70188 1.27669 2.33844 1.10651C3.49603 0.796875 8.12875 0.796875 8.12875 0.796875C8.12875 0.796875 12.7638 0.796875 13.9191 1.10651ZM10.4981 5.99687L6.6481 8.22578V3.76796L10.4981 5.99687Z"
-                    fill="white"
-                  ></path>
-                </svg>
-              </a> */}
+
               <a
                 href="javascript:;"
                 className="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#010101] hover:bg-[#FF0050]"
@@ -115,18 +98,6 @@ const Footer = () => {
             <h4 className="text-lg text-white font-medium mb-4 lg:mb-7">
               Products
             </h4>
-            {/* <ul className="text-white space-y-2">
-              {["Home", "About", "service", "contact"].map((item, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="hover:text-gray-900 transition-all duration-500"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul> */}
             <ul className="text-white space-y-2">
               {[
                 { name: "Home", path: "/" },
@@ -157,8 +128,8 @@ const Footer = () => {
                 placeholder="Your email here..."
                 className="w-full max-w-xs h-12 border border-gray-300 rounded-full px-4 mb-3 focus:outline-none focus:ring focus:ring-gray-500"
               />
-              <button className="relative h-12 px-6 bg-secondary text-black rounded-full overflow-hidden group">
-                <span className="relative z-10 flex items-center justify-center transition-colors duration-300 ease-out group-hover:text-black">
+              <button className="relative h-12 px-6 bg-secondary text-black border border-transparent rounded-full overflow-hidden group hover:border-secondary">
+                <span className="relative z-10 flex items-center justify-center transition-colors duration-300 ease-out group-hover:text-white">
                   Subscribe
                 </span>
                 <div className="absolute inset-0 bg-primary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>

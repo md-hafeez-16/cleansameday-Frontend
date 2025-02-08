@@ -6,28 +6,14 @@ import smallBanner1 from "../../assets/images/clean.jpg";
 import smallBanner2 from "../.././assets/images/clean1.jpg";
 import smallBanner3 from "../../assets/images/clean2.jpg";
 
-import BigBann1 from "../../assets/backgroundimages/bg9.jpg";
-import BigBann2 from "../../assets/backgroundimages/bg4.jpg";
-import BigBann3 from "../../assets/backgroundimages/bg5.jpg";
-import BigBann4 from "../../assets/backgroundimages/bg2.jpg";
+import BigBann1 from "../../assets//backgroundimages/bg23.jpg";
+import BigBann2 from "../../assets/backgroundimages/bg24.jpg";
+// import BigBann3 from "../../assets/backgroundimages/bg5.jpg";
+// import BigBann4 from "../../assets/backgroundimages/bg2.jpg";
 
 const smallBanners = [smallBanner1, smallBanner2, smallBanner3];
-const largeBanners = [BigBann1, BigBann2, BigBann3, BigBann4];
+const largeBanners = [BigBann1, BigBann2];
 
-// Arrow Components
-// const NextArrow = ({ onClick }) => (
-//   <div className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer z-10">
-//     <ChevronRight size={25} />
-//   </div>
-// );
-
-// const PrevArrow = ({ onClick }) => (
-//   <div className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer z-10">
-//     <ChevronLeft size={25} />
-//   </div>
-// );
-
-// HomeSlider Component
 const HomeSlider = () => {
   const [bannerArr, setBannerArr] = useState(largeBanners);
   const [isRippling, setIsRippling] = useState(false);

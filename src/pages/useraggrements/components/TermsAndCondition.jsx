@@ -552,13 +552,7 @@ function TermsAndCondition() {
                       clicking on it. You can also report a problem using the
                       Help & Support option on the Settings menu.
                     </p>
-                    {/* <p className="text-sm font-medium text-gray-700 mt-1 lg:leading-8">
-                      If a complaint has been made against you or any content
-                      uploaded by you, you will be informed via email regarding
-                      the next steps. Please follow the instructions
-                      accordingly. Failure to comply will result in the
-                      permanent closure of your account on Mahamastak.
-                    </p> */}
+
                     <p className="text-sm font-medium text-gray-700 mt-1 lg:leading-8">
                       You can also report your complaint via WhatsPlatform
                       Support Number from Clean Same Day Platform or visit
@@ -566,10 +560,7 @@ function TermsAndCondition() {
                     <h1 className="md:text-lg  text-black lg:leading-8 mt-2">
                       Address:
                     </h1>
-                    {/* <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
-                      Navagraha Jain Temple is located at Varur, 16 Kms from
-                      Hubli and 392 km from Bengaluru.
-                    </p> */}
+
                     <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
                       Email - info@cleansameday.com
                     </p>

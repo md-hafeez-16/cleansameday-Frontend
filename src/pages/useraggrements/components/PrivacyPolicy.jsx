@@ -10,27 +10,7 @@ const PrivacyPolicy = () => {
               <div className="xl:px-32 px-2 py-5 font-poppins">
                 <h1 className=" text-2xl text-black">Privacy Policy</h1>
                 <div className="text-start mt-5 bg-[#FFFFFF] p-4 md:p-10">
-                  <div className="">
-                    {/* <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
-                      We recognise that your privacy is very important and take
-                      it seriously. This Privacy Policy ("Privacy Policy") sets
-                      out how we collect, use and disclose your data when you
-                      use our website
-                      https://mahamastakabhishek.varur@gmail.com/ ("Website")
-                      collectively referred to as the "Platform". References to
-                      "we", "our" or "us" or the "Company" shall mean the
-                      Platform. Any references to "you", "your" or "user" shall
-                      mean any person or entity using our Platform. We will not
-                      use or share your information with anyone except as
-                      described in this Privacy Policy. By using this Platform,
-                      you agree to the terms and conditions of this Privacy &
-                      Cookie Policy. You also consent to our use and disclosure
-                      of your Personal Information (as defined below) in the
-                      manner described in this Privacy Policy. If you do not
-                      agree with the terms and conditions of this privacy
-                      policy, please do not use this platform.
-                    </p> */}
-                  </div>
+                  <div className=""></div>
 
                   <div className="bg-[#FFFFFF]">
                     <h1 className="md:text-lg  text-black lg:leading-8 ">
@@ -313,10 +293,7 @@ const PrivacyPolicy = () => {
                     <h1 className="md:text-lg  text-black lg:leading-8 mt-2">
                       Address:
                     </h1>
-                    {/* <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
-                      Navagraha Jain Temple is located at Varur, 16 Kms from
-                      Hubli and 392 km from Bengaluru.
-                    </p> */}
+
                     <p className="text-sm font-medium text-gray-700 mt-2 lg:leading-8">
                       Email - info@cleansameday.com
                     </p>
