@@ -151,10 +151,10 @@ const ContactUs = () => {
                     <h1 className="text-[#FFFFFF] md:text-base text-sm ">
                       OFFICE
                     </h1>
-                    <div className="flex gap-3 text-[#FFFFFF] font-normal text-base">
+                    <div className="flex gap-3 text-[#FFFFFF] font-normal lg:w-72 text-base">
                       <h1 className="md:text-base text-sm font-normal text-[#FFFFFF]">
-                        PB Road, Opp Agriculture, Prakash Nagar <br />
-                        Bangalore 580031
+                        Noorani Enayatullah Building F1.127, Hor AL ANZ Near ABU
+                        Hail, Dubai-UAE
                       </h1>
                     </div>
                   </div>
