@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 const AboutbookSection = () => {
   const navigate = useNavigate();
+  const handleClick = () => {
+    window.location.href = "/bookings";
+  };
 
   return (
     <div className="px-4 md:px-7">
@@ -31,11 +34,12 @@ const AboutbookSection = () => {
               onClick={() => navigate(`/contact`)}
             >
               <button
-                type="submit"
+                type="button"
+                onClick={handleClick}
                 className="relative flex gap-2 items-center py-3 px-4 bg-primary rounded-md text-white shadow-md mx-auto md:mx-0 overflow-hidden group"
               >
                 <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 ease-out group-hover:text-black">
-                  Get Custom Quote <FaArrowRightLong />
+                  Book A Service <FaArrowRightLong />
                 </span>
                 <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
               </button>

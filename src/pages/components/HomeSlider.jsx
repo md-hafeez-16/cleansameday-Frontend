@@ -33,6 +33,7 @@ const HomeSlider = () => {
   }, [isRippling]);
 
   const handleButtonClick = (e) => {
+    window.location.href = "/aboutus";
     const rect = e.target.getBoundingClientRect();
     setRippleCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
     setIsRippling(true);

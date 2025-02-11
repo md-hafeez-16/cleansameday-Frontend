@@ -12,6 +12,7 @@ import AboutUs from "./pages/aboutus/components/AboutUs";
 import Gallery from "./pages/gallery/Gallery";
 import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
 import Booking from "./pages/bookings/Booking";
+import HelpCenter from "./pages/useraggrements/components/HelpCenter";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             {/* <------- user agreement pages routes -----> */}
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndCondition />} />
+            <Route path="/helpcenter" element={<HelpCenter />} />
           </Routes>
         </div>
         <Footer />

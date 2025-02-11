@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import bgImage from "../../assets/images/about.jpg";
 
 const Booking = () => {
   useEffect(() => {
@@ -8,7 +9,10 @@ const Booking = () => {
     });
   }, []);
   return (
-    <div className="max-w-7xl mx-auto py-10 font-marcellus">
+    <div
+      className="max-w-7xl mx-auto py-10 font-marcellus bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="flex items-center justify-center md:p-12 p-5">
         {/* <!-- Author: FormBold Team --> */}
         <div className="mx-auto w-full max-w-[550px] bg-white border p-5 rounded-md border-primary">

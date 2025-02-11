@@ -154,7 +154,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="javascript:;" className="text-sm text-white">
+                <a href="/helpcenter" className="text-sm text-white">
                   Help Center
                 </a>
               </li>

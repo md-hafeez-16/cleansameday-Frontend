@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <nav className="bg-white border-b-2 border-primary font-marcellus max-w-7xl mx-auto">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <div className="flex flex-col">
             <span className="self-center text-4xl font-medium text-primary whitespace-nowrap">
               SAMEDAY
@@ -83,6 +83,16 @@ const NavBar = () => {
                 )}`}
               >
                 Services
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/bookings"
+                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                  "/bookings"
+                )}`}
+              >
+                Booking
               </Link>
             </li>
             <li>
