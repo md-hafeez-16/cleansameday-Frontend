@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="col-span-full lg:col-span-3 text-center lg:text-left">
             <h1 className="text-4xl text-white"> SAMEDAY</h1>
-            {/* <p class="text-sm text-white"> Cleaning Services LLC Dubai</p> */}
+
             <p className="py-4 lg:py-8 text-white lg:max-w-xs">
               Trusted in more than 100 countries & 5 million customers. Follow
               us on social media.
