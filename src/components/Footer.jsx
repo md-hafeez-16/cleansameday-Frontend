@@ -1,6 +1,7 @@
 import React from "react";
 import { IoLogoTiktok } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.jpg";
 
 const Footer = () => {
   return (
@@ -10,7 +11,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 py-10 lg:py-14 lg:grid-cols-8">
           {/* Logo & Description */}
           <div className="col-span-full lg:col-span-3 text-center lg:text-left">
-            <h1 className="text-4xl text-white"> SAMEDAY</h1>
+            {/* <h1 className="text-4xl text-white"> SAMEDAY</h1> */}
+            <img src={logo} alt="" className="md:w-44 rounded-md" />
 
             <p className="py-4 lg:py-8 text-white lg:max-w-xs">
               Trusted in more than 100 countries & 5 million customers. Follow

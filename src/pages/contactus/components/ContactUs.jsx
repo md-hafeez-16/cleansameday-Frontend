@@ -25,17 +25,16 @@ const ContactUs = () => {
     event.preventDefault();
 
     const reqbody = {
-      adminEmail: "info@neodeals.in",
-      subject: "from neodeals user",
-      firstName: `${firstName} ${lastName}`,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
-      phoneNumber: phone,
-      queryText: address,
+      phone: phone,
+      message: address, // Ensure this matches the cURL request's field name
     };
 
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/mailsender/sendEmail",
+        "https://cleansameday.com:4000/api/mailsender/sendEmail",
         reqbody,
         {
           headers: {
@@ -43,9 +42,24 @@ const ContactUs = () => {
           },
         }
       );
-      toast.success("Email Sent Successfully");
+
+      if (res.status === 200) {
+        console.log("Email sent successfully:", res.data);
+        alert("Email Sent Successfully");
+
+        // Clear input fields after successful submission
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setAddress("");
+      } else {
+        console.log("Email failed:", res);
+        alert("Email Not Sent");
+      }
     } catch (error) {
-      toast.error("Email Not Sent");
+      console.error("Error sending email:", error);
+      alert("Email Not Sent");
     }
   };
 
@@ -178,6 +192,7 @@ const ContactUs = () => {
                       type="text"
                       id="firstName"
                       name="firstName"
+                      value={firstName}
                       placeholder="First Name"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-primary sm:text-sm"
                       onChange={(e) => setFirstName(e.target.value)}
@@ -194,6 +209,7 @@ const ContactUs = () => {
                       type="text"
                       id="lastName"
                       name="lastName"
+                      value={lastName}
                       placeholder="Last Name"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       onChange={(e) => setLastName(e.target.value)}
@@ -212,6 +228,7 @@ const ContactUs = () => {
                       type="text"
                       id="phone"
                       name="phone"
+                      value={phone}
                       placeholder="Phone Number"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       onChange={(e) => setPhone(e.target.value)}
@@ -228,6 +245,7 @@ const ContactUs = () => {
                       type="email"
                       id="email"
                       name="email"
+                      value={email}
                       placeholder="Email Address"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       onChange={(e) => setEmail(e.target.value)}
@@ -244,6 +262,7 @@ const ContactUs = () => {
                   <textarea
                     id="message"
                     name="message"
+                    value={address}
                     rows="4"
                     className="mt-1 block w-full pl-10 p-2 h-28 border border-gray-300 rounded-lg shadow-sm sm:text-sm"
                     placeholder="Type a message here..."

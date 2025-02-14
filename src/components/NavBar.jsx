@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/images/logo.jpg";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,10 +18,15 @@ const NavBar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <div className="flex flex-col">
-            <span className="self-center text-4xl font-medium text-primary whitespace-nowrap">
+            {/* <span className="self-center text-4xl font-medium text-primary whitespace-nowrap">
               SAMEDAY
             </span>
-            <p className="text-sm text-gray-500">Cleaning Services LLC Dubai</p>
+            <p className="text-sm text-gray-500">Cleaning Services LLC Dubai</p> */}
+            <img
+              src={logo}
+              alt=""
+              className="md:w-36 object-contain rounded-md"
+            />
           </div>
         </a>
         <button
