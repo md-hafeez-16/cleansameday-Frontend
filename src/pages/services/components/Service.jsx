@@ -152,7 +152,7 @@ const Service = () => {
               href="/"
               className="text-lg font-semibold text-secondary hover:underline"
             >
-              Home >> Service
+              Home > Service
             </a>
           </div>
         </div>
