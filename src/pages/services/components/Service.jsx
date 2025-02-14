@@ -104,7 +104,11 @@ const Service = () => {
                   <div
                     key={service._id}
                     className="group bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl relative"
-                    onClick={() => navigate(`/servicedetails/${service._id}`)}
+                    // onClick={() =>  navigate(`/servicedetails/${service._id}`)}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      navigate(`/servicedetails/${service._id}`);
+                    }}
                   >
                     {/* Image Section */}
                     <div className="relative w-full h-64 overflow-hidden">

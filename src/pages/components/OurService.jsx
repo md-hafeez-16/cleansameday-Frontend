@@ -193,7 +193,10 @@ const OurService = () => {
             <div key={service._id} className="px-2">
               <div
                 className="group border rounded-lg shadow-lg overflow-hidden bg-white h-[300px] cursor-pointer flex flex-col relative"
-                onClick={() => navigate(`/servicedetails/${service._id}`)}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  navigate(`/servicedetails/${service._id}`);
+                }}
               >
                 {/* Image Container */}
                 <div className="relative h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
