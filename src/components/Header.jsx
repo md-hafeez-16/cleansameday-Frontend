@@ -28,8 +28,20 @@ const Header = () => {
           <p className="flex items-center gap-2 whitespace-nowrap">
             Follow Us :{" "}
             <MdFacebook className="md:w-5 md:h-5 cursor-pointer text-secondary" />
-            <FaInstagram className="md:w-4 md:h-4 cursor-pointer text-secondary" />
-            <RiTwitterXFill className="w-4 h-4 cursor-pointer text-secondary" />
+            <a
+              href="https://www.instagram.com/same.daycleaningservice/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="md:w-4 md:h-4 cursor-pointer text-secondary" />
+            </a>
+            <a
+              href="https://x.com/samedayclean0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RiTwitterXFill className="w-4 h-4 cursor-pointer text-secondary" />
+            </a>
             <IoLogoTiktok className="md:w-4 md:h-4 cursor-pointer text-secondary" />
           </p>
         </div>
