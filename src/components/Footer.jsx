@@ -20,7 +20,8 @@ const Footer = () => {
             </p>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               <a
-                href="javascript:;"
+                href="https://x.com/samedayclean0"
+                target="_blank"
                 className="w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[#33CCFF] hover:bg-gray-900"
               >
                 <svg
@@ -41,7 +42,8 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="javascript:;"
+                href="https://www.instagram.com/same.daycleaningservice/"
+                target="_blank"
                 className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[linear-gradient(45deg,#FEE411_6.9%,#FEDB16_10.98%,#FEC125_17.77%,#FE983D_26.42%,#FE5F5E_36.5%,#FE2181_46.24%,#9000DC_85.57%)]  hover:bg-gradient-to-b from-gray-900 to-gray-900
                         "
               >
