@@ -5,43 +5,81 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FcCustomerSupport } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
+// const testimonials = [
+//   {
+//     id: 1,
+//     text: "The cleaning team was exceptional! They left every corner spotless, and I couldn't be happier with the results.",
+//     name: "Sarah Johnson",
+//     role: "Homeowner",
+//     avatar: "https://randomuser.me/api/portraits/women/91.jpg",
+//   },
+//   {
+//     id: 2,
+//     text: "Professional and efficient! The service saved me so much time, and my home has never looked better.",
+//     name: "Michael Brown",
+//     role: "Business Owner",
+//     avatar: "https://randomuser.me/api/portraits/men/90.jpg",
+//   },
+//   {
+//     id: 3,
+//     text: "I highly recommend this cleaning service. They are reliable, thorough, and always exceed expectations.",
+//     name: "Emily Davis",
+//     role: "Property Manager",
+//     avatar: "https://randomuser.me/api/portraits/women/92.jpg",
+//   },
+//   {
+//     id: 4,
+//     text: "They took care of everything with such attention to detail. I can't thank them enough for the amazing job.",
+//     name: "Chris Wilson",
+//     role: "Tenant",
+//     avatar: "https://randomuser.me/api/portraits/men/91.jpg",
+//   },
+//   {
+//     id: 5,
+//     text: "Affordable and top-notch service! My house looks brand new after their deep cleaning session.",
+//     name: "Sophia Martinez",
+//     role: "Homeowner",
+//     avatar: "https://randomuser.me/api/portraits/women/93.jpg",
+//   },
+// ];
 const testimonials = [
   {
     id: 1,
     text: "The cleaning team was exceptional! They left every corner spotless, and I couldn't be happier with the results.",
-    name: "Sarah Johnson",
+    name: "Ahmed Al Mansoori",
     role: "Homeowner",
-    avatar: "https://randomuser.me/api/portraits/women/91.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/81.jpg",
   },
   {
     id: 2,
     text: "Professional and efficient! The service saved me so much time, and my home has never looked better.",
-    name: "Michael Brown",
+    name: "Mohammed Bin Sultan",
     role: "Business Owner",
-    avatar: "https://randomuser.me/api/portraits/men/90.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/82.jpg",
   },
   {
     id: 3,
     text: "I highly recommend this cleaning service. They are reliable, thorough, and always exceed expectations.",
-    name: "Emily Davis",
+    name: "Omar Al Shamsi",
     role: "Property Manager",
-    avatar: "https://randomuser.me/api/portraits/women/92.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/83.jpg",
   },
   {
     id: 4,
     text: "They took care of everything with such attention to detail. I can't thank them enough for the amazing job.",
-    name: "Chris Wilson",
+    name: "Abdullah Al Nuaimi",
     role: "Tenant",
-    avatar: "https://randomuser.me/api/portraits/men/91.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/84.jpg",
   },
   {
     id: 5,
     text: "Affordable and top-notch service! My house looks brand new after their deep cleaning session.",
-    name: "Sophia Martinez",
+    name: "Khalid Al Habtoor",
     role: "Homeowner",
-    avatar: "https://randomuser.me/api/portraits/women/93.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/85.jpg",
   },
 ];
+
 const Testimonial = () => {
   const settings = {
     dots: true,
@@ -82,10 +120,10 @@ const Testimonial = () => {
                 {/* <FcCustomerSupport /> */}
                 <div>
                   <h1 className="text-[11px] md:text-base lg:w-96 md:w-80 text-white">
-                    Chen an unknown printer took a galley of type and scrambled
-                    it to make a type specimen book. It has survived not only
-                    five centuries, but also the leap into electronic
-                    typesetting, remaining essentially.
+                    Our professional team ensures every corner is cleaned to
+                    perfection. From deep cleaning to routine maintenance, we
+                    provide reliable and affordable services tailored to your
+                    needs.
                   </h1>
                 </div>
               </div>

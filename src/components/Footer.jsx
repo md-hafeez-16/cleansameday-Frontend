@@ -15,8 +15,9 @@ const Footer = () => {
             <img src={logo} alt="" className="md:w-44 rounded-md" />
 
             <p className="py-4 lg:py-8 text-white lg:max-w-xs">
-              Trusted in more than 100 countries & 5 million customers. Follow
-              us on social media.
+              We take pride in delivering top-notch cleaning services for homes
+              and businesses. Whether it’s a one-time deep clean or a regular
+              maintenance schedule, we’ve got you covered!
             </p>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               <a
