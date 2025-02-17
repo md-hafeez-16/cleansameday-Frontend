@@ -49,7 +49,7 @@ const Footer = () => {
                         "
               >
                 <svg
-                  className="w-[1.25rem] h-[1.125rem] text-white"
+                  className="w-[1.25rem] h-[1.125rem] text-white "
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
