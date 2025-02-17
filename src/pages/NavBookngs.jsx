@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
-import bgImage from "../../assets/images/about.jpg";
-import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { BASE_URL } from "../../constants";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { BASE_URL } from "../constants";
+import bgImage from "../assets/images/about.jpg";
+import { useNavigate } from "react-router-dom";
 
-const Booking = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const[bookingId, setBookingId] = React.useState("");
+const NavBookings = () => {
+  const [service, setService] = useState([]);
+  const[bookingId,setBookingId]=useState("")
+  const navigate=useNavigate()
+
   const [formData, setFormData] = React.useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    service: id,
+    service: "",
     bookingDate: "",
     time: "",
     address: {
@@ -27,6 +28,20 @@ const Booking = () => {
       pinCode: "",
     },
   });
+
+  const fetchService = async () => {
+    try {
+      const res = await axios.get(`${BASE_URL}/service/getAllServicesNoPage`);
+      console.log(res.data);
+      setService(res.data.services);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchService();
+  }, []);
 
   const handleFormSubmit = (e) => {
     const { name, value } = e.target;
@@ -47,22 +62,20 @@ const Booking = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData, "formdata");
     try {
-      const res = await axios.post(
-        `${BASE_URL}/booking/initiateBooking`,
-        formData
-      );
-      setBookingId(res?.data?.booking?._id);
+      const data = await axios.post(`${BASE_URL}/booking/initiateBooking`, formData);
 
-      console.log(res?.data);
+      console.log(data);
+
+      setBookingId(data?.data?.booking?._id);
 
 
       if(bookingId){
         const booking= await axios.post(`${BASE_URL}/booking/confirmBooking/${bookingId}`);
-      console.log(booking.data);
+        console.log(booking.data);
       }
 
 
@@ -70,11 +83,14 @@ const Booking = () => {
 
       navigate("/service")
 
-     
+
+
+      
+      
     } catch (error) {
       console.log(error);
 
-      toast.error("Booking Failed");
+     
     }
   };
 
@@ -84,7 +100,6 @@ const Booking = () => {
       behavior: "smooth",
     });
   }, []);
-
   return (
     <div
       className="max-w-7xl mx-auto py-10 font-marcellus bg-cover bg-center bg-no-repeat"
@@ -160,6 +175,24 @@ const Booking = () => {
                 placeholder="Enter your email"
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
+            </div>
+            <div className="mb-5 ">
+              <label
+                htmlFor="service"
+                className="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Service Booking
+              </label>
+              <select name="service" className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" id="" onChange={handleFormSubmit}>
+                {
+                    service.map((item)=>{
+                        return(
+
+                            <option key={item._id} value={item._id}>{item.name}</option>
+                        )
+                    })
+                }
+              </select>
             </div>
             <div className="-mx-3 flex flex-wrap">
               <div className="w-full px-3 sm:w-1/2">
@@ -311,4 +344,4 @@ const Booking = () => {
   );
 };
 
-export default Booking;
+export default NavBookings;

@@ -1,3 +1,10 @@
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+
+
+
+
+
+
 import {
   RxCrop,
   RxDesktop,
@@ -50,3 +57,7 @@ export const ServiceData = [
     backgroundImage: SpaceCity8,
   },
 ];
+
+
+export { BASE_URL };
+

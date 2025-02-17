@@ -93,7 +93,7 @@ const NavBar = () => {
             </li>
             <li>
               <Link
-                to="/bookings"
+                to="/navbooking"
                 className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/bookings"
                 )}`}

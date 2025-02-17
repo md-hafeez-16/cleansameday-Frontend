@@ -13,11 +13,18 @@ import Gallery from "./pages/gallery/Gallery";
 import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
 import Booking from "./pages/bookings/Booking";
 import HelpCenter from "./pages/useraggrements/components/HelpCenter";
+import { Toaster } from "react-hot-toast";
+import NavBookngs from "./pages/NavBookngs";
+import NavBookings from "./pages/NavBookngs";
 
 function App() {
   return (
     <>
       <Router>
+      <Toaster
+  position="top-right"
+  reverseOrder={false}
+/>
         <Header />
         <NavBar />
         <div className="">
@@ -30,6 +37,7 @@ function App() {
             <Route path="/bookings/:id" element={<Booking />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/navbooking" element={<NavBookings/>}/>
 
             {/* <-------main pages routes ----->  */}
 

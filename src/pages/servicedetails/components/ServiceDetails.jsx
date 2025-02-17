@@ -90,7 +90,7 @@ const ServiceDetails = () => {
         <button
           type="submit"
           className="w-1/2 py-3 px-4 bg-primary rounded-md text-white shadow-md"
-          onClick={() => navigate(`/bookings`)}
+          onClick={() => navigate(`/bookings/${id}`)}
         >
           Book Now
         </button>
