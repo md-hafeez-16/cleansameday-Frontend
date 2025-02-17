@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const Booking = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const[bookingId, setBookingId] = React.useState("");
+
   const [formData, setFormData] = React.useState({
     firstName: "",
     lastName: "",
@@ -55,15 +55,12 @@ const Booking = () => {
         `${BASE_URL}/booking/initiateBooking`,
         formData
       );
-      setBookingId(res?.data?.booking?._id);
+    
 
       console.log(res?.data);
 
 
-      if(bookingId){
-        const booking= await axios.post(`${BASE_URL}/booking/confirmBooking/${bookingId}`);
-      console.log(booking.data);
-      }
+     
 
 
       toast.success("booking confirmed");

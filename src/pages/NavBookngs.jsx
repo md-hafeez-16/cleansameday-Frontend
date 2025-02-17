@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const NavBookings = () => {
   const [service, setService] = useState([]);
-  const[bookingId,setBookingId]=useState("")
-  const navigate=useNavigate()
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -62,35 +62,22 @@ const NavBookings = () => {
     }
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData, "formdata");
     try {
-      const data = await axios.post(`${BASE_URL}/booking/initiateBooking`, formData);
+      const data = await axios.post(
+        `${BASE_URL}/booking/initiateBooking`,
+        formData
+      );
 
       console.log(data);
 
-      setBookingId(data?.data?.booking?._id);
-
-
-      if(bookingId){
-        const booking= await axios.post(`${BASE_URL}/booking/confirmBooking/${bookingId}`);
-        console.log(booking.data);
-      }
-
-
       toast.success("booking confirmed");
 
-      navigate("/service")
-
-
-
-      
-      
+      navigate("/service");
     } catch (error) {
       console.log(error);
-
-     
     }
   };
 
@@ -183,15 +170,19 @@ const NavBookings = () => {
               >
                 Service Booking
               </label>
-              <select name="service" className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" id="" onChange={handleFormSubmit}>
-                {
-                    service.map((item)=>{
-                        return(
-
-                            <option key={item._id} value={item._id}>{item.name}</option>
-                        )
-                    })
-                }
+              <select
+                name="service"
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                id=""
+                onChange={handleFormSubmit}
+              >
+                {service.map((item) => {
+                  return (
+                    <option key={item._id} value={item._id}>
+                      {item.name}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className="-mx-3 flex flex-wrap">
