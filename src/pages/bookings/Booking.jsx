@@ -55,19 +55,12 @@ const Booking = () => {
         `${BASE_URL}/booking/initiateBooking`,
         formData
       );
-    
 
       console.log(res?.data);
 
-
-     
-
-
       toast.success("booking confirmed");
 
-      navigate("/service")
-
-     
+      navigate("/service");
     } catch (error) {
       console.log(error);
 
@@ -222,8 +215,7 @@ const Booking = () => {
                       name="address.addressLine2"
                       id="addressLine2"
                       onChange={handleFormSubmit}
-                      required
-                      placeholder="Address Line 2"
+                      placeholder="Address Line 2 (optional)"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
                   </div>
@@ -262,7 +254,7 @@ const Booking = () => {
                       onChange={handleFormSubmit}
                       id="state"
                       required
-                      placeholder="Enter state"
+                      placeholder="Enter Emirate"
                       className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     />
                   </div>

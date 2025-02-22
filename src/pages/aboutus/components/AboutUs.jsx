@@ -91,7 +91,7 @@ const AboutUs = () => {
                     onClick={() => navigate(`/contact`)}
                   >
                     <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 ease-out group-hover:text-black">
-                      Get A Quote <FaArrowRightLong />
+                      Contact us <FaArrowRightLong />
                     </span>
                     <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
                   </button>

@@ -88,7 +88,10 @@ const BookService = () => {
             <span className="text-secondary">Book Affordable Services </span>:
             Save Time and Money With Us!
           </h1>
-          <div className="text-white mt-6" onClick={() => navigate(`/contact`)}>
+          <div
+            className="text-white mt-6"
+            onClick={() => navigate(`/navbooking`)}
+          >
             <button
               type="submit"
               className="relative flex gap-2 items-center py-3 px-4 bg-secondary rounded-full text-black shadow-md mx-auto md:mx-0 overflow-hidden group border border-transparent"

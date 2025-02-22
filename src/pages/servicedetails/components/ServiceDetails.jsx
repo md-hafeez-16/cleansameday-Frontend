@@ -79,12 +79,20 @@ const ServiceDetails = () => {
         </div>
       </div>
       <div className="py-5">
-        <h1 className="md:text-2xl text-xl">{service.name}</h1>
+        <div className="flex justify-between">
+          <h1 className="md:text-2xl text-xl">{service.name}</h1>
+          <div>
+            <p className="text-primary text-xl">Price: ${service.price}</p>
+            <p className="text-primary text-xl mt-1">
+              Duration: {service.duration}
+            </p>
+          </div>
+        </div>
         <p className="md:text-base text-sm mt-1 font-normal">
           {service.description}
         </p>
-        <p className="text-gray-700 mt-2">Duration: {service.duration}</p>
-        <p className="text-gray-700">Price: ${service.price}</p>
+        {/* <p className="text-gray-700 mt-2">Duration: {service.duration}</p>
+        <p className="text-gray-700">Price: ${service.price}</p> */}
       </div>
       <div className="flex justify-center text-white space-x-4 mt-6">
         <button

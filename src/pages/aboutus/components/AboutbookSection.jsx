@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AboutbookSection = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    window.location.href = "/bookings";
+    window.location.href = "/navbooking";
   };
 
   return (

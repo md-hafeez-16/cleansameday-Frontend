@@ -147,9 +147,16 @@ const Footer = () => {
         </div>
         <div className="py-7 border-t border-gray-200">
           <div className="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-            <span className="text-sm text-white ">
-              ©<a href=""></a> 2025, All rights reserved by SAMEDAY.
+            <span className="text-sm text-white">
+              © 2025, All rights reserved by SAMEDAY. | Powered by
+              <a
+                href="https://pushpulltechnologys.com"
+                className=" hover:underline ml-2"
+              >
+                Push Pull Technologies – Innovating the Future!
+              </a>
             </span>
+
             <ul className="flex items-center gap-9 mt-4 lg:mt-0">
               <li>
                 <a href="/terms" className="text-sm text-white">
