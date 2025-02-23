@@ -8,12 +8,10 @@ import toast from "react-hot-toast";
 const Booking = () => {
   const { id } = useParams();
 
-  const location =useLocation()
+  const location = useLocation();
 
-  const {service}= location.state
+  const { service } = location.state;
   const navigate = useNavigate();
-
-
 
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -90,10 +88,26 @@ const Booking = () => {
         <div className="mx-auto w-full max-w-[550px] bg-white border p-5 rounded-md border-primary">
           <form onSubmit={handleSubmit}>
             <div className="mb-5">
-
-              <h1 className="text-3xl font-semibold text-[#07074D] text-center mb-3">
+              {/* <h1 className="text-3xl font-semibold text-[#07074D] text-center mb-3">
                 {service}
-              </h1>
+              </h1> */}
+              <div className="mb-5">
+                <label
+                  htmlFor="service"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Service
+                </label>
+                <input
+                  type="text"
+                  name="service"
+                  id="service"
+                  value={service}
+                  readOnly
+                  className="w-full rounded-md border border-[#e0e0e0] bg-gray-100 py-3 px-6 text-base font-medium text-[#6B7280] outline-none"
+                />
+              </div>
+
               <label
                 htmlFor="firstName"
                 className="mb-3 block text-base font-medium text-[#07074D]"
