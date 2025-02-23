@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import bgImage from "../../assets/images/about.jpg";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../constants";
 import toast from "react-hot-toast";
 
 const Booking = () => {
   const { id } = useParams();
+
+  const location =useLocation()
+
+  const {service}= location.state
   const navigate = useNavigate();
+
+
 
   const [formData, setFormData] = React.useState({
     firstName: "",
@@ -84,6 +90,10 @@ const Booking = () => {
         <div className="mx-auto w-full max-w-[550px] bg-white border p-5 rounded-md border-primary">
           <form onSubmit={handleSubmit}>
             <div className="mb-5">
+
+              <h1 className="text-3xl font-semibold text-[#07074D] text-center mb-3">
+                {service}
+              </h1>
               <label
                 htmlFor="firstName"
                 className="mb-3 block text-base font-medium text-[#07074D]"
