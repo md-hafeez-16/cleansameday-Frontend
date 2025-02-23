@@ -153,7 +153,7 @@ const Testimonial = () => {
         </div>
       </div>
       {/* ------TESTIMONIAL------ */}
-      <div className="max-w-7xl mx-auto py-8">
+      {/* <div className="max-w-7xl mx-auto py-8">
         <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="p-4 cursor-pointer">
@@ -179,6 +179,40 @@ const Testimonial = () => {
                     <div>
                       <h4 className="font-semibold">{testimonial.name}</h4>
                       <p className="text-teal-200">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div> */}
+      <div className="max-w-7xl mx-auto py-8">
+        <Slider {...settings}>
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="p-4 cursor-pointer">
+              <div className="relative overflow-hidden bg-[#2f2d78] rounded-xl shadow-2xl p-8 text-white h-full">
+                <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -skew-x-12"></div>
+                <div className="relative z-10">
+                  <svg
+                    className="w-12 h-12 mb-4 text-gray-300"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-lg font-medium mb-4 line-clamp-3">
+                    {testimonial.text}
+                  </p>
+                  <div className="flex items-center">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full mr-4 border-2 border-white"
+                    />
+                    <div>
+                      <h4 className="font-semibold">{testimonial.name}</h4>
+                      <p className="text-gray-300">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>

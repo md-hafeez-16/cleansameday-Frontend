@@ -5,8 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0C706A",
-        secondary: "#FFD542",
+        primary: "#2f2d78",
+        secondary: "#f6881f",
       },
       fontFamily: {
         marcellus: ["Marcellus", "sans-serif"],
