@@ -73,7 +73,7 @@ const testimonials = [
   },
   {
     id: 5,
-    text: "Affordable and top-notch service! My house looks brand new after their deep cleaning session.",
+    text: "Affordable and top-notch service! My house looks brand new after their deep cleaning session...",
     name: "Khalid Al Habtoor",
     role: "Homeowner",
     avatar: "https://randomuser.me/api/portraits/men/85.jpg",
