@@ -68,7 +68,7 @@ const Service = () => {
             <h1 className="md:text-4xl text-xl md:mb-4">Services</h1>
             <a
               href="/"
-              className="text-lg font-semibold text-secondary hover:underline"
+              className="text-lg font-semibold text-black hover:underline"
             >
               Home {">>"} Service
             </a>
