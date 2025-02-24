@@ -153,7 +153,7 @@ const Footer = () => {
                 href="https://pushpulltechnologys.com"
                 className=" hover:underline ml-2"
               >
-                Push Pull Technologies – Innovating the Future!
+                PushPull Technologys – Innovating the Future!
               </a>
             </span>
 
