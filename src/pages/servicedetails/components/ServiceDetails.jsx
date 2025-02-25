@@ -82,7 +82,7 @@ const ServiceDetails = () => {
         <div className="flex justify-between">
           <h1 className="md:text-2xl text-xl">{service.name}</h1>
           <div>
-            <p className="text-primary text-xl">Price: ${service.price}</p>
+            <p className="text-primary text-xl">Price: AED {service.price}</p>
             <p className="text-primary text-xl mt-1">
               Duration: {service.duration}
             </p>
@@ -98,7 +98,9 @@ const ServiceDetails = () => {
         <button
           type="submit"
           className="w-1/2 py-3 px-4 bg-primary rounded-md text-white shadow-md"
-          onClick={() => navigate(`/bookings/${id}` , { state: { service: service.name} })}
+          onClick={() =>
+            navigate(`/bookings/${id}`, { state: { service: service.name } })
+          }
         >
           Book Now
         </button>
