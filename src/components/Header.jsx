@@ -15,7 +15,7 @@ const Header = () => {
           <h1>
             Call us:{" "}
             <a href="tel:+971549936911" className="">
-              +971549936911
+              +971 549 936911
             </a>{" "}
             |{" "}
             <a href="mailto:info@cleansameday.com" className="">
