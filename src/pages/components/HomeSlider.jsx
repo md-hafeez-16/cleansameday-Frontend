@@ -64,7 +64,7 @@ const HomeSlider = () => {
               />
               {/* <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10" /> */}
               {/* <div className="absolute inset-0  backdrop-blur-sm z-10" /> */}
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 xl:w-1/2 md:p-4 text-black z-50">
+              <div className="absolute left-4  top-1/2 transform -translate-y-1/2 xl:w-1/2 md:p-4 text-black z-50">
                 {/* Add your content here */}
                 <h3 className="lg:text-6xl md:text-4xl text-xl text-primary font-semibold mb-2">
                   Professional and Dedicated Cleaners.
