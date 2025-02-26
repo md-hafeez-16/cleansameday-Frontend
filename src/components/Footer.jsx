@@ -95,7 +95,7 @@ const Footer = () => {
               <li> info@cleansameday.com</li>
               <li>+971 549 936911</li>
               <li>
-                Noorani Enayatullah Building F1.127, Hor AL ANZ Near ABU Hail,
+                Noorani Enayatullah Building F1.127, Hor Al Anz Near Abu Hail,
                 Dubai-UAE
               </li>
             </ul>

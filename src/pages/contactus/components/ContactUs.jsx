@@ -167,7 +167,7 @@ const ContactUs = () => {
                     </h1>
                     <div className="flex gap-3 text-[#FFFFFF] font-normal lg:w-72 text-base">
                       <h1 className="md:text-base text-sm font-normal text-[#FFFFFF]">
-                        Noorani Enayatullah Building F1.127, Hor AL ANZ Near ABU
+                        Noorani Enayatullah Building F1.127, Hor Al Anz Near Abu
                         Hail, Dubai-UAE
                       </h1>
                     </div>
