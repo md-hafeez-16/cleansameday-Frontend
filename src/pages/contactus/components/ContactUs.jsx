@@ -137,7 +137,7 @@ const ContactUs = () => {
                       PHONE
                     </h1>
                     <div className="flex flex-col lg:flex-row md:gap-3 text-[#FFFFFF] font-normal md:text-base text-sm">
-                      <p>++971 549 936911 </p>
+                      <p>+971 549 936911 </p>
                       {/* <p>+91 98374 37291</p> */}
                     </div>
                   </div>
