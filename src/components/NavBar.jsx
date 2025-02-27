@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/images/logo.jpg";
+import logo from "../assets/images/samedayfinal.png";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt=""
-              className="md:w-64 w-28 object-contain rounded-md"
+              className="md:w-60 w-28 object-contain rounded-md"
             />
           </div>
         </a>
@@ -64,7 +64,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/"
-                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/"
                 )}`}
               >
@@ -74,7 +74,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/aboutus"
-                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/aboutus"
                 )}`}
               >
@@ -84,7 +84,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/service"
-                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/service"
                 )}`}
               >
@@ -94,7 +94,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/navbooking"
-                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/bookings"
                 )}`}
               >
@@ -104,7 +104,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/gallery"
-                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/gallery"
                 )}`}
               >
@@ -114,7 +114,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/contact"
-                className={`block py-2 px-3 rounded hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
+                className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
                   "/contact"
                 )}`}
               >

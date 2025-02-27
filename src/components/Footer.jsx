@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="col-span-full lg:col-span-3 text-center lg:text-left">
             {/* <h1 className="text-4xl text-white"> SAMEDAY</h1> */}
-            <img src={logo} alt="" className="md:w-44 rounded-md" />
+            <img src={logo} alt="" className="md:w-64 rounded-md" />
 
             <p className="py-4 lg:py-8 text-white lg:max-w-xs">
               We take pride in delivering top-notch cleaning services for homes

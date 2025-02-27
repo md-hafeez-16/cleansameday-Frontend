@@ -176,10 +176,10 @@ const OurService = () => {
 
   return (
     <div className="p-5 lg:px-[70px] bg-primary font-marcellus">
-      <h1 className="md:text-xl text-2xl font-medium text-black text-center">
+      <h1 className="md:text-xl text-2xl font-medium text-white text-center">
         Our Services
       </h1>
-      <h1 className="md:text-4xl text-2xl mb-5 font-medium text-black text-center">
+      <h1 className="md:text-4xl text-2xl mb-5 font-medium text-white text-center">
         Explore Our <span className="text-secondary">Cleaning Services</span>
       </h1>
 
