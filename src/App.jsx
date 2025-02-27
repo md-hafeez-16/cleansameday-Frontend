@@ -21,10 +21,7 @@ function App() {
   return (
     <>
       <Router>
-      <Toaster
-  position="top-right"
-  reverseOrder={false}
-/>
+        <Toaster position="top-right" reverseOrder={false} />
         <Header />
         <NavBar />
         <div className="">
@@ -37,7 +34,7 @@ function App() {
             <Route path="/bookings/:id" element={<Booking />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<ContactUs />} />
-            <Route path="/navbooking" element={<NavBookings/>}/>
+            <Route path="/navbooking" element={<NavBookings />} />
 
             {/* <-------main pages routes ----->  */}
 
