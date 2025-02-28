@@ -25,7 +25,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt=""
-              className="md:w-60 w-28 object-contain rounded-md"
+              className="lg:w-60 md:w-44 w-28 object-contain rounded-md"
             />
           </div>
         </a>
