@@ -45,7 +45,7 @@ const ServiceTimings = () => {
             <span className="font-bold text-primary">24/7</span> to serve you
             anytime, anywhere!"
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {timings.map((slot, index) => (
               <div
                 key={index}
