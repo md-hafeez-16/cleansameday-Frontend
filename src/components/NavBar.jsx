@@ -18,10 +18,6 @@ const NavBar = () => {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:px-5 px-2 ">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <div className="flex flex-col">
-            {/* <span className="self-center text-4xl font-medium text-primary whitespace-nowrap">
-              SAMEDAY
-            </span>
-            <p className="text-sm text-gray-500">Cleaning Services LLC Dubai</p> */}
             <img
               src={logo}
               alt=""
