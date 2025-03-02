@@ -213,7 +213,7 @@ const OurService = () => {
                   <h2 className="font-semibold text-lg truncate">
                     {service.name}
                   </h2>
-                  <p className="text-gray-600 text-sm mt-2">
+                  <p className="text-gray-600 text-sm mt-2 line-clamp-3">
                     {service.description}
                   </p>
                 </div>
