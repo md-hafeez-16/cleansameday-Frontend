@@ -61,7 +61,7 @@ const ServiceDetails = () => {
           <img
             src={
               service.imgUrl && service.imgUrl.length > 0
-                ? service.imgUrl[0]
+                ? service.imgUrl[1]
                 : ""
             }
             alt="Additional View"
@@ -70,7 +70,7 @@ const ServiceDetails = () => {
           <img
             src={
               service.imgUrl && service.imgUrl.length > 0
-                ? service.imgUrl[0]
+                ? service.imgUrl[2]
                 : ""
             }
             alt="Another View"
