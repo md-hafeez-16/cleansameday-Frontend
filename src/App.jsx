@@ -16,6 +16,7 @@ import HelpCenter from "./pages/useraggrements/components/HelpCenter";
 import { Toaster } from "react-hot-toast";
 import NavBookngs from "./pages/NavBookngs";
 import NavBookings from "./pages/NavBookngs";
+import DeepCleaning from "./pages/services/components/DeepCleaning";
 
 function App() {
   return (
@@ -30,7 +31,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/service" element={<Service />} />
+            <Route path="/deepservice" element={<DeepCleaning />} />
             <Route path="/servicedetails/:id" element={<ServiceDetails />} />
+
             <Route path="/bookings/:id" element={<Booking />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<ContactUs />} />

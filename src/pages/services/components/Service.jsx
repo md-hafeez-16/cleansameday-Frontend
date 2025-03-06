@@ -16,19 +16,41 @@ const Service = () => {
       behavior: "smooth",
     });
 
+    // const fetchServices = async () => {
+    //   try {
+    //     const response = await axios.get(
+    //       "https://cleansameday.com:4000/api/service/getAllServices"
+    //     );
+
+    //     console.log("API Response:", response.data); // Debugging
+
+    //     // Ensure services are properly set
+    //     if (response.data && response.data.serviceDoc) {
+    //       setServices(response.data.serviceDoc);
+    //     } else {
+    //       setServices([]); // Fallback if data structure is unexpected
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching services:", error);
+    //     setError("Failed to load services. Please try again later.");
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+
     const fetchServices = async () => {
       try {
         const response = await axios.get(
-          "https://cleansameday.com:4000/api/service/getAllServices"
+          "https://cleansameday.com:4000/api/service/getAllCleaningServices"
         );
 
         console.log("API Response:", response.data); // Debugging
 
-        // Ensure services are properly set
-        if (response.data && response.data.serviceDoc) {
-          setServices(response.data.serviceDoc);
+        // Update to match the correct API response structure
+        if (response.data && response.data.services) {
+          setServices(response.data.services);
         } else {
-          setServices([]); // Fallback if data structure is unexpected
+          setServices([]); // Fallback if the structure is unexpected
         }
       } catch (error) {
         console.error("Error fetching services:", error);
