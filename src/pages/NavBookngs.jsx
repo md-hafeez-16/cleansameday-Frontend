@@ -92,6 +92,9 @@ const NavBookings = () => {
       className="max-w-7xl mx-auto py-10 font-marcellus bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
+      <div className="mt-5 flex items-center justify-center">
+        <p className="ml-2 md:text-3xl text-2xl ">Bookings</p>
+      </div>
       <div className="flex items-center justify-center md:p-12 p-5">
         <div className="mx-auto w-full max-w-[800px] bg-white border p-5 md:p-10 rounded-md border-primary">
           <form onSubmit={handleSubmit}>

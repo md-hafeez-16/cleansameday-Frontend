@@ -92,8 +92,21 @@ const Footer = () => {
               Get In Touch
             </h4>
             <ul className="text-white space-y-2">
-              <li> info@cleansameday.com</li>
-              <li>+971 549 936911</li>
+              <li>
+                {" "}
+                <a
+                  href="mailto:info@cleansameday.com"
+                  className="hover:text-secondary"
+                >
+                  info@cleansameday.com
+                </a>
+              </li>
+              <li>
+                {" "}
+                <a href="tel:+971549936911" className="hover:text-secondary">
+                  +971 549 936911
+                </a>
+              </li>
               <li>
                 Noorani Enayatullah Building F1.127, Hor Al Anz Near Abu Hail,
                 Dubai-UAE
@@ -116,7 +129,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={item.path}
-                    className="hover:text-gray-900 transition-all duration-500"
+                    className="hover:text-secondary transition-all duration-500"
                   >
                     {item.name}
                   </Link>
@@ -151,7 +164,7 @@ const Footer = () => {
               © 2025, All rights reserved by SAMEDAY. | Powered by
               <a
                 href="https://pushpulltechnologys.com"
-                className=" hover:underline ml-2"
+                className=" hover:underline ml-2 hover:text-secondary"
               >
                 PushPull Technologys – Innovating the Future!
               </a>

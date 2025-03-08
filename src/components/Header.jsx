@@ -14,11 +14,14 @@ const Header = () => {
         <div className="max-w-[1620px] mx-auto flex lg:flex-row flex-col md:gap-2 lg:gap-2 2xl:gap-2 xl:gap-16 md:justify-between md:items-center text-[#FFFFFF] py-4 md:text-sm text-xs font-normal px-5">
           <h1>
             Call us:{" "}
-            <a href="tel:+971549936911" className="">
+            <a href="tel:+971549936911" className="hover:text-secondary">
               +971 549 936911
             </a>{" "}
             |{" "}
-            <a href="mailto:info@cleansameday.com" className="">
+            <a
+              href="mailto:info@cleansameday.com"
+              className="hover:text-secondary"
+            >
               info@cleansameday.com
             </a>
           </h1>
