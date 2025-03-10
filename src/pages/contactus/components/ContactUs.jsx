@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Call02Icon, Location01Icon, Mail01Icon } from "hugeicons-react";
-import bgimg from "../../../assets/images/call2.jpg";
+import bgimg from "../../../assets/images/contact2.jpg";
 import {
   FaComment,
   FaCommentAlt,
@@ -10,6 +10,8 @@ import {
   FaRegUser,
 } from "react-icons/fa";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // import toast, { Toaster } from "react-hot-toast";
 
@@ -106,12 +108,23 @@ const ContactUs = () => {
     });
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      easing: "ease-in-out",
+      delay: 100,
+      anchorPlacement: "center-bottom",
+    });
+  }, []);
+
   return (
     <>
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
       <div className=" font-marcellus font-medium max-w-7xl mx-auto">
-        <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px]">
-          <div className="mt-5 flex items-center">
+        <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px] overflow-visible">
+          <div className="mt-5 flex items-center" data-aos="fade-down">
             <p className="ml-2 md:text-3xl text-2xl ">Contact Us</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 mt-10 overflow-hidden h-full w-full">
@@ -121,14 +134,25 @@ const ContactUs = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-[#252F41] opacity-70 via-[#252F41] to-[#252F41] sm:block"></div>
               <div className="relative md:top-10 lg:top-28 lg:left-9 2xl:top-24 2xl:left-24 z-10">
-                <h1 className=" md:text-3xl text-2xl text-[#FFFFFF] mb-2">
+                <h1
+                  className=" md:text-3xl text-2xl text-[#FFFFFF] mb-2"
+                  data-aos="fade-left"
+                >
                   Get In Touch With Us
                 </h1>
-                <p className="text-[#FFFFFF] md:text-base text-sm font-normal mb-6">
+                <p
+                  className="text-[#FFFFFF] md:text-base text-sm font-normal mb-6"
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                >
                   Reach out to us for all your enquiry and assistance. <br />
                   Contact us now for prompt support.
                 </p>
-                <div className="flex gap-2 items-center mt-4 text-lg ">
+                <div
+                  className="flex gap-2 items-center mt-4 text-lg "
+                  data-aos="fade-right"
+                  data-aos-delay="200"
+                >
                   <div className="bg-primary p-2 text-white rounded-sm">
                     <Call02Icon />
                   </div>
@@ -142,7 +166,11 @@ const ContactUs = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2 items-center mt-4 text-lg ">
+                <div
+                  className="flex gap-2 items-center mt-4 text-lg "
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                >
                   <div className="bg-primary p-2 text-white rounded-sm">
                     <Mail01Icon />
                   </div>
@@ -157,7 +185,11 @@ const ContactUs = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2 items-center mt-4 text-lg ">
+                <div
+                  className="flex gap-2 items-center mt-4 text-lg "
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
                   <div className="bg-primary p-2 text-white rounded-sm mb-5">
                     <Mail01Icon />
                   </div>
@@ -177,7 +209,10 @@ const ContactUs = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-primary p-4 md:p-8 md:rounded-r-lg rounded-lg md:rounded-none mt-5 md:mt-0 xl:px-16">
+            <div
+              className="bg-primary p-4 md:p-8 md:rounded-r-lg rounded-lg md:rounded-none mt-5 md:mt-0 xl:px-16"
+              data-aos="zoom-in"
+            >
               <form
                 className="bg-[#ffffff] border border-gray-300 p-5 rounded-lg shadow-lg w-full h-full mx-auto"
                 onSubmit={handleSubmit}
@@ -328,4 +363,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-////

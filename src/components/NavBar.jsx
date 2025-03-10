@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/images/samedayfinal.png";
+import logo from "../assets/images/Samedayfinal.png";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ const NavBar = () => {
             <img
               src={logo}
               alt=""
-              className="md:w-60 w-28 object-contain rounded-md"
+              className="lg:w-60 md:w-44 w-28 object-contain rounded-md"
             />
           </div>
         </a>

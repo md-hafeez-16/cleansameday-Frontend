@@ -92,76 +92,83 @@ const NavBookings = () => {
       className="max-w-7xl mx-auto py-10 font-marcellus bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
+      <div className="mt-5 flex items-center justify-center">
+        <p className="ml-2 md:text-3xl text-2xl ">Bookings</p>
+      </div>
       <div className="flex items-center justify-center md:p-12 p-5">
-        <div className="mx-auto w-full max-w-[550px] bg-white border p-5 rounded-md border-primary">
+        <div className="mx-auto w-full max-w-[800px] bg-white border p-5 md:p-10 rounded-md border-primary">
           <form onSubmit={handleSubmit}>
-            <div className="mb-5">
-              <label
-                htmlFor="firstName"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                name="firstName"
-                id="firstName"
-                onChange={handleFormSubmit}
-                required
-                placeholder="Enter Your Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+              <div className="mb-5">
+                <label
+                  htmlFor="firstName"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  onChange={handleFormSubmit}
+                  required
+                  placeholder="Enter First Your Name"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
+              <div className="mb-5">
+                <label
+                  htmlFor="lastName"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  onChange={handleFormSubmit}
+                  id="lastName"
+                  required
+                  placeholder="Enter Your Last Name"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
             </div>
-            <div className="mb-5">
-              <label
-                htmlFor="lastName"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                name="lastName"
-                onChange={handleFormSubmit}
-                id="lastName"
-                required
-                placeholder="Enter Your Last Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="phone"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                Phone Number
-              </label>
-              <input
-                type="text"
-                name="phone"
-                id="phone"
-                onChange={handleFormSubmit}
-                required
-                placeholder="Enter your phone number"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="email"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                onChange={handleFormSubmit}
-                required
-                placeholder="Enter your email"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+              <div className="mb-5">
+                <label
+                  htmlFor="phone"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  onChange={handleFormSubmit}
+                  required
+                  placeholder="Enter your phone number"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
+              <div className="mb-5">
+                <label
+                  htmlFor="email"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={handleFormSubmit}
+                  required
+                  placeholder="Enter your email"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                />
+              </div>
             </div>
             <div className="mb-5 ">
               <label
@@ -232,29 +239,31 @@ const NavBookings = () => {
                 Address Details
               </label>
               <div className="-mx-3 flex flex-wrap">
-                <div className="w-full px-3">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.addressLine1"
-                      id="addressLine1"
-                      onChange={handleFormSubmit}
-                      required
-                      placeholder="Address Line 1"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-5 w-full">
+                  <div className="w-full px-3">
+                    <div className="mb-5">
+                      <input
+                        type="text"
+                        name="address.addressLine1"
+                        id="addressLine1"
+                        onChange={handleFormSubmit}
+                        required
+                        placeholder="Address Line 1"
+                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="w-full px-3">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.addressLine2"
-                      id="addressLine2"
-                      onChange={handleFormSubmit}
-                      placeholder="Address Line 2 (optional)"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
+                  <div className="w-full px-3">
+                    <div className="mb-5">
+                      <input
+                        type="text"
+                        name="address.addressLine2"
+                        id="addressLine2"
+                        onChange={handleFormSubmit}
+                        placeholder="Address Line 2 (optional)"
+                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="w-full px-3 sm:w-1/2">

@@ -8,6 +8,7 @@ import smallBanner3 from "../../assets/images/clean2.jpg";
 
 import BigBann1 from "../../assets//backgroundimages/bg23.jpg";
 import BigBann2 from "../../assets/backgroundimages/bg24.jpg";
+import bgImg1 from "../../assets/backgroundimages/bgImg1.png";
 // import BigBann3 from "../../assets/backgroundimages/bg5.jpg";
 // import BigBann4 from "../../assets/backgroundimages/bg2.jpg";
 
@@ -87,6 +88,13 @@ const HomeSlider = () => {
               </div>
             </div>
           ))}
+          <div className="w-full h-[300px] md:h-[500px] relative">
+            <img
+              src={bgImg1}
+              alt={`Banner`}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </Slider>
       </div>
     </div>
