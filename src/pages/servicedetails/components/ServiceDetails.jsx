@@ -158,9 +158,9 @@ const ServiceDetails = () => {
           Selected Service Booking Details
         </h1>
       </div>
-      <div>
+      {/* <div>
         <p>{service.category}</p>
-      </div>
+      </div> */}
       <div className="flex gap-5">
         {/* Main Image */}
         <img
