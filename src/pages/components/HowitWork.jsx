@@ -12,8 +12,8 @@ const HowitWork = () => {
             <h2 className="text-4xl  font-medium mx-auto md:text-6xl lg:text-5xl">
               How does it work?
             </h2>
-            <p className="max-w-2xl mx-auto mt-4 text-base  leading-relaxed md:text-2xl">
-              Our AI solution will help you from start to finish
+            <p className="max-w-2xl mx-auto mt-4 text-base  leading-relaxed md:text-xl">
+              We support you every step of the way-from beginning to end.
             </p>
           </div>
           <div className="relative mt-12 lg:mt-20">

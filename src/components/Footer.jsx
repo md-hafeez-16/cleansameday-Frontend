@@ -163,8 +163,8 @@ const Footer = () => {
             <span className="text-sm text-white">
               © 2025, All rights reserved by SAMEDAY. | Powered by
               <a
-                href="https://pushpulltechnologys.com"
-                className=" hover:underline ml-2 hover:text-secondary"
+                // href="https://pushpulltechnologys.com"
+                className=" hover:underline ml-2 hover:text-secondary cursor-pointer"
               >
                 PushPull Technologys – Innovating the Future!
               </a>
