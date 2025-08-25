@@ -38,7 +38,7 @@ const Header = () => {
               <RiTwitterXFill className="w-4 h-4 cursor-pointer text-secondary" />
             </a>
             <a
-              href="https://www.instagram.com/same.daycleaningservice/"
+              href="https://www.instagram.com/samedaycleaning_dubai/"
               target="_blank"
               rel="noopener noreferrer"
             >

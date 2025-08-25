@@ -12,6 +12,8 @@
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^1.7.9",
+    "browserslist": "^4.25.3",
+    "caniuse-lite": "^1.0.30001737",
     "dotenv": "^16.4.7",
     "framer-motion": "^12.4.10",
     "hugeicons-react": "^0.3.0",

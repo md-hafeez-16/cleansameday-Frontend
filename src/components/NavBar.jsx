@@ -1,142 +1,47 @@
-// import React, { useState } from "react";
-// import { Link, useLocation } from "react-router-dom";
-// import logo from "../assets/images/samedayfinal.png";
-
-// const NavBar = () => {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const location = useLocation();
-
-//   const toggleMenu = () => {
-//     setIsMenuOpen(!isMenuOpen);
-//   };
-
-//   const isActive = (path) =>
-//     location.pathname === path ? "text-primary" : "text-gray-900";
-
-//   return (
-//     <nav className="bg-white border-b-2 border-primary font-marcellus max-w-7xl mx-auto">
-//       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:px-5 px-2 ">
-//         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-//           <div className="flex flex-col">
-//             {/* <span className="self-center text-4xl font-medium text-primary whitespace-nowrap">
-//               SAMEDAY
-//             </span>
-//             <p className="text-sm text-gray-500">Cleaning Services LLC Dubai</p> */}
-//             <img
-//               src={logo}
-//               alt=""
-//               className="lg:w-60 md:w-44 w-28 object-contain rounded-md"
-//             />
-//           </div>
-//         </a>
-//         <button
-//           onClick={toggleMenu}
-//           data-collapse-toggle="navbar-default"
-//           type="button"
-//           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-//           aria-controls="navbar-default"
-//           aria-expanded={isMenuOpen}
-//         >
-//           <span className="sr-only">Open main menu</span>
-//           <svg
-//             className="w-5 h-5"
-//             aria-hidden="true"
-//             xmlns="http://www.w3.org/2000/svg"
-//             fill="none"
-//             viewBox="0 0 17 14"
-//           >
-//             <path
-//               stroke="currentColor"
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               strokeWidth="2"
-//               d="M1 1h15M1 7h15M1 13h15"
-//             />
-//           </svg>
-//         </button>
-//         <div
-//           className={`${
-//             isMenuOpen ? "block" : "hidden"
-//           } w-full md:block md:w-auto`}
-//           id="navbar-default"
-//         >
-//           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
-//             <li>
-//               <Link
-//                 to="/"
-//                 className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
-//                   "/"
-//                 )}`}
-//               >
-//                 Home
-//               </Link>
-//             </li>
-//             <li>
-//               <Link
-//                 to="/aboutus"
-//                 className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
-//                   "/aboutus"
-//                 )}`}
-//               >
-//                 About
-//               </Link>
-//             </li>
-//             <li>
-//               <Link
-//                 to="/service"
-//                 className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
-//                   "/service"
-//                 )}`}
-//               >
-//                 Services
-//               </Link>
-//             </li>
-//             <li>
-//               <Link
-//                 to="/navbooking"
-//                 className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
-//                   "/bookings"
-//                 )}`}
-//               >
-//                 Booking
-//               </Link>
-//             </li>
-//             <li>
-//               <Link
-//                 to="/gallery"
-//                 className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
-//                   "/gallery"
-//                 )}`}
-//               >
-//                 Gallery
-//               </Link>
-//             </li>
-//             <li>
-//               <Link
-//                 to="/contact"
-//                 className={`block py-2 px-3 rounded hover:text-primary lg:text-xl hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 ${isActive(
-//                   "/contact"
-//                 )}`}
-//               >
-//                 Contact Us
-//               </Link>
-//             </li>
-//           </ul>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default NavBar;
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
 import logo from "../assets/images/Samedayfinal.png";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [deepCleaningServices, setDeepCleaningServices] = useState([]);
+  const [cleaningServices, setCleaningServices] = useState([]);
+  const [hoveredCategory, setHoveredCategory] = useState(null);
   const location = useLocation();
+
+  // Fetch services data
+  useEffect(() => {
+    const fetchDeepCleaningServices = async () => {
+      try {
+        const response = await axios.get(
+          "https://cleansameday.com:4000/api/service/getAllDeepCleaningServices"
+        );
+        if (response.data && response.data.services) {
+          setDeepCleaningServices(response.data.services);
+        }
+      } catch (error) {
+        console.error("Error fetching deep cleaning services:", error);
+      }
+    };
+
+    const fetchCleaningServices = async () => {
+      try {
+        const response = await axios.get(
+          "https://cleansameday.com:4000/api/service/getAllCleaningServices"
+        );
+        if (response.data && response.data.services) {
+          setCleaningServices(response.data.services);
+        }
+      } catch (error) {
+        console.error("Error fetching cleaning services:", error);
+      }
+    };
+
+    fetchDeepCleaningServices();
+    fetchCleaningServices();
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -150,6 +55,7 @@ const NavBar = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
+    setHoveredCategory(null);
   };
 
   useEffect(() => {
@@ -158,7 +64,6 @@ const NavBar = () => {
         closeMenu();
       }
     };
-
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
@@ -172,6 +77,12 @@ const NavBar = () => {
   const isActive = (path) =>
     location.pathname === path ? "text-primary" : "text-gray-900";
 
+  const handleServiceClick = (serviceId) => {
+    closeMenu();
+    // Navigate to service details page
+    window.location.href = `/servicedetails/${serviceId}`;
+  };
+
   return (
     <nav className="bg-white border-b-2 border-primary font-marcellus max-w-7xl mx-auto">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:px-5 px-2 menu-container">
@@ -184,6 +95,7 @@ const NavBar = () => {
             />
           </div>
         </a>
+        
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -211,6 +123,7 @@ const NavBar = () => {
             />
           </svg>
         </button>
+        
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
@@ -240,16 +153,19 @@ const NavBar = () => {
                 About
               </Link>
             </li>
-            {/* Services Dropdown */}
-            <li className="relative dropdown">
+            
+            {/* Services Multi-level Dropdown */}
+            <li className="relative dropdown group">
               <button
                 onClick={toggleDropdown}
-                className={`block py-2 px-3 rounded lg:text-xl hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 flex items-center gap-1`}
+                className="block py-2 px-3 rounded lg:text-xl hover:text-primary hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 flex items-center gap-1"
               >
                 Services
                 <svg
                   className="w-4 h-4 transition-transform"
-                  style={{ transform: isDropdownOpen ? "rotate(180deg)" : "" }}
+                  style={{
+                    transform: isDropdownOpen ? "rotate(180deg)" : "",
+                  }}
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -263,8 +179,114 @@ const NavBar = () => {
                   />
                 </svg>
               </button>
+              
               {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 md:block hidden">
+                  <ul className="py-2">
+                    {/* Deep Cleaning with nested dropdown */}
+                    <li
+                      className="relative group/nested"
+                      onMouseEnter={() => setHoveredCategory('deep')}
+                      onMouseLeave={() => setHoveredCategory(null)}
+                    >
+                      <div className="flex items-center justify-between px-4 py-2 text-gray-900 hover:bg-gray-100 cursor-pointer">
+                        <Link
+                          to="/deepservice"
+                          onClick={closeMenu}
+                          className="flex-1"
+                        >
+                          Deep Cleaning
+                        </Link>
+                        <svg
+                          className="w-4 h-4 ml-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                      
+                      {/* Deep Cleaning Services Submenu */}
+                      {hoveredCategory === 'deep' && deepCleaningServices.length > 0 && (
+                        <div className="absolute left-full top-0 ml-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-60">
+                          <ul className="py-2 max-h-96 overflow-y-auto">
+                            {deepCleaningServices.map((service) => (
+                              <li key={service._id}>
+                                <button
+                                  onClick={() => handleServiceClick(service._id)}
+                                  className="w-full text-left px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+                                >
+                                  <div className="font-medium">{service.name}</div>
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                    
+                    {/* Cleaning Service with nested dropdown */}
+                    <li
+                      className="relative group/nested"
+                      onMouseEnter={() => setHoveredCategory('cleaning')}
+                      onMouseLeave={() => setHoveredCategory(null)}
+                    >
+                      <div className="flex items-center justify-between px-4 py-2 text-gray-900 hover:bg-gray-100 cursor-pointer">
+                        <Link
+                          to="/service"
+                          onClick={closeMenu}
+                          className="flex-1"
+                        >
+                          Cleaning Service
+                        </Link>
+                        <svg
+                          className="w-4 h-4 ml-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                      
+                      {/* Cleaning Services Submenu */}
+                      {hoveredCategory === 'cleaning' && cleaningServices.length > 0 && (
+                        <div className="absolute left-full top-0 ml-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-60">
+                          <ul className="py-2 max-h-96 overflow-y-auto">
+                            {cleaningServices.map((service) => (
+                              <li key={service._id}>
+                                <button
+                                  onClick={() => handleServiceClick(service._id)}
+                                  className="w-full text-left px-4 py-2 text-sm text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+                                >
+                                  <div className="font-medium">{service.name}</div>
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+              )}
+              
+              {/* Mobile dropdown - simplified without nested menus */}
+              {isDropdownOpen && (
+                <div className="md:hidden block w-full bg-white border border-gray-200 rounded-lg shadow-lg mt-2">
                   <ul className="py-2">
                     <li>
                       <Link
@@ -288,6 +310,7 @@ const NavBar = () => {
                 </div>
               )}
             </li>
+            
             <li>
               <Link
                 to="/navbooking"
