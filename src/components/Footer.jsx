@@ -43,7 +43,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/same.daycleaningservice/"
+                href="https://www.instagram.com/samedaycleaning_dubai/"
                 target="_blank"
                 className="relative w-8 h-8 rounded-full transition-all duration-500 flex justify-center items-center bg-[linear-gradient(45deg,#FEE411_6.9%,#FEDB16_10.98%,#FEC125_17.77%,#FE983D_26.42%,#FE5F5E_36.5%,#FE2181_46.24%,#9000DC_85.57%)]  hover:bg-gradient-to-b from-gray-900 to-gray-900
                         "
@@ -108,8 +108,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                Noorani Enayatullah Building F1.127, Hor Al Anz Near Abu Hail,
-                Dubai-UAE
+                F1 - 127 30B St - Hor Al Anz - Dubai - United Arab Emirates
               </li>
             </ul>
           </div>
@@ -163,7 +162,7 @@ const Footer = () => {
             <span className="text-sm text-white">
               © 2025, All rights reserved by SAMEDAY. | Powered by
               <a
-                // href="https://pushpulltechnologys.com"
+                 //href="https://pushpulltechnologys.com"
                 className=" hover:underline ml-2 hover:text-secondary cursor-pointer"
               >
                 PushPull Technologys – Innovating the Future!
