@@ -45,7 +45,7 @@ import { useNavigate } from "react-router-dom";
 const testimonials = [
   {
     id: 1,
-    text: "The cleaning team was exceptional! They left every corner spotless, and I couldn't be happier with the results.",
+    text: "The cleaning team was exceptional! They left every corner spotless, and I couldn't be happier with the results.I am truly impressed with your work today. The way you cleaned every corner of the kitchen with such care and attention to detail was outstanding. Thank you so much for your great effort and dedication—it really made a big difference. Well done!",
     name: "Ahmed Al Mansoori",
     role: "Homeowner",
     avatar: "https://randomuser.me/api/portraits/men/81.jpg",

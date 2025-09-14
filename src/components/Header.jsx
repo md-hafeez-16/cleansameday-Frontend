@@ -1,16 +1,13 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa";
-
-import { TiSocialTwitterCircular } from "react-icons/ti";
-import { IoLogoYoutube } from "react-icons/io";
-import { MdFacebook } from "react-icons/md";
 import { RiTwitterXFill } from "react-icons/ri";
 import { IoLogoTiktok } from "react-icons/io5";
+import { MdFacebook } from "react-icons/md";
 
 const Header = () => {
   return (
     <>
-      <div className="bg-primary  font-marcellus  max-w-7xl mx-auto">
+      <div className="bg-primary font-marcellus max-w-7xl mx-auto">
         <div className="max-w-[1620px] mx-auto flex lg:flex-row flex-col md:gap-2 lg:gap-2 2xl:gap-2 xl:gap-16 md:justify-between md:items-center text-[#FFFFFF] py-4 md:text-sm text-xs font-normal px-5">
           <h1>
             Call us:{" "}
@@ -25,9 +22,7 @@ const Header = () => {
               info@cleansameday.com
             </a>
           </h1>
-          {/* <p className="whitespace-nowrap">
-            Join Us Sunday @ 9:00 Am for Special Pooja!
-          </p> */}
+
           <p className="flex items-center gap-2 whitespace-nowrap">
             Follow Us :{" "}
             <a
@@ -37,6 +32,7 @@ const Header = () => {
             >
               <RiTwitterXFill className="w-4 h-4 cursor-pointer text-secondary" />
             </a>
+
             <a
               href="https://www.instagram.com/samedaycleaning_dubai/"
               target="_blank"
@@ -44,8 +40,22 @@ const Header = () => {
             >
               <FaInstagram className="md:w-4 md:h-4 cursor-pointer text-secondary" />
             </a>
-            <MdFacebook className="md:w-5 md:h-5 cursor-pointer text-secondary" />
-            <IoLogoTiktok className="md:w-4 md:h-4 cursor-pointer text-secondary" />
+
+            <a
+              href="https://www.facebook.com/share/1AfRGEsnaK/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MdFacebook className="md:w-5 md:h-5 cursor-pointer text-secondary" />
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@sameday.cleaning?_t=ZS-8zBz5ypz8l6&_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IoLogoTiktok className="md:w-4 md:h-4 cursor-pointer text-secondary" />
+            </a>
           </p>
         </div>
       </div>
