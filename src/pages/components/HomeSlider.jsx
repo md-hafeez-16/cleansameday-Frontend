@@ -2,13 +2,19 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import smallBanner1 from "../../assets/images/clean.jpg";
-import smallBanner2 from "../.././assets/images/clean1.jpg";
-import smallBanner3 from "../../assets/images/clean2.jpg";
+// import smallBanner1 from "../../assets/images/clean.jpg";
+// import smallBanner2 from "../.././assets/images/clean1.jpg";
+// import smallBanner3 from "../../assets/images/clean2.jpg";
+import smallBanner1 from "../../assets_optimized/images/clean.webp";
+import smallBanner2 from "../../assets_optimized/images/clean1.webp";
+import smallBanner3 from "../../assets_optimized/images/clean2.webp";
 
-import BigBann1 from "../../assets//backgroundimages/bg23.jpg";
-import BigBann2 from "../../assets/backgroundimages/bg24.jpg";
-import bgImg1 from "../../assets/images/ban3.jpg";
+// import BigBann1 from "../../assets/backgroundimages/bg23.jpg";
+import BigBann1 from "../../assets_optimized/backgroundimages/bg23.webp";
+import BigBann2 from "../../assets_optimized/backgroundimages/bg24.webp";
+import bgImg1 from "../../assets_optimized/images/ban3.webp";
+// import BigBann2 from "../../assets/backgroundimages/bg24.jpg";
+// import bgImg1 from "../../assets/images/ban3.jpg";
 // import BigBann3 from "../../assets/backgroundimages/bg5.jpg";
 // import BigBann4 from "../../assets/backgroundimages/bg2.jpg";
 
