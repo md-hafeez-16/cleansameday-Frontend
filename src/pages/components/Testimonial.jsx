@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import img from "../../assets/images/about1.png";
+import img from "../../assets_optimized/images/about1.webp";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FcCustomerSupport } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";

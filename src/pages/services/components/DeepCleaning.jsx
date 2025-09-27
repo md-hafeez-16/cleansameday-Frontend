@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../../../assets/images/servicebg.jpg";
-import whatsapp from "../../../assets/images/whatsaap.jpg";
+import backgroundImage from "../../assets_optimized/images/servicebg.webp";
+import whatsapp from "../../assets_optimized/images/whatsaap.webp";
 
 const DeepCleaning = () => {
   const [services, setServices] = useState([]);

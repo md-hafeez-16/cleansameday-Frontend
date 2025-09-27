@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import bgImage from "../../assets/images/about.jpg";
+import bgImage from "../../assets_optimized/images/about.webp";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../constants";

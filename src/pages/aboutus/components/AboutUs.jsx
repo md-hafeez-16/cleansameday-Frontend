@@ -161,11 +161,11 @@
 // export default AboutUs;
 
 import React, { useEffect } from "react";
-import backgroundImage from "../../../assets/images/about.jpg";
+import backgroundImage from "../../../assets_optimized/images/about.webp";
 import OurVision from "./OurVision";
 import { useNavigate } from "react-router-dom";
 import AboutbookSection from "./AboutbookSection";
-import whatsapp from "../../../assets/images/whatsaap.jpg";
+import whatsapp from "../../../assets_optimized/images/whatsaap.webp";
 import { GoCheckCircleFill } from "react-icons/go";
 import { FaArrowRightLong } from "react-icons/fa6";
 

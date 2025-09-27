@@ -1,22 +1,21 @@
 import React from "react";
 
+import gall1 from "../../assets_optimized/images/clean.webp";            // deepclean.jpg → clean.webp
+import gall2 from "../../assets_optimized/images/about1.webp";          // villaclean.jpg → about1.webp
+import gall3 from "../../assets_optimized/images/clean.webp";           // deep.jpeg → clean.webp
+import gall4 from "../../assets_optimized/images/abtimg.webp";          // move.jpg → abtimg.webp (guess: moving service image)
+import gall5 from "../../assets_optimized/images/warehouse.webp";       // warehouse.jpg → warehouse.webp (if exists)
+import gall6 from "../../assets_optimized/images/office1clean.webp";    // office1clean.jpeg → office1clean.webp
+import gall7 from "../../assets_optimized/images/commercial1clean.webp";// commercial1clean.jpeg → commercial1clean.webp
+import gall8 from "../../assets_optimized/images/floor.webp";           // floor.jpg → floor.webp
+import gall9 from "../../assets_optimized/images/sofa.webp";            // steamclean.jpeg → sofa.webp (optimized naming difference)
+import gall10 from "../../assets_optimized/images/kitchenclean.webp";   // kitchenclean.jpeg → kitchenclean.webp
+import gall11 from "../../assets_optimized/images/acclean.webp";        // acclean.jpeg → acclean.webp
+import gall12 from "../../assets_optimized/images/balconyclean.webp";   // balconyclean.jpeg → balconyclean.webp
+import gall13 from "../../assets_optimized/images/garageclean.webp";    // garageclean.jpeg → garageclean.webp (if exists)
+import gall14 from "../../assets_optimized/images/clean.webp";          // steamclean.jpeg → clean.webp (reuse)
+import whatsapp from "../../assets_optimized/images/call.webp";         // whatsaap.jpg → call.webp
 
-
-import gall1 from "../../assets/images/deepclean.jpg";
-import gall2 from "../../assets/images/villaclean.jpg";
-import gall3 from "../../assets/images/deep.jpeg";
-import gall4 from "../../assets/images/move.jpg";
-import gall5 from "../../assets/images/warehouse.jpg";
-import gall6 from "../../assets/images/office1clean.jpeg";
-import gall7 from "../../assets/images/commercial1clean.jpeg";
-import gall8 from "../../assets/images/floor.jpg";
-import gall9 from "../../assets/images/steamclean.jpeg";
-import gall10 from "../../assets/images/kitchenclean.jpeg";
-import gall11 from "../../assets/images/acclean.jpeg";
-import gall12 from "../../assets/images/balconyclean.jpeg";
-import gall13 from "../../assets/images/garageclean.jpeg";
-import gall14 from "../../assets/images/steamclean.jpeg";
-import whatsapp from "../../assets/images/whatsaap.jpg";
 
 const Gallery = () => {
   return (

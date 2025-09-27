@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Call02Icon, Location01Icon, Mail01Icon } from "hugeicons-react";
-import bgimg from "../../../assets/images/contact2.jpg";
+import bgimg from "../../assets_optimized/images/contact2.webp";
 import {
   FaComment,
   FaCommentAlt,

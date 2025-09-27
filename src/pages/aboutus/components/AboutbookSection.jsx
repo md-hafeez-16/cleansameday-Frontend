@@ -60,7 +60,7 @@
 
 // export default AboutbookSection;
 import React, { useEffect } from "react";
-import img from "../../../assets/images/abtimg.png";
+import img from "../../../assets_optimized/images/abtimg.webp";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FcCustomerSupport } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { BASE_URL } from "../constants";
-import bgImage from "../assets/images/about.jpg";
+import bgImage from "../assets_optimized/images/about.webp";
 import { useNavigate } from "react-router-dom";
 
 const NavBookings = () => {

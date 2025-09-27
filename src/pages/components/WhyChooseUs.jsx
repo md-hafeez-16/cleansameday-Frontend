@@ -1,8 +1,8 @@
 import React from "react";
-import why from "../../assets/images/wallclock.png";
-import why1 from "../../assets/images/hygiene.png";
-import why2 from "../../assets/images/handshake.png";
-import why3 from "../../assets/images/shield.png";
+import why from "../../assets_optimized/images/wallclock.webp";
+import why1 from "../../assets_optimized/images/hygiene.webp";
+import why2 from "../../assets_optimized/images/handshake.webp";
+import why3 from "../../assets_optimized/images/shield.webp";
 
 const WhyChooseUs = () => {
   return (

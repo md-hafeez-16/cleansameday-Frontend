@@ -4,7 +4,7 @@ import HowitWork from "./HowitWork";
 import OurService from "./OurService";
 import WhyChooseUs from "./WhyChooseUs";
 import Testimonial from "./Testimonial";
-import whatsapp from "../../assets/images/whatsaap.jpg";
+import whatsapp from "../../assets_optimized/images/whatsaap.webp";
 import BookService from "./BookService";
 
 const Home = () => {
