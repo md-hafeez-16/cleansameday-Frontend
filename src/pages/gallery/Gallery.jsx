@@ -8,7 +8,7 @@ import gall5 from "../../assets_optimized/images/warehouse.webp";       // wareh
 import gall6 from "../../assets_optimized/images/office1clean.webp";    // office1clean.jpeg → office1clean.webp
 import gall7 from "../../assets_optimized/images/commercial1clean.webp";// commercial1clean.jpeg → commercial1clean.webp
 import gall8 from "../../assets_optimized/images/floor.webp";           // floor.jpg → floor.webp
-import gall9 from "../../assets_optimized/images/sofa.webp";            // steamclean.jpeg → sofa.webp (optimized naming difference)
+import gall9 from "../../assets_optimized/images/sofaclean.webp";            // steamclean.jpeg → sofa.webp (optimized naming difference)
 import gall10 from "../../assets_optimized/images/kitchenclean.webp";   // kitchenclean.jpeg → kitchenclean.webp
 import gall11 from "../../assets_optimized/images/acclean.webp";        // acclean.jpeg → acclean.webp
 import gall12 from "../../assets_optimized/images/balconyclean.webp";   // balconyclean.jpeg → balconyclean.webp

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-import whatsapp from "../../assets_optimized/images/whatsaap.webp";
+import whatsapp from "../../../assets_optimized/images/whatsaap.webp";
  // ✅ Import WhatsApp icon
 
 const ServiceDetails = () => {
