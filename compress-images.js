@@ -8,6 +8,7 @@ const outputDir = path.join(process.cwd(), "src/assets_optimized");
 
 // Ensure output folder exists
 if (!fs.existsSync(outputDir)) {
+  
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
