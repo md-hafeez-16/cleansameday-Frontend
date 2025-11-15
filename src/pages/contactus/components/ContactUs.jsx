@@ -364,6 +364,362 @@
 
 // export default ContactUs;
 
+//--------------------------------------------------------------------
+
+
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import { Helmet } from "react-helmet";
+// import { Call02Icon, Mail01Icon } from "hugeicons-react";
+// import bgimg from "../../../assets_optimized/images/contact2.webp";
+// import {
+//   FaCommentAlt,
+//   FaEnvelope,
+//   FaMobileAlt,
+//   FaRegUser,
+//   FaChevronDown,
+//   FaChevronUp,
+// } from "react-icons/fa";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
+
+// const ContactUs = () => {
+//   // 🔹 Form State
+//   const [firstName, setFirstName] = useState("");
+//   const [lastName, setLastName] = useState("");
+//   const [phone, setPhone] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [address, setAddress] = useState("");
+//   const [expandedId, setExpandedId] = useState(null);
+
+//   // 🔹 Submit Handler
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+
+//     const reqbody = {
+//       firstName,
+//       lastName,
+//       email,
+//       phone,
+//       message: address,
+//     };
+
+//     try {
+//       const res = await axios.post(
+//         "https://cleansameday.com:4000/api/mailsender/sendEmail",
+//         reqbody,
+//         { headers: { "Content-Type": "application/json" } }
+//       );
+
+//       if (res.status === 200) {
+//         alert("Email Sent Successfully");
+//         setFirstName("");
+//         setLastName("");
+//         setEmail("");
+//         setPhone("");
+//         setAddress("");
+//       } else {
+//         alert("Email Not Sent");
+//       }
+//     } catch (error) {
+//       console.error("Error sending email:", error);
+//       alert("Email Not Sent");
+//     }
+//   };
+
+//   // 🔹 FAQs
+//   const faqs = [
+//     {
+//       id: 1,
+//       question: "What types of cleaning services do you offer?",
+//       answer:
+//         "We offer residential, commercial, deep, move-in/move-out, and post-construction cleaning services.",
+//     },
+//     {
+//       id: 2,
+//       question: "Are your cleaning products safe for pets and children?",
+//       answer:
+//         "Yes, we use eco-friendly and non-toxic cleaning products safe for pets and children.",
+//     },
+//     {
+//       id: 3,
+//       question: "How can I book a cleaning service?",
+//       answer:
+//         "You can book via our website or call our support team. We offer flexible scheduling.",
+//     },
+//     {
+//       id: 4,
+//       question: "Do I need to provide cleaning supplies?",
+//       answer:
+//         "No, we bring all necessary cleaning supplies and equipment to your location.",
+//     },
+//     {
+//       id: 5,
+//       question: "What if I am not satisfied with the cleaning service?",
+//       answer:
+//         "If you're not satisfied, let us know within 24 hours — we'll send a team to make it right.",
+//     },
+//   ];
+
+//   const handleToggle = (id) => {
+//     setExpandedId((prevId) => (prevId === id ? null : id));
+//   };
+
+//   // 🔹 Effects
+//   useEffect(() => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+//   }, []);
+
+//   useEffect(() => {
+//     AOS.init({
+//       duration: 1000,
+//       once: false,
+//       mirror: true,
+//       easing: "ease-in-out",
+//       delay: 100,
+//       anchorPlacement: "center-bottom",
+//     });
+//   }, []);
+
+//   return (
+//     <>
+//       {/* 🔹 SEO Meta Tags */}
+//       <Helmet>
+//         <title>Contact Us | Clean Same Day Dubai</title>
+//         <meta
+//           name="description"
+//           content="Get in touch with Clean Same Day Dubai for fast, reliable cleaning services. Contact us via phone, email, or message for residential and commercial cleaning inquiries."
+//         />
+//         <link rel="canonical" href="https://cleansameday.com/contact-us" />
+//       </Helmet>
+
+//       <div className="font-marcellus font-medium max-w-7xl mx-auto">
+//         <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px] overflow-visible">
+//           <div className="mt-5 flex items-center" data-aos="fade-down">
+//             <h1 className="ml-2 md:text-3xl text-2xl">Contact Us</h1>
+//           </div>
+
+//           <div className="grid grid-cols-1 md:grid-cols-2 mt-10 overflow-hidden h-full w-full">
+//             {/* Left Side - Contact Info */}
+//             <div
+//               className="bg-cover w-full h-full p-8 md:rounded-l-lg rounded-lg md:rounded-none relative"
+//               style={{ backgroundImage: `url(${bgimg})` }}
+//             >
+//               <div className="absolute inset-0 bg-gradient-to-t from-[#252F41] opacity-70 via-[#252F41] to-[#252F41]"></div>
+//               <div className="relative md:top-10 lg:top-28 lg:left-9 2xl:top-24 2xl:left-24 z-10">
+//                 <h2
+//                   className="md:text-3xl text-2xl text-[#FFFFFF] mb-2"
+//                   data-aos="fade-left"
+//                 >
+//                   Get In Touch With Us
+//                 </h2>
+//                 <p
+//                   className="text-[#FFFFFF] md:text-base text-sm font-normal mb-6"
+//                   data-aos="fade-left"
+//                   data-aos-delay="200"
+//                 >
+//                   Reach out to us for all your enquiries and assistance.
+//                   <br /> We’re here to help you 24/7.
+//                 </p>
+
+//                 {/* Phone */}
+//                 <div
+//                   className="flex gap-2 items-center mt-4 text-lg"
+//                   data-aos="fade-right"
+//                   data-aos-delay="200"
+//                 >
+//                   <div className="bg-primary p-2 text-white rounded-sm">
+//                     <Call02Icon />
+//                   </div>
+//                   <div>
+//                     <h3 className="text-[#FFFFFF] md:text-base text-sm">PHONE</h3>
+//                     <p className="text-[#FFFFFF] font-normal md:text-base text-sm">
+//                       +971 549 936911
+//                     </p>
+//                   </div>
+//                 </div>
+
+//                 {/* Email */}
+//                 <div
+//                   className="flex gap-2 items-center mt-4 text-lg"
+//                   data-aos="fade-left"
+//                   data-aos-delay="200"
+//                 >
+//                   <div className="bg-primary p-2 text-white rounded-sm">
+//                     <Mail01Icon />
+//                   </div>
+//                   <div>
+//                     <h3 className="text-[#FFFFFF] md:text-base text-sm">EMAIL</h3>
+//                     <p className="text-[#FFFFFF] md:text-base text-sm">
+//                       info@cleansameday.com
+//                     </p>
+//                   </div>
+//                 </div>
+
+//                 {/* Address */}
+//                 <div
+//                   className="flex gap-2 items-center mt-4 text-lg"
+//                   data-aos="fade-up"
+//                   data-aos-delay="200"
+//                 >
+//                   <div className="bg-primary p-2 text-white rounded-sm mb-5">
+//                     <Mail01Icon />
+//                   </div>
+//                   <div>
+//                     <h3 className="text-[#FFFFFF] md:text-base text-sm">OFFICE</h3>
+//                     <p className="text-[#FFFFFF] font-normal md:w-72 text-sm">
+//                       Noorani Enayatullah Building F1.127, Hor Al Anz Near Abu
+//                       Hail, Dubai-UAE
+//                     </p>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Right Side - Contact Form */}
+//             <div
+//               className="bg-primary p-4 md:p-8 md:rounded-r-lg rounded-lg md:rounded-none mt-5 md:mt-0 xl:px-16"
+//               data-aos="zoom-in"
+//             >
+//               <form
+//                 className="bg-[#ffffff] border border-gray-300 p-5 rounded-lg shadow-lg w-full h-full mx-auto"
+//                 onSubmit={handleSubmit}
+//               >
+//                 <div className="grid gap-4">
+//                   {/* First Name */}
+//                   <div className="relative">
+//                     <FaRegUser className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
+//                     <input
+//                       type="text"
+//                       id="firstName"
+//                       name="firstName"
+//                       value={firstName}
+//                       placeholder="First Name"
+//                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
+//                       onChange={(e) => setFirstName(e.target.value)}
+//                       required
+//                     />
+//                   </div>
+
+//                   {/* Last Name */}
+//                   <div className="relative">
+//                     <FaRegUser className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
+//                     <input
+//                       type="text"
+//                       id="lastName"
+//                       name="lastName"
+//                       value={lastName}
+//                       placeholder="Last Name"
+//                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
+//                       onChange={(e) => setLastName(e.target.value)}
+//                       required
+//                     />
+//                   </div>
+//                 </div>
+
+//                 {/* Phone + Email */}
+//                 <div className="grid gap-4 mt-3">
+//                   <div className="relative">
+//                     <FaMobileAlt className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
+//                     <input
+//                       type="text"
+//                       id="phone"
+//                       name="phone"
+//                       value={phone}
+//                       placeholder="Phone Number"
+//                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
+//                       onChange={(e) => setPhone(e.target.value)}
+//                       required
+//                     />
+//                   </div>
+
+//                   <div className="relative">
+//                     <FaEnvelope className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
+//                     <input
+//                       type="email"
+//                       id="email"
+//                       name="email"
+//                       value={email}
+//                       placeholder="Email Address"
+//                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
+//                       onChange={(e) => setEmail(e.target.value)}
+//                       required
+//                     />
+//                   </div>
+//                 </div>
+
+//                 {/* Message */}
+//                 <div className="relative mt-4">
+//                   <FaCommentAlt className="absolute top-5 left-3 text-primary" />
+//                   <textarea
+//                     id="message"
+//                     name="message"
+//                     value={address}
+//                     rows="4"
+//                     className="mt-1 block w-full pl-10 p-2 h-28 border border-gray-300 rounded-lg shadow-sm sm:text-sm"
+//                     placeholder="Type your message here..."
+//                     onChange={(e) => setAddress(e.target.value)}
+//                     required
+//                   ></textarea>
+//                 </div>
+
+//                 {/* Submit */}
+//                 <div className="flex justify-center text-white space-x-4 mt-6">
+//                   <button
+//                     type="submit"
+//                     className="relative w-full py-3 px-4 bg-primary text-white rounded-full shadow-md overflow-hidden group"
+//                   >
+//                     <span className="relative z-10 group-hover:text-black transition duration-300">
+//                       Submit
+//                     </span>
+//                     <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 group-hover:translate-x-0"></div>
+//                   </button>
+//                 </div>
+//               </form>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* FAQ Section */}
+//       <div className="bg-[#ffffff] p-5 lg:p-0 max-w-7xl mx-auto">
+//         <div className="max-w-[1540px] mx-auto p-3 lg:p-10 lg:px-[70px]">
+//           <h2 className="md:text-2xl text-lg font-bold text-left text-[#000000]">
+//             Frequently Asked Questions
+//           </h2>
+//           <div className="space-y-4 mt-6">
+//             {faqs.map((faq) => (
+//               <div key={faq.id} className="border-b pb-4">
+//                 <button
+//                   onClick={() => handleToggle(faq.id)}
+//                   className={`w-full text-left text-lg font-semibold ${
+//                     expandedId === faq.id ? "text-primary" : "text-[#000000]"
+//                   }`}
+//                 >
+//                   <div className="flex justify-between items-center">
+//                     <span>{faq.question}</span>
+//                     {expandedId === faq.id ? (
+//                       <FaChevronUp className="w-5 h-5 text-primary" />
+//                     ) : (
+//                       <FaChevronDown className="w-5 h-5 text-primary" />
+//                     )}
+//                   </div>
+//                 </button>
+//                 {expandedId === faq.id && (
+//                   <p className="text-sm mt-2">{faq.answer}</p>
+//                 )}
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default ContactUs;
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
@@ -381,6 +737,28 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const ContactUs = () => {
+  // 🔹 SEO State
+  const [seo, setSeo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // 🔹 Load Dynamic SEO Metadata
+  useEffect(() => {
+    const loadSeo = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:4000/api/seo/get?url=/contact-us/"
+        );
+        setSeo(res.data.data);
+      } catch (err) {
+        console.error("SEO fetch error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadSeo();
+  }, []);
+
   // 🔹 Form State
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -478,22 +856,40 @@ const ContactUs = () => {
     });
   }, []);
 
+  if (loading) return <p>Loading...</p>;
+
   return (
     <>
-      {/* 🔹 SEO Meta Tags */}
+      {/* 🔥 Dynamic SEO Metadata */}
       <Helmet>
-        <title>Contact Us | Clean Same Day Dubai</title>
+        <title>{seo?.title || "Contact Us | Cleansameday"}</title>
+
         <meta
           name="description"
-          content="Get in touch with Clean Same Day Dubai for fast, reliable cleaning services. Contact us via phone, email, or message for residential and commercial cleaning inquiries."
+          content={
+            seo?.description ||
+            "Get in touch with Cleansameday for professional cleaning services."
+          }
         />
-        <link rel="canonical" href="https://cleansameday.com/contact-us" />
+
+        <meta
+          name="keywords"
+          content={seo?.keywords?.join(", ") || ""}
+        />
+
+        <link
+          rel="canonical"
+          href="https://cleansameday.com/contact-us/"
+        />
       </Helmet>
 
       <div className="font-marcellus font-medium max-w-7xl mx-auto">
         <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px] overflow-visible">
           <div className="mt-5 flex items-center" data-aos="fade-down">
-            <h1 className="ml-2 md:text-3xl text-2xl">Contact Us</h1>
+            {/* 🔥 Dynamic H1 */}
+            <h1 className="ml-2 md:text-3xl text-2xl">
+              {seo?.h1 || "Contact Us"}
+            </h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 mt-10 overflow-hidden h-full w-full">
@@ -503,6 +899,7 @@ const ContactUs = () => {
               style={{ backgroundImage: `url(${bgimg})` }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-[#252F41] opacity-70 via-[#252F41] to-[#252F41]"></div>
+
               <div className="relative md:top-10 lg:top-28 lg:left-9 2xl:top-24 2xl:left-24 z-10">
                 <h2
                   className="md:text-3xl text-2xl text-[#FFFFFF] mb-2"
@@ -510,6 +907,7 @@ const ContactUs = () => {
                 >
                   Get In Touch With Us
                 </h2>
+
                 <p
                   className="text-[#FFFFFF] md:text-base text-sm font-normal mb-6"
                   data-aos="fade-left"
@@ -529,7 +927,9 @@ const ContactUs = () => {
                     <Call02Icon />
                   </div>
                   <div>
-                    <h3 className="text-[#FFFFFF] md:text-base text-sm">PHONE</h3>
+                    <h3 className="text-[#FFFFFF] md:text-base text-sm">
+                      PHONE
+                    </h3>
                     <p className="text-[#FFFFFF] font-normal md:text-base text-sm">
                       +971 549 936911
                     </p>
@@ -546,7 +946,9 @@ const ContactUs = () => {
                     <Mail01Icon />
                   </div>
                   <div>
-                    <h3 className="text-[#FFFFFF] md:text-base text-sm">EMAIL</h3>
+                    <h3 className="text-[#FFFFFF] md:text-base text-sm">
+                      EMAIL
+                    </h3>
                     <p className="text-[#FFFFFF] md:text-base text-sm">
                       info@cleansameday.com
                     </p>
@@ -563,7 +965,9 @@ const ContactUs = () => {
                     <Mail01Icon />
                   </div>
                   <div>
-                    <h3 className="text-[#FFFFFF] md:text-base text-sm">OFFICE</h3>
+                    <h3 className="text-[#FFFFFF] md:text-base text-sm">
+                      OFFICE
+                    </h3>
                     <p className="text-[#FFFFFF] font-normal md:w-72 text-sm">
                       Noorani Enayatullah Building F1.127, Hor Al Anz Near Abu
                       Hail, Dubai-UAE
@@ -588,8 +992,6 @@ const ContactUs = () => {
                     <FaRegUser className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
                     <input
                       type="text"
-                      id="firstName"
-                      name="firstName"
                       value={firstName}
                       placeholder="First Name"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
@@ -603,8 +1005,6 @@ const ContactUs = () => {
                     <FaRegUser className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
                     <input
                       type="text"
-                      id="lastName"
-                      name="lastName"
                       value={lastName}
                       placeholder="Last Name"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
@@ -620,8 +1020,6 @@ const ContactUs = () => {
                     <FaMobileAlt className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
                     <input
                       type="text"
-                      id="phone"
-                      name="phone"
                       value={phone}
                       placeholder="Phone Number"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
@@ -634,8 +1032,6 @@ const ContactUs = () => {
                     <FaEnvelope className="absolute top-1/2 left-3 transform -translate-y-1/2 text-primary" />
                     <input
                       type="email"
-                      id="email"
-                      name="email"
                       value={email}
                       placeholder="Email Address"
                       className="mt-1 block w-full pl-10 pr-2 py-3 border border-gray-300 rounded-lg shadow-sm focus:border-primary sm:text-sm"
@@ -649,10 +1045,8 @@ const ContactUs = () => {
                 <div className="relative mt-4">
                   <FaCommentAlt className="absolute top-5 left-3 text-primary" />
                   <textarea
-                    id="message"
-                    name="message"
-                    value={address}
                     rows="4"
+                    value={address}
                     className="mt-1 block w-full pl-10 p-2 h-28 border border-gray-300 rounded-lg shadow-sm sm:text-sm"
                     placeholder="Type your message here..."
                     onChange={(e) => setAddress(e.target.value)}
