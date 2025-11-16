@@ -746,7 +746,7 @@ const ContactUs = () => {
     const loadSeo = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:4000/api/seo/get?url=/contact-us/"
+          "https://cleansameday.com:4000/api/seo/get?url=/contact-us/"
         );
         setSeo(res.data.data);
       } catch (err) {

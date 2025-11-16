@@ -640,7 +640,7 @@ const AboutUs = () => {
     const fetchSeo = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:4000/api/seo/get?url=/about-us/"
+          "https://cleansameday.com:4000/api/seo/get?url=/about-us/"
         );
         setSeo(res.data.data);
       } catch (error) {

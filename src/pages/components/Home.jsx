@@ -134,7 +134,7 @@ const Home = () => {
     const fetchSeo = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:4000/api/seo/get?url=/"
+          "https://cleansameday.com:4000/api/seo/get?url=/"
         );
         setSeo(res.data.data);
       } catch (error) {

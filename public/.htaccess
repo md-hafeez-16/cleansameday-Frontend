@@ -2,7 +2,9 @@
 # ✅ SEO-Friendly 301 Redirects (Permanent)
 # --------------------------------------------
 
-Redirect 301 /about-us /aboutus
+#Redirect 301 /about-us /aboutus
+RedirectMatch 301 ^/about-us/?$ /aboutus
+
 Redirect 301 /deep-cleaning-services-in-dubai /deepservice
 Redirect 301 /villa-deep-cleaning-services-dubai /servicedetails/67c4a3af9ccd3a5994c2d9ce
 Redirect 301 /office-deep-cleaning-service-in-dubai /servicedetails/67c55da0fd51d0e3b581a5be
