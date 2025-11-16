@@ -2,7 +2,7 @@
 # ✅ SEO-Friendly 301 Redirects (Permanent)
 # --------------------------------------------
 
-#Redirect 301 /about-us /aboutus
+# Correct About Us redirect
 RedirectMatch 301 ^/about-us/?$ /aboutus
 
 Redirect 301 /deep-cleaning-services-in-dubai /deepservice
@@ -24,7 +24,7 @@ Redirect 301 /office-cleaning-services-in-dubai /servicedetails/68bd3adfbea0f332
 Redirect 301 /contact-us /contact
 
 # --------------------------------------------
-# ✅ React SPA fallback (keep React Router working)
+# ❗ MUST be last: React SPA fallback
 # --------------------------------------------
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
