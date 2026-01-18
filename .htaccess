@@ -1,0 +1,35 @@
+# --------------------------------------------
+# ✅ SEO-Friendly 301 Redirects (Permanent)
+# --------------------------------------------
+
+# About Us
+RedirectMatch 301 ^/about-us/?$ /aboutus
+
+# Deep cleaning service pages
+RedirectMatch 301 ^/deep-cleaning-services-in-dubai/?$ /deepservice
+RedirectMatch 301 ^/villa-deep-cleaning-services-dubai/?$ /servicedetails/67c4a3af9ccd3a5994c2d9ce
+RedirectMatch 301 ^/office-deep-cleaning-service-in-dubai/?$ /servicedetails/67c55da0fd51d0e3b581a5be
+RedirectMatch 301 ^/move-in-and-out-deep-cleaning-services-dubai/?$ /servicedetails/67c56f96fd51d0e3b581a5e2
+RedirectMatch 301 ^/floor-deep-cleaning-service-in-dubai/?$ /servicedetails/67c57042fd51d0e3b581a5e8
+RedirectMatch 301 ^/kitchen-deep-cleaning-services-in-dubai/?$ /servicedetails/67c570f1fd51d0e3b581a5ec
+RedirectMatch 301 ^/garage-deep-cleaning-services-in-dubai/?$ /servicedetails/67c57183fd51d0e3b581a5f8
+RedirectMatch 301 ^/oven-deep-cleaning-services-in-dubai/?$ /servicedetails/67c57251fd51d0e3b581a5fe
+RedirectMatch 301 ^/sofa-deep-cleaning-services-in-dubai/?$ /servicedetails/67c57303fd51d0e3b581a602
+RedirectMatch 301 ^/balcony-deep-cleaning-services-in-dubai/?$ /servicedetails/67dbbf3f10f6af75e6b86691
+RedirectMatch 301 ^/gym-deep-cleaning-service-in-dubai/?$ /servicedetails/67dbc15510f6af75e6b8669e
+RedirectMatch 301 ^/ac-duct-deep-cleaning-service-in-dubai/?$ /servicedetails/67dbc2a110f6af75e6b866a2
+RedirectMatch 301 ^/bathroom-deep-cleaning-services-in-dubai/?$ /servicedetails/67dbc38810f6af75e6b866a6
+RedirectMatch 301 ^/post-construction-deep-cleaning-service-in-dubai/?$ /servicedetails/68ac9d598d532e04f3513b26
+RedirectMatch 301 ^/villa-cleaning-services-in-dubai/?$ /servicedetails/68bd3a1ebea0f3326a6b5424
+RedirectMatch 301 ^/office-cleaning-services-in-dubai/?$ /servicedetails/68bd3adfbea0f3326a6b542e
+
+# Contact us
+RedirectMatch 301 ^/contact-us/?$ /contact
+
+# --------------------------------------------
+# ❗ React SPA fallback (must remain LAST)
+# --------------------------------------------
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]

@@ -33,6 +33,19 @@ const HomeSlider = () => {
     }
   }, [isRippling]);
 
+// 🔥 Count homepage visit
+useEffect(() => {
+  const hitCounter = async () => {
+    try {
+      await axios.post("https://cleansameday.com:4000/api/visit/visit");
+    } catch (error) {
+      console.error("Visit counter error:", error);
+    }
+  };
+
+  hitCounter();
+}, []);
+
   useEffect(() => {
     if (!isRippling && rippleCoords.x !== -1 && rippleCoords.y !== -1) {
       setRippleCoords({ x: -1, y: -1 });

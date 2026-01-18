@@ -145,6 +145,19 @@ const Home = () => {
     fetchSeo();
   }, []);
 
+  // 🔥 Count homepage visit
+useEffect(() => {
+  const hitCounter = async () => {
+    try {
+      await axios.post("https://cleansameday.com:4000/api/visit/visit");
+    } catch (error) {
+      console.error("Visit counter error:", error);
+    }
+  };
+
+  hitCounter();
+}, []);
+
   // Scroll to top
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
