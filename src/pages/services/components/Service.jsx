@@ -123,14 +123,17 @@ const Service = () => {
             {!loading && !error && services.length > 0 && (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {services.map((service) => (
+                  
                   <div
                     key={service._id}
                     className="group bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl relative"
                     // onClick={() =>  navigate(`/servicedetails/${service._id}`)}
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      navigate(`/servicedetails/${service._id}`);
-                    }}
+onClick={() => {
+  console.log("CLICK SLUG =>", service.slug);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  navigate(`/${service.slug}`);
+}}
+
                   >
                     {/* Image Section */}
                     <div className="relative w-full h-64 overflow-hidden">

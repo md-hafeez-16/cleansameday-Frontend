@@ -53,7 +53,7 @@ useEffect(() => {
   }, [isRippling]);
 
   const handleButtonClick = (e) => {
-    window.location.href = "/aboutus";
+    window.location.href = "/about-us";
     const rect = e.target.getBoundingClientRect();
     setRippleCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
     setIsRippling(true);

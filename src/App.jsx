@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
@@ -10,46 +9,47 @@ import PrivacyPolicy from "./pages/useraggrements/components/PrivacyPolicy";
 import TermsAndCondition from "./pages/useraggrements/components/TermsAndCondition";
 import AboutUs from "./pages/aboutus/components/AboutUs";
 import Gallery from "./pages/gallery/Gallery";
-import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
 import Booking from "./pages/bookings/Booking";
 import HelpCenter from "./pages/useraggrements/components/HelpCenter";
 import { Toaster } from "react-hot-toast";
-import NavBookngs from "./pages/NavBookngs";
 import NavBookings from "./pages/NavBookngs";
 import DeepCleaning from "./pages/services/components/DeepCleaning";
+import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Toaster position="top-right" reverseOrder={false} />
-        <Header />
-        <NavBar />
-        <div className="">
-          <Routes>
-            {/* <-------main pages routes -----> */}
-            <Route path="/" element={<Home />} />
-            <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="/service" element={<Service />} />
-            <Route path="/deepservice" element={<DeepCleaning />} />
-            <Route path="/servicedetails/:id" element={<ServiceDetails />} />
+    <Router>
+      <Toaster position="top-right" reverseOrder={false} />
+      <Header />
+      <NavBar />
 
-            <Route path="/bookings/:id" element={<Booking />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/navbooking" element={<NavBookings />} />
+      <Routes>
+        {/* ===== MAIN PAGES ===== */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
 
-            {/* <-------main pages routes ----->  */}
+        {/* ===== DEEP CLEANING MAIN ===== */}
+        <Route
+          path="/deep-cleaning-services-in-dubai"
+          element={<DeepCleaning />}
+        />
 
-            {/* <------- user agreement pages routes -----> */}
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsAndCondition />} />
-            <Route path="/helpcenter" element={<HelpCenter />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
-    </>
+      <Route path="/:serviceSlug" element={<ServiceDetails />} />
+
+        {/* ===== OTHER PAGES ===== */}
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/navbooking" element={<NavBookings />} />
+        <Route path="/bookings/:id" element={<Booking />} />
+
+        {/* ===== USER AGREEMENTS ===== */}
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndCondition />} />
+        <Route path="/helpcenter" element={<HelpCenter />} />
+      </Routes>
+
+      <Footer />
+    </Router>
   );
 }
 

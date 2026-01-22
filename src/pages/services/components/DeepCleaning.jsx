@@ -262,7 +262,7 @@ const DeepCleaning = () => {
                   className="group bg-white rounded-lg cursor-pointer shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl relative"
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
-                    navigate(`/servicedetails/${service._id}`);
+navigate(`/${service.slug}`);
                   }}
                 >
                   {/* Image Section */}
