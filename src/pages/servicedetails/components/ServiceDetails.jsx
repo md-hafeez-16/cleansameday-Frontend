@@ -327,7 +327,7 @@ const ServiceDetails = () => {
     const fetchService = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4000/api/service/getServiceBySlug/${serviceSlug}`
+          `https://cleansameday.com:4000/api/service/getServiceBySlug/${serviceSlug}`
         );
 
         if (res.data.success) {
@@ -346,9 +346,8 @@ const ServiceDetails = () => {
     const fetchSeo = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4000/api/seo/get?url=${currentPath}`
+          `https://cleansameday.com:4000/api/seo/get?url=${currentPath}`
         );
-        console.log("SEO RESPONSE =>", res.data);
         setSeo(res.data.data);
       } catch (err) {
         console.error("SEO fetch error:", err);
