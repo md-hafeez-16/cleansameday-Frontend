@@ -176,12 +176,12 @@ const OurService = () => {
 
   return (
     <div className="p-5 lg:px-[70px] bg-primary font-marcellus">
-      <h1 className="md:text-xl text-2xl font-medium text-white text-center">
+      <p className="md:text-xl text-2xl font-medium text-white text-center">
         Our Services
-      </h1>
-      <h1 className="md:text-4xl text-2xl mb-5 font-medium text-white text-center">
+      </p>
+      <h2 className="md:text-4xl text-2xl mb-5 font-medium text-white text-center">
         Explore Our <span className="text-secondary">Cleaning Services</span>
-      </h1>
+      </h2>
 
       {loading ? (
         <p className="text-center text-gray-600">Loading services...</p>
@@ -195,7 +195,7 @@ const OurService = () => {
                 className="group border rounded-lg shadow-lg overflow-hidden bg-white h-[300px] cursor-pointer flex flex-col relative"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
-                  navigate(`/servicedetails/${service._id}`);
+                  navigate(`/${service.slug}`);
                 }}
               >
                 {/* Image Container */}

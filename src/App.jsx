@@ -34,6 +34,9 @@ function App() {
           element={<DeepCleaning />}
         />
 
+        {/* ===== SERVICES LISTING ===== */}
+        <Route path="/service" element={<Service />} />
+
       <Route path="/:serviceSlug" element={<ServiceDetails />} />
 
         {/* ===== OTHER PAGES ===== */}

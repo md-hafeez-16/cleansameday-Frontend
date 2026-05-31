@@ -145,8 +145,9 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Helmet } from "react-helmet"; // ✅ Add Helmet
 import { useNavigate } from "react-router-dom";
+import useSeo from "../../../hooks/useSeo";
+import SeoHead from "../../../components/SeoHead";
 import backgroundImage from "../../../assets_optimized/images/servicebg.webp";
 import whatsapp from "../../../assets_optimized/images/whatsaap.webp";
 
@@ -155,6 +156,9 @@ const DeepCleaning = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  // ✅ Dynamic SEO Metadata (managed from admin dashboard)
+  const seo = useSeo("/deep-cleaning-services-in-dubai");
 
   useEffect(() => {
     window.scrollTo({
@@ -186,18 +190,17 @@ const DeepCleaning = () => {
 
   return (
     <div className="font-marcellus font-medium max-w-7xl mx-auto">
-      {/* ✅ SEO Meta Tags */}
-      <Helmet>
-        <title>Deep Cleaning Services in Dubai | Cleansameday</title>
-        <meta
-          name="description"
-          content="Find our best deep cleaning services in Dubai. Trust our professional expert cleaners to ensure excellent safety and hygiene. Book now with Cleansameday."
-        />
-        <link
-          rel="canonical"
-          href="https://cleansameday.com/deep-cleaning-services-in-dubai"
-        />
-      </Helmet>
+      {/* ✅ SEO Meta Tags (managed from admin dashboard) */}
+      <SeoHead
+        url="/deep-cleaning-services-in-dubai"
+        canonicalPath="/deep-cleaning-services-in-dubai"
+        defaults={{
+          title: "Deep Cleaning Services in Dubai | Cleansameday",
+          description:
+            "Find our best deep cleaning services in Dubai. Trust our professional expert cleaners to ensure excellent safety and hygiene. Book now with Cleansameday.",
+          keywords: [],
+        }}
+      />
 
       {/* ✅ WhatsApp Floating Button */}
       <div className="fixed bottom-5 right-2 z-50">
@@ -220,9 +223,9 @@ const DeepCleaning = () => {
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="flex flex-col justify-center items-center h-full text-center text-black">
-          {/* ✅ Main H1 for SEO */}
+          {/* ✅ Main H1 for SEO (managed from admin dashboard) */}
           <h1 className="md:text-4xl text-xl md:mb-4 font-bold">
-            Deep Cleaning Services in Dubai
+            {seo?.h1 || "Deep Cleaning Services in Dubai"}
           </h1>
           <a
             href="/"

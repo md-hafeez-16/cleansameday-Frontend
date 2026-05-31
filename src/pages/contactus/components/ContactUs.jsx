@@ -722,7 +722,8 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Helmet } from "react-helmet";
+import useSeo from "../../../hooks/useSeo";
+import SeoHead from "../../../components/SeoHead";
 import { Call02Icon, Mail01Icon } from "hugeicons-react";
 import bgimg from "../../../assets_optimized/images/contact2.webp";
 import {
@@ -737,27 +738,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const ContactUs = () => {
-  // 🔹 SEO State
-  const [seo, setSeo] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // 🔹 Load Dynamic SEO Metadata
-  useEffect(() => {
-    const loadSeo = async () => {
-      try {
-        const res = await axios.get(
-          "https://cleansameday.com:4000/api/seo/get?url=/contact-us/"
-        );
-        setSeo(res.data.data);
-      } catch (err) {
-        console.error("SEO fetch error:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadSeo();
-  }, []);
+  // 🔹 Dynamic SEO Metadata (managed from admin dashboard)
+  const seo = useSeo("/contact-us/");
 
   // 🔹 Form State
   const [firstName, setFirstName] = useState("");
@@ -856,32 +838,19 @@ const ContactUs = () => {
     });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-
   return (
     <>
-      {/* 🔥 Dynamic SEO Metadata */}
-      <Helmet>
-        <title>{seo?.title || "Contact Us | Cleansameday"}</title>
-
-        <meta
-          name="description"
-          content={
-            seo?.description ||
-            "Get in touch with Cleansameday for professional cleaning services."
-          }
-        />
-
-        <meta
-          name="keywords"
-          content={seo?.keywords?.join(", ") || ""}
-        />
-
-        <link
-          rel="canonical"
-          href="https://cleansameday.com/contact-us/"
-        />
-      </Helmet>
+      {/* 🔥 Dynamic SEO Metadata (managed from admin dashboard) */}
+      <SeoHead
+        url="/contact-us/"
+        canonicalPath="/contact-us/"
+        defaults={{
+          title: "Contact Us | Cleansameday",
+          description:
+            "Get in touch with Cleansameday for professional cleaning services.",
+          keywords: [],
+        }}
+      />
 
       <div className="font-marcellus font-medium max-w-7xl mx-auto">
         <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px] overflow-visible">

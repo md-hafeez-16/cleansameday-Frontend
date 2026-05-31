@@ -128,9 +128,9 @@ const Footer = () => {
             <ul className="text-white space-y-2">
               {[
                 { name: "Home", path: "/" },
-                { name: "About", path: "/aboutus" },
+                { name: "About", path: "/about-us" },
                 { name: "Services", path: "/service" },
-                { name: "Contact", path: "/contact" },
+                { name: "Contact", path: "/contact-us" },
               ].map((item, index) => (
                 <li key={index}>
                   <Link

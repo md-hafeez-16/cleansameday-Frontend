@@ -616,9 +616,9 @@
 // export default AboutUs;
 
 
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import axios from "axios";
+import React, { useEffect } from "react";
+import useSeo from "../../../hooks/useSeo";
+import SeoHead from "../../../components/SeoHead";
 import backgroundImage from "../../../assets_optimized/images/about.webp";
 import OurVision from "./OurVision";
 import { useNavigate } from "react-router-dom";
@@ -632,24 +632,8 @@ import ServiceTimings from "./ServiceTimings";
 import ServiceAreas from "./ServiceAreas";
 
 const AboutUs = () => {
-  const [seo, setSeo] = useState(null);
+  const seo = useSeo("/about-us/");
   const navigate = useNavigate();
-
-  // Fetch SEO for About Us page
-  useEffect(() => {
-    const fetchSeo = async () => {
-      try {
-        const res = await axios.get(
-          "https://cleansameday.com:4000/api/seo/get?url=/about-us/"
-        );
-        setSeo(res.data.data);
-      } catch (error) {
-        console.error("SEO fetch error:", error);
-      }
-    };
-
-    fetchSeo();
-  }, []);
 
   // Scroll + AOS animations
   useEffect(() => {
@@ -677,25 +661,17 @@ const AboutUs = () => {
 
   return (
     <>
-      {/* 🔥 Dynamic SEO Metadata */}
-      <Helmet>
-        <title>{seo?.title || "About Cleansameday"}</title>
-
-        <meta
-          name="description"
-          content={
-            seo?.description ||
-            "Learn more about Cleansameday – Dubai’s trusted cleaning service."
-          }
-        />
-
-        <meta
-          name="keywords"
-          content={seo?.keywords?.join(", ") || ""}
-        />
-
-        <link rel="canonical" href="https://cleansameday.com/about-us/" />
-      </Helmet>
+      {/* 🔥 Dynamic SEO Metadata (managed from admin dashboard) */}
+      <SeoHead
+        url="/about-us/"
+        canonicalPath="/about-us/"
+        defaults={{
+          title: "About Cleansameday",
+          description:
+            "Learn more about Cleansameday – Dubai’s trusted cleaning service.",
+          keywords: [],
+        }}
+      />
 
       <div className="font-marcellus font-medium bg-[#F0F2F4] max-w-7xl mx-auto pb-5 overflow-hidden">
 

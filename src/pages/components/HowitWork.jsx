@@ -19,7 +19,7 @@ const HowitWork = () => {
           <div className="relative mt-12 lg:mt-20">
             <div className="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
               <img
-                alt=""
+                alt="How our cleaning service process works"
                 loading="lazy"
                 width="1000"
                 height="500"

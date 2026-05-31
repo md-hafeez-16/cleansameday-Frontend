@@ -95,23 +95,23 @@ const AboutbookSection = () => {
             data-aos="fade-right"
             data-aos-delay="200"
           >
-            <h1 className="text-xl whitespace-nowrap md:text-3xl lg:text-5xl">
+            <h2 className="text-xl whitespace-nowrap md:text-3xl lg:text-5xl">
               Book your cleaning service
-            </h1>
-            <h1 className="text-xl md:text-3xl lg:text-5xl">
+            </h2>
+            <h2 className="text-xl md:text-3xl lg:text-5xl">
               today for pristine results
-            </h1>
+            </h2>
             <div className="flex justify-center md:justify-start items-center gap-2 mt-5">
               <FcCustomerSupport />
               <div>
-                <h1 className="text-[11px] md:text-base">
+                <p className="text-[11px] md:text-base">
                   Schedule a Consultation with Our Experts
-                </h1>
+                </p>
               </div>
             </div>
             <div
               className="text-white mt-6"
-              onClick={() => navigate(`/contact`)}
+              onClick={() => navigate(`/contact-us`)}
             >
               <button
                 type="button"

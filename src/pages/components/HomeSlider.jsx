@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import smallBanner1 from "../../assets/images/clean.jpg";
@@ -79,7 +80,7 @@ useEffect(() => {
             <div key={index} className="w-full h-[300px] md:h-[500px] relative">
               <img
                 src={ban}
-                alt={`Banner ${index + 1}`}
+                alt={`Professional cleaning services in Dubai by Cleansameday - banner ${index + 1}`}
                 className="w-full h-full object-cover"
               />
               {/* <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-10" /> */}

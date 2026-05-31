@@ -90,7 +90,7 @@ const NavBar = () => {
           <div className="flex flex-col">
             <img
               src={logo}
-              alt=""
+              alt="Cleansameday logo"
               className="lg:w-60 md:w-44 w-28 object-contain rounded-md"
             />
           </div>

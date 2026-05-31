@@ -1,32 +1,38 @@
 # --------------------------------------------
 # ✅ SEO-Friendly 301 Redirects (Permanent)
-# --------------------------------------------
-
-# Correct About Us redirect
-RedirectMatch 301 ^/about-us/?$ /aboutus
-
-Redirect 301 /deep-cleaning-services-in-dubai /deepservice
-Redirect 301 /villa-deep-cleaning-services-dubai /servicedetails/67c4a3af9ccd3a5994c2d9ce
-Redirect 301 /office-deep-cleaning-service-in-dubai /servicedetails/67c55da0fd51d0e3b581a5be
-Redirect 301 /move-in-and-out-deep-cleaning-services-dubai /servicedetails/67c56f96fd51d0e3b581a5e2
-Redirect 301 /floor-deep-cleaning-service-in-dubai /servicedetails/67c57042fd51d0e3b581a5e8
-Redirect 301 /kitchen-deep-cleaning-services-in-dubai /servicedetails/67c570f1fd51d0e3b581a5ec
-Redirect 301 /garage-deep-cleaning-services-in-dubai /servicedetails/67c57183fd51d0e3b581a5f8
-Redirect 301 /oven-deep-cleaning-services-in-dubai /servicedetails/67c57251fd51d0e3b581a5fe
-Redirect 301 /sofa-deep-cleaning-services-in-dubai /servicedetails/67c57303fd51d0e3b581a602
-Redirect 301 /balcony-deep-cleaning-services-in-dubai /servicedetails/67dbbf3f10f6af75e6b86691
-Redirect 301 /gym-deep-cleaning-service-in-dubai /servicedetails/67dbc15510f6af75e6b8669e
-Redirect 301 /ac-duct-deep-cleaning-service-in-dubai /servicedetails/67dbc2a110f6af75e6b866a2
-Redirect 301 /bathroom-deep-cleaning-services-in-dubai /servicedetails/67dbc38810f6af75e6b866a6
-Redirect 301 /post-construction-deep-cleaning-service-in-dubai /servicedetails/68ac9d598d532e04f3513b26
-Redirect 301 /villa-cleaning-services-in-dubai /servicedetails/68bd3a1ebea0f3326a6b5424
-Redirect 301 /office-cleaning-services-in-dubai /servicedetails/68bd3adfbea0f3326a6b542e
-Redirect 301 /contact-us /contact
-
-# --------------------------------------------
-# ❗ MUST be last: React SPA fallback
+# Old / legacy URLs  →  current canonical URLs
+# (Direction matches the sitemap, canonical tags and app routes.)
 # --------------------------------------------
 RewriteEngine On
+
+# ----- Old page paths → new canonical paths -----
+RewriteRule ^aboutus/?$ /about-us [R=301,L]
+RewriteRule ^deepservice/?$ /deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^contact/?$ /contact-us [R=301,L]
+
+# ----- Legacy service slug (missing "in") → current slug -----
+RewriteRule ^villa-deep-cleaning-services-dubai/?$ /villa-deep-cleaning-services-in-dubai [R=301,L]
+
+# ----- Old /servicedetails/:id → current SEO slug -----
+RewriteRule ^servicedetails/67c4a3af9ccd3a5994c2d9ce/?$ /villa-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67c55da0fd51d0e3b581a5be/?$ /office-deep-cleaning-service-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67c56f96fd51d0e3b581a5e2/?$ /move-in-and-out-deep-cleaning-services-dubai [R=301,L]
+RewriteRule ^servicedetails/67c57042fd51d0e3b581a5e8/?$ /floor-deep-cleaning-service-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67c570f1fd51d0e3b581a5ec/?$ /kitchen-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67c57183fd51d0e3b581a5f8/?$ /garage-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67c57251fd51d0e3b581a5fe/?$ /oven-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67c57303fd51d0e3b581a602/?$ /sofa-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67dbbf3f10f6af75e6b86691/?$ /balcony-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67dbc15510f6af75e6b8669e/?$ /gym-deep-cleaning-service-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67dbc2a110f6af75e6b866a2/?$ /ac-duct-deep-cleaning-service-in-dubai [R=301,L]
+RewriteRule ^servicedetails/67dbc38810f6af75e6b866a6/?$ /bathroom-deep-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/68ac9d598d532e04f3513b26/?$ /post-construction-deep-cleaning-service-in-dubai [R=301,L]
+RewriteRule ^servicedetails/68bd3a1ebea0f3326a6b5424/?$ /villa-cleaning-services-in-dubai [R=301,L]
+RewriteRule ^servicedetails/68bd3adfbea0f3326a6b542e/?$ /office-cleaning-services-in-dubai [R=301,L]
+
+# --------------------------------------------
+# ❗ React SPA fallback (must remain LAST)
+# --------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]

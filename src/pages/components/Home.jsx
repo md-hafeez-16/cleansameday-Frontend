@@ -32,7 +32,7 @@ const Home = () => {
           >
             <img
               src={whatsapp}
-              alt=""
+              alt="Chat with Cleansameday on WhatsApp"
               className="lg:w-20 lg:h-20 w-16 h-16 lg:mb-0 mb-0  shadow-2xl rounded-full"
             />
           </a>
@@ -115,8 +115,9 @@ export default Home;
 
 // export default Home;
 
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import React, { useEffect } from "react";
+import useSeo from "../../hooks/useSeo";
+import SeoHead from "../../components/SeoHead";
 import HomeSlider from "./HomeSlider";
 import HowitWork from "./HowitWork";
 import OurService from "./OurService";
@@ -127,23 +128,7 @@ import whatsapp from "../../assets_optimized/images/whatsaap.webp";
 import axios from "axios";
 
 const Home = () => {
-  const [seo, setSeo] = useState(null);
-
-  // Fetch SEO Data
-  useEffect(() => {
-    const fetchSeo = async () => {
-      try {
-        const res = await axios.get(
-          "https://cleansameday.com:4000/api/seo/get?url=/"
-        );
-        setSeo(res.data.data);
-      } catch (error) {
-        console.error("SEO fetch error:", error);
-      }
-    };
-
-    fetchSeo();
-  }, []);
+  const seo = useSeo("/");
 
   // 🔥 Count homepage visit
 useEffect(() => {
@@ -165,19 +150,16 @@ useEffect(() => {
 
   return (
     <>
-      {/* 🔥 Dynamic SEO Metadata */}
-      <Helmet>
-        <title>{seo?.title || "Cleansameday"}</title>
-        <meta
-          name="description"
-          content={seo?.description || "Cleaning services in Dubai."}
-        />
-        <meta
-          name="keywords"
-          content={seo?.keywords?.join(", ") || ""}
-        />
-        <link rel="canonical" href="https://cleansameday.com/" />
-      </Helmet>
+      {/* 🔥 Dynamic SEO Metadata (managed from admin dashboard) */}
+      <SeoHead
+        url="/"
+        canonicalPath="/"
+        defaults={{
+          title: "Cleansameday",
+          description: "Cleaning services in Dubai.",
+          keywords: [],
+        }}
+      />
 
       <div className="max-w-7xl mx-auto overflow-x-hidden">
         

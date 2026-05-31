@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import useSeo from "../../../hooks/useSeo";
+import SeoHead from "../../../components/SeoHead";
 import backgroundImage from "../../../assets_optimized/images/servicebg.webp";
 import whatsapp from "../../../assets_optimized/images/whatsaap.webp";
 
@@ -9,6 +11,9 @@ const Service = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  // ✅ Dynamic SEO Metadata (managed from admin dashboard)
+  const seo = useSeo("/service");
 
   useEffect(() => {
     window.scrollTo({
@@ -65,6 +70,18 @@ const Service = () => {
 
   return (
     <>
+      {/* ✅ SEO Meta Tags (managed from admin dashboard) */}
+      <SeoHead
+        url="/service"
+        canonicalPath="/service"
+        defaults={{
+          title: "Cleaning Services in Dubai | Cleansameday",
+          description:
+            "Explore our professional cleaning services in Dubai. Book reliable, affordable home and office cleaning with Cleansameday.",
+          keywords: [],
+        }}
+      />
+
       <div className="font-marcellus font-medium max-w-7xl mx-auto">
         {/* WhatsApp Floating Button */}
         <div className="fixed bottom-5 right-2 z-50">
@@ -75,7 +92,7 @@ const Service = () => {
           >
             <img
               src={whatsapp}
-              alt="WhatsApp"
+              alt="Chat with Cleansameday on WhatsApp"
               className="lg:w-20 lg:h-20 w-16 h-16 shadow-2xl rounded-full"
             />
           </a>
@@ -87,7 +104,9 @@ const Service = () => {
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
           <div className="flex flex-col justify-center items-center h-full text-center text-black">
-            <h1 className="md:text-4xl text-xl md:mb-4">Services</h1>
+            <h1 className="md:text-4xl text-xl md:mb-4">
+              {seo?.h1 || "Cleaning Services in Dubai"}
+            </h1>
             <a
               href="/"
               className="text-lg font-semibold text-black hover:underline"

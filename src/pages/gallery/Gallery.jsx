@@ -1,4 +1,6 @@
 import React from "react";
+import useSeo from "../../hooks/useSeo";
+import SeoHead from "../../components/SeoHead";
 
 import gall1 from "../../assets_optimized/images/clean.webp";            // deepclean.jpg → clean.webp
 import gall2 from "../../assets_optimized/images/about1.webp";          // villaclean.jpg → about1.webp
@@ -18,8 +20,23 @@ import whatsapp from "../../assets_optimized/images/call.webp";         // whats
 
 
 const Gallery = () => {
+  // ✅ Dynamic SEO Metadata (managed from admin dashboard)
+  const seo = useSeo("/gallery");
+
   return (
     <>
+      {/* ✅ SEO Meta Tags (managed from admin dashboard) */}
+      <SeoHead
+        url="/gallery"
+        canonicalPath="/gallery"
+        defaults={{
+          title: "Cleaning Services Gallery in Dubai | Cleansameday",
+          description:
+            "Browse our gallery of professional deep cleaning and cleaning services across Dubai by Cleansameday.",
+          keywords: [],
+        }}
+      />
+
       <div className="max-w-7xl mx-auto p-5 md:p-0">
         <div className=" font-marcellus font-medium">
           <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
@@ -30,7 +47,7 @@ const Gallery = () => {
             >
               <img
                 src={whatsapp}
-                alt=""
+                alt="Chat with Cleansameday on WhatsApp"
                 className="lg:w-20 lg:h-20 w-16 h-16 lg:mb-0 mb-0  shadow-2xl rounded-full"
               />
             </a>
@@ -39,13 +56,17 @@ const Gallery = () => {
             <div className="flex justify-center">
               <h1 className="relative top-0 w-fit h-auto mb-5 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-4xl  text-transparent text-center select-auto">
                 {" "}
-                Gallery
+                {seo?.h1 || "Gallery"}
               </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* <!-- Large item --> */}
               <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall1} className="w-full h-full object-cover" />
+                <img
+                  src={gall1}
+                  alt="Deep cleaning and cleaning services in Dubai"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3 className="text-2xl font-bold text-white">
@@ -60,7 +81,11 @@ const Gallery = () => {
 
               {/* <!-- Two small items --> */}
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall2} className="w-full h-48 object-cover" />
+                <img
+                  src={gall2}
+                  alt="Villa deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -70,7 +95,11 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall3} className="w-full h-48 object-cover" />
+                <img
+                  src={gall3}
+                  alt="Deep cleaning services in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -82,7 +111,11 @@ const Gallery = () => {
 
               {/* <!-- Three medium items --> */}
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall4} className="w-full h-48 object-cover" />
+                <img
+                  src={gall4}
+                  alt="Move in and move out deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -92,7 +125,11 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall5} className="w-full h-48 object-cover" />
+                <img
+                  src={gall5}
+                  alt="Warehouse deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -104,7 +141,11 @@ const Gallery = () => {
 
               {/* <!-- bottom cards --> */}
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall6} className="w-full h-48 object-cover" />
+                <img
+                  src={gall6}
+                  alt="Office deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -114,7 +155,11 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall7} className="w-full h-48 object-cover" />
+                <img
+                  src={gall7}
+                  alt="Commercial deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -124,7 +169,11 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall8} className="w-full h-48 object-cover" />
+                <img
+                  src={gall8}
+                  alt="Floor deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">
@@ -134,7 +183,11 @@ const Gallery = () => {
                 </div>
               </div>
               <div className="relative overflow-hidden rounded-2xl shadow-lg group">
-                <img src={gall9} className="w-full h-48 object-cover" />
+                <img
+                  src={gall9}
+                  alt="Sofa deep cleaning in Dubai"
+                  className="w-full h-48 object-cover"
+                />
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h4 className="text-xl font-bold text-white">

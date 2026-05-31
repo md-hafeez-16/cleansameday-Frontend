@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /bookings/
+Disallow: /navbooking
+
+Sitemap: https://cleansameday.com/sitemap.xml

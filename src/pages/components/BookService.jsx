@@ -84,10 +84,10 @@ const BookService = () => {
       </div> */}
       <div className="bg-primary font-marcellus">
         <div className="flex md:flex-row flex-col justify-between items-center md:p-10 p-5 ">
-          <h1 className="text-xl md:w-1/2 md:text-2xl lg:text-4xl text-white font-medium border-l-4 border-secondary pl-4">
+          <h2 className="text-xl md:w-1/2 md:text-2xl lg:text-4xl text-white font-medium border-l-4 border-secondary pl-4">
             <span className="text-secondary">Book Affordable Services </span>:
             Save Time and Money With Us!
-          </h1>
+          </h2>
           <div
             className="text-white mt-6"
             onClick={() => navigate(`/navbooking`)}

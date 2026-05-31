@@ -110,26 +110,26 @@ const Testimonial = () => {
         <div className="bg-primary   rounded-xl">
           <div className="flex flex-col md:flex-row md:justify-around md:items-center h-auto md:h-[403px] p-6 md:p-8">
             <div className="text-center md:text-left">
-              <h1 className="text-xl whitespace-nowrap  md:text-3xl lg:text-4xl text-white xl:text-5xl">
+              <h2 className="text-xl whitespace-nowrap  md:text-3xl lg:text-4xl text-white xl:text-5xl">
                 <span className="font-semibold">Together</span> We'll
-              </h1>
-              <h1 className="text-xl md:text-3xl lg:text-4xl text-white xl:text-5xl">
+              </h2>
+              <h2 className="text-xl md:text-3xl lg:text-4xl text-white xl:text-5xl">
                 Explore <span className="font-semibold">New Things</span>
-              </h1>
+              </h2>
               <div className="flex justify-center md:justify-start items-center gap-2 mt-5">
                 {/* <FcCustomerSupport /> */}
                 <div>
-                  <h1 className="text-[11px] md:text-base lg:w-96 md:w-80 text-white">
+                  <p className="text-[11px] md:text-base lg:w-96 md:w-80 text-white">
                     Our professional team ensures every corner is cleaned to
                     perfection. From deep cleaning to routine maintenance, we
                     provide reliable and affordable services tailored to your
                     needs.
-                  </h1>
+                  </p>
                 </div>
               </div>
               <div
                 className="text-white mt-6"
-                onClick={() => navigate(`/contact`)}
+                onClick={() => navigate(`/contact-us`)}
               >
                 <button
                   type="submit"
