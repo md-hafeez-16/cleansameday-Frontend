@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import NavBookings from "./pages/NavBookngs";
 import DeepCleaning from "./pages/services/components/DeepCleaning";
 import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
+import LegacyServiceRedirect from "./components/LegacyServiceRedirect";
 
 function App() {
   return (
@@ -37,7 +38,11 @@ function App() {
         {/* ===== SERVICES LISTING ===== */}
         <Route path="/service" element={<Service />} />
 
-      <Route path="/:serviceSlug" element={<ServiceDetails />} />
+        {/* ===== LEGACY SERVICE URLS (must be before /:serviceSlug) ===== */}
+        <Route
+          path="/servicedetails/:id"
+          element={<LegacyServiceRedirect />}
+        />
 
         {/* ===== OTHER PAGES ===== */}
         <Route path="/contact-us" element={<ContactUs />} />
@@ -49,6 +54,9 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndCondition />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
+
+        {/* ===== SERVICE DETAIL (slug) — must stay LAST among page routes ===== */}
+        <Route path="/:serviceSlug" element={<ServiceDetails />} />
       </Routes>
 
       <Footer />

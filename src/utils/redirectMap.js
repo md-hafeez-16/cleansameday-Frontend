@@ -3,7 +3,7 @@ export const redirectMap = {
   "/deepservice": "/deep-cleaning-services-in-dubai",
 
   "/servicedetails/67c4a3af9ccd3a5994c2d9ce":
-    "/villa-deep-cleaning-services-dubai",
+    "/villa-deep-cleaning-services-in-dubai",
 
   "/servicedetails/67c55da0fd51d0e3b581a5be":
     "/office-deep-cleaning-service-in-dubai",

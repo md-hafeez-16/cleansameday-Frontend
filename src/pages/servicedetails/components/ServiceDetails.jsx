@@ -355,6 +355,11 @@ const ServiceDetails = () => {
   const navigate = useNavigate();
 
   const [service, setService] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  const API_BASE =
+    import.meta.env.VITE_APP_BASE_URL || "https://cleansameday.com:4000/api";
 
   // ✅ Exact SEO key for this route (managed from admin dashboard)
   const seoUrl = normalizeSeoUrl(location.pathname);
@@ -364,26 +369,53 @@ const ServiceDetails = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const fetchService = async () => {
+      setLoading(true);
+      setNotFound(false);
       try {
         const res = await axios.get(
-          `https://cleansameday.com:4000/api/service/getServiceBySlug/${serviceSlug}`
+          `${API_BASE}/service/getServiceBySlug/${serviceSlug}`
         );
 
         if (res.data.success) {
           setService(res.data.serviceDoc);
+        } else {
+          setService(null);
+          setNotFound(true);
         }
       } catch (error) {
         console.error("Service fetch error:", error);
+        setService(null);
+        setNotFound(true);
+      } finally {
+        setLoading(false);
       }
     };
 
     if (serviceSlug) fetchService();
-  }, [serviceSlug]);
+  }, [serviceSlug, API_BASE]);
 
-  if (!service) {
+  if (loading) {
     return (
       <div className="max-w-7xl mx-auto p-10 text-center font-marcellus text-primary">
         Loading service details...
+      </div>
+    );
+  }
+
+  if (notFound || !service) {
+    return (
+      <div className="max-w-7xl mx-auto p-10 text-center font-marcellus">
+        <h1 className="text-2xl text-primary mb-3">Service not found</h1>
+        <p className="text-gray-600 mb-6">
+          This service may have moved or no longer exists.
+        </p>
+        <button
+          type="button"
+          onClick={() => navigate("/service")}
+          className="bg-primary text-white px-6 py-2 rounded-md"
+        >
+          View all services
+        </button>
       </div>
     );
   }
