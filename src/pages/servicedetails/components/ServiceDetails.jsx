@@ -305,7 +305,7 @@
 
 // export default ServiceDetails;
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
@@ -317,6 +317,9 @@ import {
   FaCheckCircle,
   FaShieldAlt,
   FaLeaf,
+  FaTimes,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 import useSeo from "../../../hooks/useSeo";
 import SeoHead from "../../../components/SeoHead";
@@ -325,8 +328,9 @@ import normalizeSeoUrl from "../../../utils/seoUrl";
 import whatsapp from "../../../assets_optimized/images/whatsaap.webp";
 
 // Branded placeholder shown when a service image is missing or fails to load.
-const SmartImage = ({ src, alt, className }) => {
+const SmartImage = ({ src, alt, className, onClick }) => {
   const [failed, setFailed] = useState(!src);
+  const clickable = Boolean(onClick && src && !failed);
 
   if (failed) {
     return (
@@ -343,9 +347,134 @@ const SmartImage = ({ src, alt, className }) => {
       src={src}
       alt={alt}
       loading="lazy"
+      onClick={onClick}
       onError={() => setFailed(true)}
-      className={className}
+      className={`${className}${clickable ? " cursor-zoom-in" : ""}`}
     />
+  );
+};
+
+const ImageLightbox = ({ images, initialIndex, altPrefix, onClose }) => {
+  const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
+
+  const scrollToIndex = (index) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const next = Math.max(0, Math.min(index, images.length - 1));
+    container.scrollTo({
+      left: next * container.clientWidth,
+      behavior: "smooth",
+    });
+    setActiveIndex(next);
+  };
+
+  const goPrev = () => scrollToIndex(activeIndex - 1);
+  const goNext = () => scrollToIndex(activeIndex + 1);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [onClose, activeIndex, images.length]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const slide = container.children[initialIndex];
+    if (slide) {
+      slide.scrollIntoView({ inline: "start", block: "nearest" });
+    }
+    setActiveIndex(initialIndex);
+  }, [initialIndex]);
+
+  const handleScroll = () => {
+    const container = scrollRef.current;
+    if (!container || !container.clientWidth) return;
+    const index = Math.round(container.scrollLeft / container.clientWidth);
+    setActiveIndex(index);
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/95 flex flex-col"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Service image gallery"
+    >
+      <div className="flex items-center justify-between px-4 py-4 shrink-0">
+        <span className="text-white/80 text-sm">
+          {activeIndex + 1} / {images.length}
+        </span>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close gallery"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+        >
+          <FaTimes className="text-xl" />
+        </button>
+      </div>
+
+      <div className="relative flex-1 min-h-0">
+        {activeIndex > 0 && (
+          <button
+            type="button"
+            onClick={goPrev}
+            aria-label="Previous image"
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/25 transition-colors"
+          >
+            <FaChevronLeft className="text-lg md:text-xl" />
+          </button>
+        )}
+
+        {activeIndex < images.length - 1 && (
+          <button
+            type="button"
+            onClick={goNext}
+            aria-label="Next image"
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-10 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/25 transition-colors"
+          >
+            <FaChevronRight className="text-lg md:text-xl" />
+          </button>
+        )}
+
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="h-full flex overflow-x-auto snap-x snap-mandatory scroll-smooth touch-pan-x"
+        >
+          {images.map((src, i) => (
+            <div
+              key={src + i}
+              className="min-w-full h-full flex items-center justify-center snap-center px-4 pb-8"
+            >
+              <img
+                src={src}
+                alt={`${altPrefix} - full size view ${i + 1}`}
+                className="max-h-[calc(100vh-6rem)] max-w-full object-contain select-none"
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <p className="text-center text-white/50 text-xs pb-4 shrink-0">
+        Use arrows, swipe, or scroll to view all images
+      </p>
+    </div>
   );
 };
 
@@ -357,6 +486,7 @@ const ServiceDetails = () => {
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const API_BASE =
     import.meta.env.VITE_APP_BASE_URL || "https://cleansameday.com:4000/api";
@@ -423,6 +553,8 @@ const ServiceDetails = () => {
   const images = (service.imgUrl || []).filter(Boolean);
   const mainImage = images[0];
   const sideImages = images.slice(1, 3);
+  const openLightbox = (index) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
   const whatsappHref = `https://wa.me/+971549936911?text=${encodeURIComponent(
     `Hi, I'd like to book the "${service.name}" service.`
   )}`;
@@ -439,6 +571,16 @@ const ServiceDetails = () => {
         canonicalPath={location.pathname}
         defaults={{ title: service.name, description: service.name }}
       />
+
+      {/* Fullscreen image gallery */}
+      {lightboxIndex !== null && images.length > 0 && (
+        <ImageLightbox
+          images={images}
+          initialIndex={lightboxIndex}
+          altPrefix={service.name}
+          onClose={closeLightbox}
+        />
+      )}
 
       {/* WhatsApp floating button */}
       <div className="fixed bottom-5 right-2 z-50">
@@ -485,6 +627,7 @@ const ServiceDetails = () => {
               <SmartImage
                 src={mainImage}
                 alt={service.name}
+                onClick={() => openLightbox(0)}
                 className={`w-full h-64 md:h-[420px] object-cover rounded-2xl ${
                   sideImages.length ? "sm:col-span-2" : "sm:col-span-3"
                 }`}
@@ -496,6 +639,7 @@ const ServiceDetails = () => {
                       key={i}
                       src={img}
                       alt={`${service.name} in Dubai - view ${i + 2}`}
+                      onClick={() => openLightbox(i + 1)}
                       className="w-full h-32 md:h-[204px] flex-1 object-cover rounded-2xl"
                     />
                   ))}
