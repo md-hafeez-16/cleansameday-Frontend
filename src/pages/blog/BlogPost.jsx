@@ -7,7 +7,9 @@ import BlogContent from "../../components/BlogContent";
 import BlogSeoHead from "../../components/BlogSeoHead";
 import Button from "../../components/ui/Button";
 import PageShell from "../../components/layout/PageShell";
+import useImageTextTheme from "../../hooks/useImageTextTheme";
 import { BASE_URL } from "../../constants";
+import heroFallback from "../../assets_optimized/images/servicebg.webp";
 import {
   formatBlogDate,
   getFeaturedImageAlt,
@@ -43,6 +45,12 @@ const BlogPost = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+
+  const heroImageUrl = post
+    ? getFeaturedImageUrl(post.featuredImage) || heroFallback
+    : null;
+  const textTheme = useImageTextTheme(heroImageUrl);
+  const isDarkText = textTheme === "dark";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -95,7 +103,8 @@ const BlogPost = () => {
     return <BlogNotFound />;
   }
 
-  const imageUrl = getFeaturedImageUrl(post.featuredImage);
+  const featuredImageUrl = getFeaturedImageUrl(post.featuredImage);
+  const heroImage = featuredImageUrl || heroFallback;
   const imageAlt = getFeaturedImageAlt(post.featuredImage, post.title);
 
   return (
@@ -103,56 +112,60 @@ const BlogPost = () => {
       <BlogSeoHead post={post} />
 
       <PageShell>
-        <header className="relative">
-          {imageUrl ? (
-            <div className="relative w-full h-[280px] md:h-[440px] overflow-hidden">
-              <img
-                src={imageUrl}
-                alt={imageAlt}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-primary/20" />
-            </div>
-          ) : (
-            <div className="relative w-full h-48 md:h-56 bg-gradient-to-br from-primary to-primary/80" />
-          )}
+        <div className="px-4 md:px-6 pt-6 md:pt-8">
+          <header className="relative max-w-6xl mx-auto h-[300px] sm:h-[360px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src={heroImage}
+              alt={imageAlt}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div
+              className={`absolute inset-0 transition-colors duration-300 ${
+                isDarkText
+                  ? "bg-gradient-to-b from-white/90 via-white/45 to-transparent"
+                  : "bg-gradient-to-b from-primary/90 via-primary/40 to-transparent"
+              }`}
+            />
 
-          <div
-            className={`px-4 md:px-8 pb-8 ${
-              imageUrl ? "absolute bottom-0 left-0 right-0 text-white" : "pt-8 text-primary"
-            }`}
-          >
-            <div className="max-w-3xl mx-auto">
+            <div
+              className={`absolute inset-0 flex flex-col justify-start px-6 md:px-10 pt-8 md:pt-10 pb-6 transition-colors duration-300 ${
+                isDarkText ? "text-primary" : "text-white"
+              }`}
+            >
               <nav
-                className={`text-xs md:text-sm mb-4 ${
-                  imageUrl ? "text-white/70" : "text-gray-500"
+                className={`text-xs md:text-sm mb-3 transition-colors duration-300 ${
+                  isDarkText ? "text-gray-600" : "text-white/75"
                 }`}
                 aria-label="Breadcrumb"
               >
                 <Link
                   to="/"
-                  className={`hover:underline ${imageUrl ? "hover:text-white" : "hover:text-primary"}`}
+                  className={`hover:underline ${
+                    isDarkText ? "hover:text-primary" : "hover:text-white"
+                  }`}
                 >
                   Home
                 </Link>
                 <span className="mx-2">/</span>
                 <Link
                   to="/blog"
-                  className={`hover:underline ${imageUrl ? "hover:text-white" : "hover:text-primary"}`}
+                  className={`hover:underline ${
+                    isDarkText ? "hover:text-primary" : "hover:text-white"
+                  }`}
                 >
                   Blog
                 </Link>
               </nav>
 
               {post.tags?.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-3">
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`text-xs px-3 py-1 rounded-full font-medium ${
-                        imageUrl
-                          ? "bg-white/15 text-white border border-white/25"
-                          : "bg-secondary/10 text-secondary border border-secondary/30"
+                      className={`text-xs px-3 py-1 rounded-full font-medium transition-colors duration-300 ${
+                        isDarkText
+                          ? "bg-white text-primary border border-primary/20 hover:bg-secondary hover:text-white hover:border-secondary"
+                          : "bg-primary text-white border border-primary hover:bg-secondary hover:border-secondary"
                       }`}
                     >
                       {tag}
@@ -162,18 +175,20 @@ const BlogPost = () => {
               )}
 
               <h1
-                className={`text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 ${
-                  imageUrl ? "text-white" : "text-primary"
+                className={`text-2xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight transition-colors duration-300 ${
+                  isDarkText ? "text-primary" : "text-white"
                 }`}
               >
                 {post.title}
               </h1>
+            </div>
+          </header>
+        </div>
 
-              <div
-                className={`flex flex-wrap items-center gap-4 text-sm ${
-                  imageUrl ? "text-white/80" : "text-gray-500"
-                }`}
-              >
+        <article className="px-4 md:px-6 pb-12 md:pb-16 mt-5 md:mt-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 pb-6 mb-6 border-b border-gray-100">
                 {post.author ? (
                   <span className="inline-flex items-center gap-1.5">
                     <FaRegUser className="text-secondary shrink-0" />
@@ -185,17 +200,9 @@ const BlogPost = () => {
                   {formatBlogDate(post.publishedAt)}
                 </span>
               </div>
-            </div>
-          </div>
-        </header>
 
-        {/* Article body */}
-        <div className="px-4 md:px-6 pb-12 md:pb-16">
-          <div className="max-w-3xl mx-auto -mt-6 relative z-10">
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
               <BlogContent html={post.content} />
 
-              {/* Bottom CTA */}
               <div className="mt-10 pt-8 border-t border-gray-100 text-center">
                 <p className="text-lg text-primary font-semibold mb-2">
                   Need professional cleaning in Dubai?
@@ -222,7 +229,7 @@ const BlogPost = () => {
               ← Back to all articles
             </button>
           </div>
-        </div>
+        </article>
       </PageShell>
     </>
   );

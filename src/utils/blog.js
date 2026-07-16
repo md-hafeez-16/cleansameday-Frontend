@@ -1,13 +1,13 @@
+import { getEmbeddedImageAlt, getImageUrl } from "./imageAlt";
+
 export function getFeaturedImageUrl(featuredImage) {
-  if (!featuredImage) return null;
-  if (typeof featuredImage === "string") return featuredImage;
-  return featuredImage.url || null;
+  const url = getImageUrl(featuredImage);
+  return url || null;
 }
 
 export function getFeaturedImageAlt(featuredImage, fallbackTitle = "Blog post") {
-  if (!featuredImage) return fallbackTitle;
   if (typeof featuredImage === "string") return fallbackTitle;
-  return featuredImage.alt || fallbackTitle;
+  return getEmbeddedImageAlt(featuredImage) || fallbackTitle;
 }
 
 export function formatBlogDate(isoDate) {
