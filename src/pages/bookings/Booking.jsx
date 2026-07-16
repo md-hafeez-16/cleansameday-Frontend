@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
-import bgImage from "../../assets_optimized/images/about.webp";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "../../constants";
 import toast from "react-hot-toast";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
+import PageHero from "../../components/layout/PageHero";
+import PageShell from "../../components/layout/PageShell";
+import SectionHeading from "../../components/layout/SectionHeading";
+import { BASE_URL } from "../../constants";
+import heroImage from "../../assets_optimized/images/servicebg.webp";
 
 const Booking = () => {
   const { id } = useParams();
-
   const location = useLocation();
-
-  const { service } = location.state;
   const navigate = useNavigate();
+  const serviceName = location.state?.service || "Selected Service";
+  const [submitting, setSubmitting] = useState(false);
 
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -32,298 +35,240 @@ const Booking = () => {
     },
   });
 
-  const handleFormSubmit = (e) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const handleFormChange = (e) => {
     const { name, value } = e.target;
-    if (name.includes("address")) {
+
+    if (name.includes("address.")) {
       const addressField = name.split(".")[1];
-      setFormData({
-        ...formData,
-        address: {
-          ...formData.address,
-          [addressField]: value,
-        },
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
+      setFormData((prev) => ({
+        ...prev,
+        address: { ...prev.address, [addressField]: value },
+      }));
+      return;
     }
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData, "formdata");
+    setSubmitting(true);
+
     try {
-      const res = await axios.post(
-        `${BASE_URL}/booking/initiateBooking`,
-        formData
-      );
-
-      console.log(res?.data);
-
-      toast.success("booking confirmed");
-
+      await axios.post(`${BASE_URL}/booking/initiateBooking`, formData);
+      toast.success("Booking confirmed! We'll contact you shortly.");
       navigate("/service");
     } catch (error) {
-      console.log(error);
-
-      toast.error("Booking Failed");
+      console.error(error);
+      toast.error("Booking failed. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
-
   return (
-    <div
-      className="max-w-7xl mx-auto py-10 font-marcellus bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      <div className="mt-5 flex items-center justify-center">
-        <p className="ml-2 md:text-3xl text-2xl ">Bookings</p>
-      </div>
-      <div className="flex items-center justify-center md:p-12 p-5">
-        <div className="mx-auto w-full max-w-[550px] bg-white border p-5 rounded-md border-primary">
-          <form onSubmit={handleSubmit}>
-            <div className="mb-5">
-              {/* <h1 className="text-3xl font-semibold text-[#07074D] text-center mb-3">
-                {service}
-              </h1> */}
-              <div className="mb-5">
-                <label
-                  htmlFor="service"
-                  className="mb-3 block text-base font-medium text-[#07074D]"
-                >
-                  Service
+    <PageShell>
+      <PageHero
+        title="Book Your Service"
+        breadcrumb={{ label: "Booking" }}
+        image={heroImage}
+      />
+
+      <section className="section-padding pt-8 md:pt-10">
+        <SectionHeading
+          eyebrow="Quick Booking"
+          title={serviceName}
+          subtitle="Complete the form below to schedule your cleaning appointment."
+        />
+
+        <div className="max-w-3xl mx-auto content-card">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="service" className="form-label">
+                Service
+              </label>
+              <input
+                type="text"
+                id="service"
+                value={serviceName}
+                readOnly
+                className="form-input bg-surface text-primary font-medium cursor-not-allowed"
+              />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="firstName" className="form-label">
+                  First Name
                 </label>
                 <input
                   type="text"
-                  name="service"
-                  id="service"
-                  value={service}
-                  readOnly
-                  className="w-full rounded-md border border-[#e0e0e0] bg-gray-100 py-3 px-6 text-base font-medium text-[#6B7280] outline-none"
+                  name="firstName"
+                  id="firstName"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="First name"
+                  className="form-input"
                 />
               </div>
-
-              <label
-                htmlFor="firstName"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                name="firstName"
-                id="firstName"
-                onChange={handleFormSubmit}
-                required
-                placeholder="Enter Your Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="lastName"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                name="lastName"
-                onChange={handleFormSubmit}
-                id="lastName"
-                required
-                placeholder="Enter Your Last Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="phone"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                Phone Number
-              </label>
-              <input
-                type="text"
-                name="phone"
-                id="phone"
-                onChange={handleFormSubmit}
-                required
-                placeholder="Enter your phone number"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="email"
-                className="mb-3 block text-base font-medium text-[#07074D]"
-              >
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                onChange={handleFormSubmit}
-                required
-                placeholder="Enter your email"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-              />
-            </div>
-            <div className="-mx-3 flex flex-wrap">
-              <div className="w-full px-3 sm:w-1/2">
-                <div className="mb-5">
-                  <label
-                    htmlFor="date"
-                    className="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Date
-                  </label>
-                  <input
-                    type="date"
-                    name="bookingDate"
-                    onChange={handleFormSubmit}
-                    id="date"
-                    required
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
+              <div>
+                <label htmlFor="lastName" className="form-label">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="Last name"
+                  className="form-input"
+                />
               </div>
-              <div className="w-full px-3 sm:w-1/2">
-                <div className="mb-5">
-                  <label
-                    htmlFor="time"
-                    className="mb-3 block text-base font-medium text-[#07074D]"
-                  >
-                    Time
-                  </label>
-                  <input
-                    type="time"
-                    name="time"
-                    id="time"
-                    onChange={handleFormSubmit}
-                    required
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                  />
-                </div>
+              <div>
+                <label htmlFor="phone" className="form-label">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="+971 5X XXX XXXX"
+                  className="form-input"
+                />
               </div>
-            </div>
-
-            <div className="mb-5 pt-3">
-              <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
-                Address Details
-              </label>
-              <div className="-mx-3 flex flex-wrap">
-                <div className="w-full px-3">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.addressLine1"
-                      id="addressLine1"
-                      onChange={handleFormSubmit}
-                      required
-                      placeholder="Address Line 1"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-3">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.addressLine2"
-                      id="addressLine2"
-                      onChange={handleFormSubmit}
-                      placeholder="Address Line 2 (optional)"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-3 sm:w-1/2">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.buildingNumber"
-                      id="buildingNumber"
-                      onChange={handleFormSubmit}
-                      required
-                      placeholder="Enter building no"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-3 sm:w-1/2">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.city"
-                      onChange={handleFormSubmit}
-                      id="city"
-                      required
-                      placeholder="Enter city"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-3 sm:w-1/2">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.state"
-                      onChange={handleFormSubmit}
-                      id="state"
-                      required
-                      placeholder="Enter Emirate"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-3 sm:w-1/2">
-                  <div className="mb-5">
-                    <input
-                      type="text"
-                      name="address.landmark"
-                      id="landmark"
-                      onChange={handleFormSubmit}
-                      required
-                      placeholder="Enter landmark"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
-                <div className="w-full px-3 sm:w-1/2">
-                  <div className="mb-5">
-                    <input
-                      type="number"
-                      name="address.pinCode"
-                      onChange={handleFormSubmit}
-                      id="pinCode"
-                      required
-                      placeholder="Enter Pin Code"
-                      className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-                    />
-                  </div>
-                </div>
+              <div>
+                <label htmlFor="email" className="form-label">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="you@email.com"
+                  className="form-input"
+                />
+              </div>
+              <div>
+                <label htmlFor="bookingDate" className="form-label">
+                  Preferred Date
+                </label>
+                <input
+                  type="date"
+                  name="bookingDate"
+                  id="bookingDate"
+                  onChange={handleFormChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              <div>
+                <label htmlFor="time" className="form-label">
+                  Preferred Time
+                </label>
+                <input
+                  type="time"
+                  name="time"
+                  id="time"
+                  onChange={handleFormChange}
+                  required
+                  className="form-input"
+                />
               </div>
             </div>
 
             <div>
-              <button className="hover:shadow-form w-full rounded-md bg-primary py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                Book Appointment
-              </button>
+              <h3 className="text-lg font-semibold text-primary mb-4 pb-2 border-b border-gray-100">
+                Service address
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="md:col-span-2">
+                  <input
+                    type="text"
+                    name="address.addressLine1"
+                    id="addressLine1"
+                    onChange={handleFormChange}
+                    required
+                    placeholder="Address Line 1"
+                    className="form-input"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <input
+                    type="text"
+                    name="address.addressLine2"
+                    id="addressLine2"
+                    onChange={handleFormChange}
+                    placeholder="Address Line 2 (optional)"
+                    className="form-input"
+                  />
+                </div>
+                <input
+                  type="text"
+                  name="address.buildingNumber"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="Building / Villa No."
+                  className="form-input"
+                />
+                <input
+                  type="text"
+                  name="address.city"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="City / Area"
+                  className="form-input"
+                />
+                <input
+                  type="text"
+                  name="address.state"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="Emirate"
+                  className="form-input"
+                />
+                <input
+                  type="text"
+                  name="address.landmark"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="Landmark"
+                  className="form-input"
+                />
+                <input
+                  type="text"
+                  name="address.pinCode"
+                  onChange={handleFormChange}
+                  required
+                  placeholder="PIN / Postal Code"
+                  className="form-input"
+                />
+              </div>
             </div>
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="relative w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 bg-primary text-white rounded-xl overflow-hidden group font-semibold disabled:opacity-60"
+            >
+              <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-black">
+                {submitting ? "Submitting..." : "Confirm Booking"}
+                {!submitting && <FaArrowRightLong />}
+              </span>
+              <div className="absolute inset-0 bg-secondary -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0" />
+            </button>
           </form>
         </div>
-      </div>
-    </div>
+      </section>
+    </PageShell>
   );
 };
 

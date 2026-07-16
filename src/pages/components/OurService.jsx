@@ -133,6 +133,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ServiceImage from "../../components/ServiceImage";
+import { getImageUrl } from "../../utils/imageAlt";
 
 const OurService = () => {
   const navigate = useNavigate();
@@ -192,7 +194,7 @@ const OurService = () => {
           {services.map((service) => (
             <div key={service._id} className="px-2">
               <div
-                className="group border rounded-lg shadow-lg overflow-hidden bg-white h-[300px] cursor-pointer flex flex-col relative"
+                className="group border border-white/10 rounded-2xl shadow-lg overflow-hidden bg-white h-[300px] cursor-pointer flex flex-col relative"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                   navigate(`/${service.slug}`);
@@ -200,9 +202,13 @@ const OurService = () => {
               >
                 {/* Image Container */}
                 <div className="relative h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={service.imgUrl[0] || "https://via.placeholder.com/300"} // Fallback image
-                    alt={service.name}
+                  <ServiceImage
+                    image={service.imgUrl?.[0]}
+                    fallbackAlt={service.name}
+                    src={
+                      getImageUrl(service.imgUrl?.[0]) ||
+                      "https://via.placeholder.com/300"
+                    }
                     className="h-full max-h-full object-cover w-full transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 group-hover:animate-tint-fill"></div>

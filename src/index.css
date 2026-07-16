@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-marcellus text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-10 md:py-14 px-4 md:px-6;
+  }
+
+  .content-card {
+    @apply bg-white rounded-2xl shadow-md p-6 md:p-10;
+  }
+
+  .form-label {
+    @apply mb-2 block text-sm font-medium text-primary;
+  }
+
+  .form-input {
+    @apply w-full rounded-lg border border-gray-200 bg-white py-3 px-4 text-gray-700 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
+
+  .form-select {
+    @apply form-input;
+  }
+}
+
 /* Rich HTML rendered from the SEO admin (content field), and the markdown
    service description fallback. Tailwind preflight removes default heading/list
    styles, so set them here and give the article a polished, branded look. */
@@ -34,3 +62,8 @@
 .seo-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
 .seo-content th, .seo-content td { border: 1px solid #e5e7eb; padding: .5rem .75rem; text-align: left; }
 .seo-content th { background: #f7f7fb; color: #2f2d78; }
+
+/* Blog post body — reuses seo-content typography inside white card */
+.blog-content { max-width: none; margin: 0; }
+.blog-content > :first-child { margin-top: 0; }
+.blog-content h2:first-of-type { margin-top: 0; }

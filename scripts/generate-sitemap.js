@@ -5,6 +5,7 @@ import { redirectMap } from "../src/utils/redirectMap.js";
 
 const SITE_URL = "https://cleansameday.com";
 const API_BASE = "https://cleansameday.com:4000/api/service";
+const BLOG_API_BASE = "https://cleansameday.com:4000/api/blog";
 
 const STATIC_ROUTES = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
@@ -16,6 +17,7 @@ const STATIC_ROUTES = [
   },
   { path: "/contact-us", priority: "0.7", changefreq: "monthly" },
   { path: "/gallery", priority: "0.6", changefreq: "monthly" },
+  { path: "/blog", priority: "0.7", changefreq: "weekly" },
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/terms", priority: "0.3", changefreq: "yearly" },
   { path: "/helpcenter", priority: "0.5", changefreq: "monthly" },
@@ -25,6 +27,26 @@ const SERVICE_ROUTE = {
   priority: "0.8",
   changefreq: "weekly",
 };
+
+async function fetchBlogSlugs() {
+  try {
+    const response = await fetch(`${BLOG_API_BASE}/getPublished`);
+    if (!response.ok) return [];
+
+    const data = await response.json();
+    const posts = data?.success && Array.isArray(data.data) ? data.data : [];
+
+    return posts
+      .filter((post) => post.slug)
+      .map((post) => ({
+        path: `/blog/${post.slug}`,
+        priority: "0.6",
+        changefreq: "monthly",
+      }));
+  } catch {
+    return [];
+  }
+}
 
 async function fetchServiceSlugs() {
   const endpoints = [
@@ -111,7 +133,8 @@ async function main() {
       ...SERVICE_ROUTE,
     }));
 
-  const routes = [...STATIC_ROUTES, ...serviceRoutes];
+  const blogRoutes = await fetchBlogSlugs();
+  const routes = [...STATIC_ROUTES, ...blogRoutes, ...serviceRoutes];
   const sitemap = buildSitemap(routes);
 
   const outputPath = join(

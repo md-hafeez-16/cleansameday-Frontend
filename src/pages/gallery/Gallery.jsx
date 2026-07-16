@@ -1,6 +1,10 @@
 import React from "react";
 import useSeo from "../../hooks/useSeo";
 import SeoHead from "../../components/SeoHead";
+import PageHero from "../../components/layout/PageHero";
+import PageShell from "../../components/layout/PageShell";
+import SectionHeading from "../../components/layout/SectionHeading";
+import backgroundImage from "../../assets_optimized/images/servicebg.webp";
 
 import gall1 from "../../assets_optimized/images/clean.webp";            // deepclean.jpg → clean.webp
 import gall2 from "../../assets_optimized/images/about1.webp";          // villaclean.jpg → about1.webp
@@ -16,8 +20,6 @@ import gall11 from "../../assets_optimized/images/acclean.webp";        // accle
 import gall12 from "../../assets_optimized/images/balconyclean.webp";   // balconyclean.jpeg → balconyclean.webp
 import gall13 from "../../assets_optimized/images/garageclean.webp";    // garageclean.jpeg → garageclean.webp (if exists)
 import gall14 from "../../assets_optimized/images/clean.webp";          // steamclean.jpeg → clean.webp (reuse)
-import whatsapp from "../../assets_optimized/images/call.webp";         // whatsaap.jpg → call.webp
-
 
 const Gallery = () => {
   // ✅ Dynamic SEO Metadata (managed from admin dashboard)
@@ -37,29 +39,21 @@ const Gallery = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto p-5 md:p-0">
-        <div className=" font-marcellus font-medium">
-          <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
-            <a
-              href="https://wa.me/+971549936911"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={whatsapp}
-                alt="Chat with Cleansameday on WhatsApp"
-                className="lg:w-20 lg:h-20 w-16 h-16 lg:mb-0 mb-0  shadow-2xl rounded-full"
-              />
-            </a>
-          </div>
-          <div className="container mx-auto md:px-4 py-8">
-            <div className="flex justify-center">
-              <h1 className="relative top-0 w-fit h-auto mb-5 justify-center flex bg-gradient-to-r items-center from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-4xl  text-transparent text-center select-auto">
-                {" "}
-                {seo?.h1 || "Gallery"}
-              </h1>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <PageShell>
+        <PageHero
+          title={seo?.h1 || "Gallery"}
+          breadcrumb={{ label: "Gallery" }}
+          image={backgroundImage}
+        />
+
+        <section className="section-padding">
+          <SectionHeading
+            eyebrow="Our Work"
+            title="Cleaning Services Gallery"
+            subtitle="See the quality and care we bring to every home and office in Dubai."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* <!-- Large item --> */}
               <div className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
                 <img
@@ -196,10 +190,9 @@ const Gallery = () => {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </PageShell>
     </>
   );
 };

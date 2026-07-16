@@ -322,6 +322,7 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import useSeo from "../../../hooks/useSeo";
+import useResolvedImages from "../../../hooks/useResolvedImages";
 import SeoHead from "../../../components/SeoHead";
 import SeoBody from "../../../components/SeoBody";
 import normalizeSeoUrl from "../../../utils/seoUrl";
@@ -354,7 +355,7 @@ const SmartImage = ({ src, alt, className, onClick }) => {
   );
 };
 
-const ImageLightbox = ({ images, initialIndex, altPrefix, onClose }) => {
+const ImageLightbox = ({ images, initialIndex, onClose }) => {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
 
@@ -455,14 +456,14 @@ const ImageLightbox = ({ images, initialIndex, altPrefix, onClose }) => {
           onScroll={handleScroll}
           className="h-full flex overflow-x-auto snap-x snap-mandatory scroll-smooth touch-pan-x"
         >
-          {images.map((src, i) => (
+          {images.map((image, i) => (
             <div
-              key={src + i}
+              key={image.url + i}
               className="min-w-full h-full flex items-center justify-center snap-center px-4 pb-8"
             >
               <img
-                src={src}
-                alt={`${altPrefix} - full size view ${i + 1}`}
+                src={image.url}
+                alt={image.alt}
                 className="max-h-[calc(100vh-6rem)] max-w-full object-contain select-none"
                 draggable={false}
               />
@@ -494,6 +495,10 @@ const ServiceDetails = () => {
   // ✅ Exact SEO key for this route (managed from admin dashboard)
   const seoUrl = normalizeSeoUrl(location.pathname);
   const seo = useSeo(seoUrl);
+  const resolvedImages = useResolvedImages(
+    service?.imgUrl,
+    service?.name || "Service image"
+  );
 
   // ✅ Fetch Service by SLUG
   useEffect(() => {
@@ -550,7 +555,7 @@ const ServiceDetails = () => {
     );
   }
 
-  const images = (service.imgUrl || []).filter(Boolean);
+  const images = resolvedImages;
   const mainImage = images[0];
   const sideImages = images.slice(1, 3);
   const openLightbox = (index) => setLightboxIndex(index);
@@ -564,7 +569,7 @@ const ServiceDetails = () => {
   const descriptionIsHtml = /<\/?[a-z][\s\S]*>/i.test(description);
 
   return (
-    <div className="font-marcellus max-w-7xl mx-auto px-4 md:px-6 py-6">
+    <div className="font-marcellus max-w-7xl mx-auto px-4 md:px-6 py-6 bg-surface min-h-screen">
       {/* ✅ SEO META (managed from admin dashboard) */}
       <SeoHead
         url={seoUrl}
@@ -577,26 +582,10 @@ const ServiceDetails = () => {
         <ImageLightbox
           images={images}
           initialIndex={lightboxIndex}
-          altPrefix={service.name}
           onClose={closeLightbox}
         />
       )}
 
-      {/* WhatsApp floating button */}
-      <div className="fixed bottom-5 right-2 z-50">
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-        >
-          <img
-            src={whatsapp}
-            alt="Chat with Cleansameday on WhatsApp"
-            className="lg:w-20 lg:h-20 w-16 h-16 shadow-2xl rounded-full"
-          />
-        </a>
-      </div>
 
       {/* Breadcrumb */}
       <nav className="text-xs md:text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
@@ -625,8 +614,8 @@ const ServiceDetails = () => {
           {images.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <SmartImage
-                src={mainImage}
-                alt={service.name}
+                src={mainImage?.url}
+                alt={mainImage?.alt || service.name}
                 onClick={() => openLightbox(0)}
                 className={`w-full h-64 md:h-[420px] object-cover rounded-2xl ${
                   sideImages.length ? "sm:col-span-2" : "sm:col-span-3"
@@ -636,9 +625,9 @@ const ServiceDetails = () => {
                 <div className="flex sm:flex-col gap-3">
                   {sideImages.map((img, i) => (
                     <SmartImage
-                      key={i}
-                      src={img}
-                      alt={`${service.name} in Dubai - view ${i + 2}`}
+                      key={img.url + i}
+                      src={img.url}
+                      alt={img.alt}
                       onClick={() => openLightbox(i + 1)}
                       className="w-full h-32 md:h-[204px] flex-1 object-cover rounded-2xl"
                     />

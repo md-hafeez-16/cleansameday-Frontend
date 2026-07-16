@@ -16,6 +16,9 @@ import NavBookings from "./pages/NavBookngs";
 import DeepCleaning from "./pages/services/components/DeepCleaning";
 import ServiceDetails from "./pages/servicedetails/components/ServiceDetails";
 import LegacyServiceRedirect from "./components/LegacyServiceRedirect";
+import Blog from "./pages/blog/Blog";
+import BlogPost from "./pages/blog/BlogPost";
+import WhatsAppFab from "./components/WhatsAppFab";
 
 function App() {
   return (
@@ -47,6 +50,8 @@ function App() {
         {/* ===== OTHER PAGES ===== */}
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/navbooking" element={<NavBookings />} />
         <Route path="/bookings/:id" element={<Booking />} />
 
@@ -60,6 +65,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <WhatsAppFab />
     </Router>
   );
 }

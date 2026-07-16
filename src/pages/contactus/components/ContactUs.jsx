@@ -724,8 +724,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useSeo from "../../../hooks/useSeo";
 import SeoHead from "../../../components/SeoHead";
+import PageHero from "../../../components/layout/PageHero";
+import PageShell from "../../../components/layout/PageShell";
 import { Call02Icon, Mail01Icon } from "hugeicons-react";
 import bgimg from "../../../assets_optimized/images/contact2.webp";
+import heroImage from "../../../assets_optimized/images/servicebg.webp";
 import {
   FaCommentAlt,
   FaEnvelope,
@@ -852,16 +855,15 @@ const ContactUs = () => {
         }}
       />
 
-      <div className="font-marcellus font-medium max-w-7xl mx-auto">
-        <div className="max-w-[1540px] mx-auto bg-[#F0F2F4] p-3 md:p-10 lg:px-[70px] overflow-visible">
-          <div className="mt-5 flex items-center" data-aos="fade-down">
-            {/* 🔥 Dynamic H1 */}
-            <h1 className="ml-2 md:text-3xl text-2xl">
-              {seo?.h1 || "Contact Us"}
-            </h1>
-          </div>
+      <PageShell>
+        <PageHero
+          title={seo?.h1 || "Contact Us"}
+          breadcrumb={{ label: "Contact Us" }}
+          image={heroImage}
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 mt-10 overflow-hidden h-full w-full">
+        <div className="section-padding">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden rounded-2xl shadow-lg">
             {/* Left Side - Contact Info */}
             <div
               className="bg-cover w-full h-full p-8 md:rounded-l-lg rounded-lg md:rounded-none relative"
@@ -1039,12 +1041,10 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* FAQ Section */}
-      <div className="bg-[#ffffff] p-5 lg:p-0 max-w-7xl mx-auto">
-        <div className="max-w-[1540px] mx-auto p-3 lg:p-10 lg:px-[70px]">
-          <h2 className="md:text-2xl text-lg font-bold text-left text-[#000000]">
+        <div className="section-padding pt-0">
+        <div className="content-card">
+          <h2 className="text-2xl font-bold text-primary mb-6">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4 mt-6">
@@ -1073,6 +1073,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      </PageShell>
     </>
   );
 };

@@ -116,6 +116,7 @@ export default Home;
 // export default Home;
 
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import useSeo from "../../hooks/useSeo";
 import SeoHead from "../../components/SeoHead";
 import HomeSlider from "./HomeSlider";
@@ -124,7 +125,6 @@ import OurService from "./OurService";
 import WhyChooseUs from "./WhyChooseUs";
 import Testimonial from "./Testimonial";
 import BookService from "./BookService";
-import whatsapp from "../../assets_optimized/images/whatsaap.webp";
 import axios from "axios";
 
 const Home = () => {
@@ -161,13 +161,8 @@ useEffect(() => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto overflow-x-hidden">
-        
-        {/* 🔥 Dynamic H1 */}
-        <h1
-          className="text-3xl lg:text-4xl font-bold text-center mt-8 mb-6"
-          style={{ color: '#2E2170' }}
-        >
+      <div className="max-w-7xl mx-auto overflow-x-hidden bg-white">
+        <h1 className="text-3xl lg:text-4xl font-bold text-center mt-8 mb-6 text-primary px-4">
           {seo?.h1 || "Professional Cleaning Services in Dubai"}
         </h1>
 
@@ -177,21 +172,6 @@ useEffect(() => {
         <WhyChooseUs />
         <BookService />
         <Testimonial />
-
-        {/* WhatsApp Floating Button */}
-        <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
-          <a
-            href="https://wa.me/+971549936911"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={whatsapp}
-              alt="WhatsApp contact Cleansameday"
-              className="lg:w-20 lg:h-20 w-16 h-16 shadow-2xl rounded-full"
-            />
-          </a>
-        </div>
       </div>
     </>
   );

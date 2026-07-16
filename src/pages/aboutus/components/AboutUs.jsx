@@ -619,11 +619,12 @@
 import React, { useEffect } from "react";
 import useSeo from "../../../hooks/useSeo";
 import SeoHead from "../../../components/SeoHead";
+import PageHero from "../../../components/layout/PageHero";
+import PageShell from "../../../components/layout/PageShell";
 import backgroundImage from "../../../assets_optimized/images/about.webp";
 import OurVision from "./OurVision";
-import { useNavigate } from "react-router-dom";
 import AboutbookSection from "./AboutbookSection";
-import whatsapp from "../../../assets_optimized/images/whatsaap.webp";
+import { useNavigate } from "react-router-dom";
 import { GoCheckCircleFill } from "react-icons/go";
 import { FaArrowRightLong } from "react-icons/fa6";
 import AOS from "aos";
@@ -673,44 +674,12 @@ const AboutUs = () => {
         }}
       />
 
-      <div className="font-marcellus font-medium bg-[#F0F2F4] max-w-7xl mx-auto pb-5 overflow-hidden">
-
-        {/* WhatsApp Floating Button */}
-        <div className="flex justify-end bottom-5 right-2 fixed z-50 object-contain">
-          <a
-            href="https://wa.me/+971549936911"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={whatsapp}
-              alt="WhatsApp contact Cleansameday"
-              className="lg:w-20 lg:h-20 w-16 h-16 shadow-2xl rounded-full"
-            />
-          </a>
-        </div>
-
-        {/* Banner Section */}
-        <div
-          className="relative bg-cover bg-center md:h-60 h-24"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        >
-          <div className="flex flex-col justify-center items-center h-full text-center text-black">
-
-            {/* 🔥 Dynamic H1 */}
-            <h1 className="md:text-4xl text-xl md:mb-4 font-bold" data-aos="fade-down">
-              {seo?.h1 || "Affordable Cleaning Services in Dubai"}
-            </h1>
-
-            <a
-              href="/"
-              className="text-lg font-semibold text-black hover:underline"
-              data-aos="fade-up"
-            >
-              Home {">>"} About Us
-            </a>
-          </div>
-        </div>
+      <PageShell>
+        <PageHero
+          title={seo?.h1 || "Affordable Cleaning Services in Dubai"}
+          breadcrumb={{ label: "About Us" }}
+          image={backgroundImage}
+        />
 
         {/* About Section */}
         <section className="w-full mx-auto md:py-10">
@@ -843,7 +812,7 @@ const AboutUs = () => {
         <ServiceAreas />
         <OurVision />
         <AboutbookSection />
-      </div>
+      </PageShell>
     </>
   );
 };
