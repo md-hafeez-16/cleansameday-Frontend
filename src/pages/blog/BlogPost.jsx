@@ -7,7 +7,6 @@ import BlogContent from "../../components/BlogContent";
 import BlogSeoHead from "../../components/BlogSeoHead";
 import Button from "../../components/ui/Button";
 import PageShell from "../../components/layout/PageShell";
-import useImageTextTheme from "../../hooks/useImageTextTheme";
 import { BASE_URL } from "../../constants";
 import heroFallback from "../../assets_optimized/images/servicebg.webp";
 import {
@@ -45,12 +44,6 @@ const BlogPost = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
-
-  const heroImageUrl = post
-    ? getFeaturedImageUrl(post.featuredImage) || heroFallback
-    : null;
-  const textTheme = useImageTextTheme(heroImageUrl);
-  const isDarkText = textTheme === "dark";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -103,8 +96,8 @@ const BlogPost = () => {
     return <BlogNotFound />;
   }
 
-  const featuredImageUrl = getFeaturedImageUrl(post.featuredImage);
-  const heroImage = featuredImageUrl || heroFallback;
+  const heroImage =
+    getFeaturedImageUrl(post.featuredImage) || heroFallback;
   const imageAlt = getFeaturedImageAlt(post.featuredImage, post.title);
 
   return (
@@ -113,46 +106,17 @@ const BlogPost = () => {
 
       <PageShell>
         <div className="px-4 md:px-6 pt-6 md:pt-8">
-          <header className="relative max-w-6xl mx-auto h-[300px] sm:h-[360px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg">
-            <img
-              src={heroImage}
-              alt={imageAlt}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              className={`absolute inset-0 transition-colors duration-300 ${
-                isDarkText
-                  ? "bg-gradient-to-b from-white/90 via-white/45 to-transparent"
-                  : "bg-gradient-to-b from-primary/90 via-primary/40 to-transparent"
-              }`}
-            />
-
-            <div
-              className={`absolute inset-0 flex flex-col justify-start px-6 md:px-10 pt-8 md:pt-10 pb-6 transition-colors duration-300 ${
-                isDarkText ? "text-primary" : "text-white"
-              }`}
-            >
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-primary via-[#4f4c9a] to-secondary rounded-2xl px-6 md:px-10 py-6 md:py-8 mb-6 shadow-lg">
               <nav
-                className={`text-xs md:text-sm mb-3 transition-colors duration-300 ${
-                  isDarkText ? "text-gray-600" : "text-white/75"
-                }`}
+                className="text-xs md:text-sm mb-3 text-white/75"
                 aria-label="Breadcrumb"
               >
-                <Link
-                  to="/"
-                  className={`hover:underline ${
-                    isDarkText ? "hover:text-primary" : "hover:text-white"
-                  }`}
-                >
+                <Link to="/" className="hover:text-white hover:underline">
                   Home
                 </Link>
                 <span className="mx-2">/</span>
-                <Link
-                  to="/blog"
-                  className={`hover:underline ${
-                    isDarkText ? "hover:text-primary" : "hover:text-white"
-                  }`}
-                >
+                <Link to="/blog" className="hover:text-white hover:underline">
                   Blog
                 </Link>
               </nav>
@@ -162,11 +126,7 @@ const BlogPost = () => {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`text-xs px-3 py-1 rounded-full font-medium transition-colors duration-300 ${
-                        isDarkText
-                          ? "bg-white text-primary border border-primary/20 hover:bg-secondary hover:text-white hover:border-secondary"
-                          : "bg-primary text-white border border-primary hover:bg-secondary hover:border-secondary"
-                      }`}
+                      className="text-xs px-3 py-1 rounded-full font-medium bg-white/15 text-white border border-white/25"
                     >
                       {tag}
                     </span>
@@ -174,18 +134,22 @@ const BlogPost = () => {
                 </div>
               )}
 
-              <h1
-                className={`text-2xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight transition-colors duration-300 ${
-                  isDarkText ? "text-primary" : "text-white"
-                }`}
-              >
+              <h1 className="text-2xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight text-white">
                 {post.title}
               </h1>
             </div>
-          </header>
+
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-300">
+              <img
+                src={heroImage}
+                alt={imageAlt}
+                className="w-full h-auto block"
+              />
+            </div>
+          </div>
         </div>
 
-        <article className="px-4 md:px-6 pb-12 md:pb-16 mt-5 md:mt-6">
+        <article className="px-4 md:px-6 pb-12 md:pb-16 pt-6 md:pt-8">
           <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10 lg:p-12">
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 pb-6 mb-6 border-b border-gray-100">
