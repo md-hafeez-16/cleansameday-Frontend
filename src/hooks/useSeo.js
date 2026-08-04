@@ -4,7 +4,8 @@ import axios from "axios";
 const API_BASE =
   import.meta.env.VITE_APP_BASE_URL || "https://cleansameday.com:4000/api";
 
-// Simple in-memory cache so SeoHead + SeoBody on the same page don't double-fetch.
+// In-memory cache so SeoHead + SeoBody on the same page don't double-fetch.
+// Failed requests are NOT cached so a retry can succeed.
 const cache = new Map();
 
 function fetchSeo(url) {
@@ -20,26 +21,30 @@ function fetchSeo(url) {
 }
 
 /**
- * Reads admin-managed SEO data for an exact page URL.
- * The SEO team edits these values from the admin dashboard, so no code change
- * is needed to update on-page SEO (title, description, keywords, h1, content).
- *
- * @param {string} url - The EXACT SEO key stored in the dashboard (e.g. "/", "/about-us/").
- * @returns {object|null} The SEO object, or null while loading / when absent.
+ * @param {string} url
+ * @returns {{ seo: object|null, loaded: boolean }}
  */
-export function useSeo(url) {
+export function useSeoState(url) {
   const [seo, setSeo] = useState(null);
+  const [loaded, setLoaded] = useState(!url);
 
   useEffect(() => {
     let active = true;
 
     if (!url) {
       setSeo(null);
+      setLoaded(true);
       return undefined;
     }
 
+    setLoaded(false);
+
     fetchSeo(url).then((data) => {
-      if (active) setSeo(data);
+      if (!active) return;
+      setSeo(data);
+      setLoaded(true);
+      // Allow retry after a failed fetch (don't keep null in cache forever).
+      if (data == null) cache.delete(url);
     });
 
     return () => {
@@ -47,6 +52,15 @@ export function useSeo(url) {
     };
   }, [url]);
 
+  return { seo, loaded };
+}
+
+/**
+ * @param {string} url
+ * @returns {object|null}
+ */
+export function useSeo(url) {
+  const { seo } = useSeoState(url);
   return seo;
 }
 

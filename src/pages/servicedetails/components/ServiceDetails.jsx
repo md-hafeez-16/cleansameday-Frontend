@@ -321,7 +321,7 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
-import useSeo from "../../../hooks/useSeo";
+import { useSeoState } from "../../../hooks/useSeo";
 import useResolvedImages from "../../../hooks/useResolvedImages";
 import SeoHead from "../../../components/SeoHead";
 import SeoBody from "../../../components/SeoBody";
@@ -494,7 +494,7 @@ const ServiceDetails = () => {
 
   // ✅ Exact SEO key for this route (managed from admin dashboard)
   const seoUrl = normalizeSeoUrl(location.pathname);
-  const seo = useSeo(seoUrl);
+  const { seo, loaded: seoLoaded } = useSeoState(seoUrl);
   const resolvedImages = useResolvedImages(
     service?.imgUrl,
     service?.name || "Service image"
@@ -529,7 +529,7 @@ const ServiceDetails = () => {
     if (serviceSlug) fetchService();
   }, [serviceSlug, API_BASE]);
 
-  if (loading) {
+  if (loading || !seoLoaded) {
     return (
       <div className="max-w-7xl mx-auto p-10 text-center font-marcellus text-primary">
         Loading service details...
@@ -573,8 +573,13 @@ const ServiceDetails = () => {
       {/* ✅ SEO META (managed from admin dashboard) */}
       <SeoHead
         url={seoUrl}
+        seo={seo}
+        seoLoaded={seoLoaded}
         canonicalPath={location.pathname}
-        defaults={{ title: service.name, description: service.name }}
+        defaults={{
+          title: service.name,
+          description: service.description || service.name,
+        }}
       />
 
       {/* Fullscreen image gallery */}
