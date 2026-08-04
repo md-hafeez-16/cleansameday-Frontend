@@ -47,6 +47,12 @@ export default function SeoHead({
         <meta name="keywords" content={keywords.join(", ")} />
       ) : null}
       {canonical ? <link rel="canonical" href={canonical} /> : null}
+      {title ? <meta property="og:title" content={title} /> : null}
+      {description ? (
+        <meta property="og:description" content={description} />
+      ) : null}
+      {canonical ? <meta property="og:url" content={canonical} /> : null}
+      <meta property="og:type" content="website" />
     </Helmet>
   );
 }
